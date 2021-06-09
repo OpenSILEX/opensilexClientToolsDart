@@ -14,18 +14,18 @@ Dart 1.20.0 or later OR Flutter 0.0.20 or later
 
 ### Github
 If this Dart package is published to Github, please include the following in pubspec.yaml
-```
-name: swagger
-version: 1.0.0
-description: Swagger API client
+
+``` 
 dependencies:
   swagger:
-    git: https://github.com/OpenSILEX/opensilexClientToolsDart.git
-      version: 'any'
+    git: 
+      url : https://github.com/OpenSILEX/opensilexClientToolsDart.git 
+      ref: 1.0.0
 ```
 
 ### Local
 To use the package in your local drive, please include the following in pubspec.yaml
+
 ```
 dependencies:
   swagger:
