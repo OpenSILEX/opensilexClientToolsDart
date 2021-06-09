@@ -1,0 +1,17 @@
+# swagger.model.CredentialsGroupDTO
+
+## Load the model package
+```dart
+import 'package:swagger/api.dart';
+```
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**groupId** | **String** | Credential group identifier | [optional] [default to null]
+**groupKeyName** | **String** | Credential group key label | [optional] [default to null]
+**credentials** | [**List&lt;CredentialDTO&gt;**](CredentialDTO.md) | Credentials Map | [optional] [default to []]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
