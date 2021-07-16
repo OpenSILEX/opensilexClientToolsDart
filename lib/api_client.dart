@@ -8,6 +8,15 @@ class QueryParam {
 }
 
 class ApiClient {
+  //added by max :--------------------
+  AuthenticationApi api_instance_auth;
+  void logOutOfOpenSILEX() async {
+    if (api_instance_auth != null) {
+      api_instance_auth.logout();
+    }
+  }
+
+  //----------------------------------
   String basePath;
   String token;
   var client = new Client();
@@ -30,7 +39,7 @@ class ApiClient {
 
   _connect(String host, String identifier, String password) async {
     this.basePath = host;
-    var api_instance_auth = new AuthenticationApi(this);
+    api_instance_auth = new AuthenticationApi(this);
     var authenticate = new AuthenticationDTO();
 
     authenticate.identifier = identifier;
