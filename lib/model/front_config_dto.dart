@@ -40,14 +40,11 @@ class FrontConfigDTO {
 
   String openIDConnectionTitle = null;
   
-
-  bool activateResetPassword = null;
-  
   FrontConfigDTO();
 
   @override
   String toString() {
-    return 'FrontConfigDTO[pathPrefix=$pathPrefix, homeComponent=$homeComponent, notFoundComponent=$notFoundComponent, headerComponent=$headerComponent, loginComponent=$loginComponent, menuComponent=$menuComponent, footerComponent=$footerComponent, menu=$menu, routes=$routes, themeModule=$themeModule, themeName=$themeName, openIDAuthenticationURI=$openIDAuthenticationURI, openIDConnectionTitle=$openIDConnectionTitle, activateResetPassword=$activateResetPassword, ]';
+    return 'FrontConfigDTO[pathPrefix=$pathPrefix, homeComponent=$homeComponent, notFoundComponent=$notFoundComponent, headerComponent=$headerComponent, loginComponent=$loginComponent, menuComponent=$menuComponent, footerComponent=$footerComponent, menu=$menu, routes=$routes, themeModule=$themeModule, themeName=$themeName, openIDAuthenticationURI=$openIDAuthenticationURI, openIDConnectionTitle=$openIDConnectionTitle, ]';
   }
 
   FrontConfigDTO.fromJson(Map<String, dynamic> json) {
@@ -91,9 +88,6 @@ class FrontConfigDTO {
     openIDConnectionTitle =
         json['openIDConnectionTitle']
     ;
-    activateResetPassword =
-        json['activateResetPassword']
-    ;
   }
 
   Map<String, dynamic> toJson() {
@@ -110,8 +104,7 @@ class FrontConfigDTO {
       'themeModule': themeModule,
       'themeName': themeName,
       'openIDAuthenticationURI': openIDAuthenticationURI,
-      'openIDConnectionTitle': openIDConnectionTitle,
-      'activateResetPassword': activateResetPassword
+      'openIDConnectionTitle': openIDConnectionTitle
      };
   }
 

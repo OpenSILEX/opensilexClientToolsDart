@@ -29,7 +29,7 @@ class GeometryCollection {
         (json['bbox'] as List).map((item) => item as double).toList()
     ;
     coordinates =
-        (json['geometry']['coordinates'] as List).map((item) => item as double).toList()
+        (json['coordinates'] as List).map((item) => item as double).toList()
     ;
     geometries =
       GeoJsonObject.listFromJson(json['geometries'])

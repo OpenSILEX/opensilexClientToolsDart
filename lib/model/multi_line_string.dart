@@ -26,7 +26,7 @@ class MultiLineString {
         (json['bbox'] as List).map((item) => item as double).toList()
     ;
     coordinates =
-      jsonDecode(json['geometry']['coordinates'])
+      jsonDecode(json['coordinates'])
 ;
   }
 

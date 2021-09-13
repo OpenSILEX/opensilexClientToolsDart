@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **traitName** | **String** |  | [optional] [default to null]
 **method** | **String** |  | [optional] [default to null]
 **unit** | **String** |  | [default to null]
-**species** | **String** |  | [optional] [default to null]
 **datatype** | **String** |  | [default to null]
 **timeInterval** | **String** |  | [optional] [default to null]
 **samplingInterval** | **String** |  | [optional] [default to null]
