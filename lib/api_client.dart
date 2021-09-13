@@ -13,6 +13,7 @@ class ApiClient {
   void logOutOfOpenSILEX() async {
     if (api_instance_auth != null) {
       api_instance_auth.logout();
+	System.out.println("this is bad")
     }
   }
 
