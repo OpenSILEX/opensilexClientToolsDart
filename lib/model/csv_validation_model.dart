@@ -5,9 +5,6 @@ class CSVValidationModel {
   List<String> missingHeaders = [];
   
 
-  List<int> emptyHeaders = [];
-  
-
   Map<String, String> invalidHeaderURIs = {};
   
 
@@ -35,16 +32,13 @@ class CSVValidationModel {
 
   @override
   String toString() {
-    return 'CSVValidationModel[missingHeaders=$missingHeaders, emptyHeaders=$emptyHeaders, invalidHeaderURIs=$invalidHeaderURIs, datatypeErrors=$datatypeErrors, uriNotFoundErrors=$uriNotFoundErrors, invalidURIErrors=$invalidURIErrors, missingRequiredValueErrors=$missingRequiredValueErrors, invalidValueErrors=$invalidValueErrors, alreadyExistingURIErrors=$alreadyExistingURIErrors, duplicateURIErrors=$duplicateURIErrors, ]';
+    return 'CSVValidationModel[missingHeaders=$missingHeaders, invalidHeaderURIs=$invalidHeaderURIs, datatypeErrors=$datatypeErrors, uriNotFoundErrors=$uriNotFoundErrors, invalidURIErrors=$invalidURIErrors, missingRequiredValueErrors=$missingRequiredValueErrors, invalidValueErrors=$invalidValueErrors, alreadyExistingURIErrors=$alreadyExistingURIErrors, duplicateURIErrors=$duplicateURIErrors, ]';
   }
 
   CSVValidationModel.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     missingHeaders =
         (json['missingHeaders'] as List).map((item) => item as String).toList()
-    ;
-    emptyHeaders =
-        (json['emptyHeaders'] as List).map((item) => item as int).toList()
     ;
     invalidHeaderURIs =
         json['invalidHeaderURIs']
@@ -103,7 +97,6 @@ class CSVValidationModel {
   Map<String, dynamic> toJson() {
     return {
       'missingHeaders': missingHeaders,
-      'emptyHeaders': emptyHeaders,
       'invalidHeaderURIs': invalidHeaderURIs,
       'datatypeErrors': datatypeErrors,
       'uriNotFoundErrors': uriNotFoundErrors,

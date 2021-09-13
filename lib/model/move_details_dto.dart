@@ -38,7 +38,7 @@ class MoveDetailsDTO {
   InfrastructureFacilityNamedDTO to = null;
   
 
-  List<TargetPositionGetDTO> targetsPositions = [];
+  List<ConcernedItemPositionGetDTO> targetsPositions = [];
   
   MoveDetailsDTO();
 
@@ -94,7 +94,7 @@ class MoveDetailsDTO {
       new InfrastructureFacilityNamedDTO.fromJson(json['to'])
 ;
     targetsPositions =
-      TargetPositionGetDTO.listFromJson(json['targets_positions'])
+      ConcernedItemPositionGetDTO.listFromJson(json['targets_positions'])
 ;
   }
 

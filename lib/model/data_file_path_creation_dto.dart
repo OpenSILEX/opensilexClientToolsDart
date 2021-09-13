@@ -13,8 +13,8 @@ class DataFilePathCreationDTO {
 /* to specify if the offset is not in the date and if the timezone is different from the default one */
   String timezone = null;
   
-/* target URI on which the data have been collected */
-  String target = null;
+/* scientific objects URIs on which the data have been collected */
+  List<String> scientificObjects = [];
   
 
   DataProvenanceModel provenance = null;
@@ -29,7 +29,7 @@ class DataFilePathCreationDTO {
 
   @override
   String toString() {
-    return 'DataFilePathCreationDTO[uri=$uri, rdfType=$rdfType, date=$date, timezone=$timezone, target=$target, provenance=$provenance, metadata=$metadata, relativePath=$relativePath, ]';
+    return 'DataFilePathCreationDTO[uri=$uri, rdfType=$rdfType, date=$date, timezone=$timezone, scientificObjects=$scientificObjects, provenance=$provenance, metadata=$metadata, relativePath=$relativePath, ]';
   }
 
   DataFilePathCreationDTO.fromJson(Map<String, dynamic> json) {
@@ -46,8 +46,8 @@ class DataFilePathCreationDTO {
     timezone =
         json['timezone']
     ;
-    target =
-        json['target']
+    scientificObjects =
+        (json['scientific_objects'] as List).map((item) => item as String).toList()
     ;
     provenance =
       
@@ -74,7 +74,7 @@ class DataFilePathCreationDTO {
       'rdf_type': rdfType,
       'date': date,
       'timezone': timezone,
-      'target': target,
+      'scientific_objects': scientificObjects,
       'provenance': provenance,
       'metadata': metadata,
       'relative_path': relativePath

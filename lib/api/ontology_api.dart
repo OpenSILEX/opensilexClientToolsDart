@@ -300,7 +300,7 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
-  /// Return classes models definitions with properties for a list of rdf types
+  /// Return classes models definitions with properties for a list of rdt types
   ///
   /// 
   Future<List<RDFTypeDTO>> getClasses(List<String> rdfType,  { String parentType, String acceptLanguage }) async {
@@ -778,132 +778,6 @@ headerParams["Accept-Language"] = acceptLanguage;
     } else if(response.body != null) {
       return 
           apiClient.deserialize(response.body, 'String') as String ;
-    } else {
-      return null;
-    }
-  }
-  /// Return associated rdfs:label of uris if they exist
-  ///
-  /// 
-  Future<String> getURILabelsList(List<String> uri,  { String context, String acceptLanguage }) async {
-    Object postBody = null;
-
-    // verify required params are set
-    String authorization = apiClient.token;
-    if(uri == null) {
-     throw new ApiException(400, "Missing required param: uri");
-    }
-    if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
-    }
-
-    // create path and map variables
-    String path = "/ontology/uris_labels".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-      queryParams.addAll(_convertParametersForCollectionFormat("multi", "uri", uri));
-    if(context != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "context", context));
-    }
-    headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
-
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'String') as String ;
-    } else {
-      return null;
-    }
-  }
-  /// Search sub-classes tree of an RDF class
-  ///
-  /// 
-  Future<List<ResourceTreeDTO>> searchSubClassesOf( { String parentType, String name, bool ignoreRootClasses, String acceptLanguage }) async {
-    Object postBody = null;
-
-    // verify required params are set
-    String authorization = apiClient.token;
-    if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
-    }
-
-    // create path and map variables
-    String path = "/ontology/subclasses_of/search".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    if(parentType != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "parent_type", parentType));
-    }
-    if(name != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "name", name));
-    }
-    if(ignoreRootClasses != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "ignoreRootClasses", ignoreRootClasses));
-    }
-    headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
-
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return 
-        (apiClient.deserialize(response.body, 'List<ResourceTreeDTO>') as List).map((item) => item as ResourceTreeDTO).toList();
     } else {
       return null;
     }

@@ -110,60 +110,6 @@ class AuthenticationApi {
       return null;
     }
   }
-  /// Send an e-mail confirmation
-  ///
-  /// 
-  Future forgotPassword(String identifier) async {
-    Object postBody = null;
-
-    // verify required params are set
-    String authorization = apiClient.token;
-    if(identifier == null) {
-     throw new ApiException(400, "Missing required param: identifier");
-    }
-
-    // create path and map variables
-    String path = "/security/forgot-password".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-      queryParams.addAll(_convertParametersForCollectionFormat("", "identifier", identifier));
-    
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return 
-          ;
-    } else {
-      return ;
-    }
-  }
   /// Get list of existing credentials indexed by Swagger @API concepts in the application
   ///
   /// 
@@ -267,66 +213,6 @@ headerParams["Accept-Language"] = acceptLanguage;
           ;
     } else {
       return ;
-    }
-  }
-  /// Update user password
-  ///
-  /// 
-  Future<TokenGetDTO> renewPassword(String renewToken, { bool checkOnly, String password }) async {
-    Object postBody = null;
-
-    // verify required params are set
-    String authorization = apiClient.token;
-    if(renewToken == null) {
-     throw new ApiException(400, "Missing required param: renewToken");
-    }
-
-    // create path and map variables
-    String path = "/security/renew-password".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-      queryParams.addAll(_convertParametersForCollectionFormat("", "renew_token", renewToken));
-    if(checkOnly != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "check_only", checkOnly));
-    }
-    if(password != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "password", password));
-    }
-    
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'PUT',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'TokenGetDTO') as TokenGetDTO ;
-    } else {
-      return null;
     }
   }
   /// Send back a new token if the provided one is still valid
