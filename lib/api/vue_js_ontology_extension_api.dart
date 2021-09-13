@@ -220,7 +220,7 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
-  /// Return rdt type model definition with properties
+  /// Return rdf type model definition with properties
   ///
   /// 
   Future<VueRDFTypeDTO> getRDFType1(String rdfType,  { String parentType, String acceptLanguage }) async {

@@ -32,6 +32,9 @@ class VariableDetailsDTO {
   UnitGetDTO unit = null;
   
 
+  SpeciesDTO species = null;
+  
+
   String timeInterval = null;
   
 
@@ -56,7 +59,7 @@ class VariableDetailsDTO {
 
   @override
   String toString() {
-    return 'VariableDetailsDTO[uri=$uri, name=$name, alternativeName=$alternativeName, description=$description, entity=$entity, characteristic=$characteristic, trait=$trait, traitName=$traitName, method=$method, unit=$unit, timeInterval=$timeInterval, samplingInterval=$samplingInterval, datatype=$datatype, exactMatch=$exactMatch, closeMatch=$closeMatch, broadMatch=$broadMatch, narrowMatch=$narrowMatch, ]';
+    return 'VariableDetailsDTO[uri=$uri, name=$name, alternativeName=$alternativeName, description=$description, entity=$entity, characteristic=$characteristic, trait=$trait, traitName=$traitName, method=$method, unit=$unit, species=$species, timeInterval=$timeInterval, samplingInterval=$samplingInterval, datatype=$datatype, exactMatch=$exactMatch, closeMatch=$closeMatch, broadMatch=$broadMatch, narrowMatch=$narrowMatch, ]';
   }
 
   VariableDetailsDTO.fromJson(Map<String, dynamic> json) {
@@ -107,6 +110,13 @@ class VariableDetailsDTO {
  
       new UnitGetDTO.fromJson(json['unit'])
 ;
+    species =
+      
+ 
+      
+ 
+      new SpeciesDTO.fromJson(json['species'])
+;
     timeInterval =
         json['time_interval']
     ;
@@ -142,6 +152,7 @@ class VariableDetailsDTO {
       'trait_name': traitName,
       'method': method,
       'unit': unit,
+      'species': species,
       'time_interval': timeInterval,
       'sampling_interval': samplingInterval,
       'datatype': datatype,

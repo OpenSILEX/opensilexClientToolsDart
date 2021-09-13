@@ -7,6 +7,92 @@ class DevicesApi {
 
   DevicesApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
+  /// Count device data
+  ///
+  /// 
+  @deprecated
+  Future<int> countDeviceData(String uri,  { String startDate, String endDate, String timezone, List<String> experiment, List<String> variable, double minConfidence, double maxConfidence, List<String> provenance, String metadata, String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(uri == null) {
+     throw new ApiException(400, "Missing required param: uri");
+    }
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/devices/{uri}/data/count".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    if(startDate != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "start_date", startDate));
+    }
+    if(endDate != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "end_date", endDate));
+    }
+    if(timezone != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "timezone", timezone));
+    }
+    if(experiment != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "experiment", experiment));
+    }
+    if(variable != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "variable", variable));
+    }
+    if(minConfidence != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "min_confidence", minConfidence));
+    }
+    if(maxConfidence != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "max_confidence", maxConfidence));
+    }
+    if(provenance != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "provenance", provenance));
+    }
+    if(metadata != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "metadata", metadata));
+    }
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          apiClient.deserialize(response.body, 'int') as int ;
+    } else {
+      return null;
+    }
+  }
   /// Create a device
   ///
   /// 
@@ -126,7 +212,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// export devices
   ///
   /// 
-  Future exportDevices( { String namePattern, String rdfType, int year, DateTime existenceDate, String brandPattern, String modelPattern, String serialNumberPattern, String metadata, String acceptLanguage }) async {
+  Future exportDevices( { String rdfType, bool includeSubtypes, String name, int year, DateTime existenceDate, String brand, String model, String serialNumber, String metadata, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -142,11 +228,14 @@ headerParams["Accept-Language"] = acceptLanguage;
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
-    if(namePattern != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "namePattern", namePattern));
-    }
     if(rdfType != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "rdfType", rdfType));
+      queryParams.addAll(_convertParametersForCollectionFormat("", "rdf_type", rdfType));
+    }
+    if(includeSubtypes != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "include_subtypes", includeSubtypes));
+    }
+    if(name != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "name", name));
     }
     if(year != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "year", year));
@@ -154,14 +243,14 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(existenceDate != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "existence_date", existenceDate));
     }
-    if(brandPattern != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "brandPattern", brandPattern));
+    if(brand != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "brand", brand));
     }
-    if(modelPattern != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "modelPattern", modelPattern));
+    if(model != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "model", model));
     }
-    if(serialNumberPattern != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "serialNumberPattern", serialNumberPattern));
+    if(serialNumber != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "serial_number", serialNumber));
     }
     if(metadata != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "metadata", metadata));
@@ -315,9 +404,69 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
+  /// Get devices by uris
+  ///
+  /// 
+  Future<List<DeviceGetDTO>> getDeviceByUris(List<String> uris,  { String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(uris == null) {
+     throw new ApiException(400, "Missing required param: uris");
+    }
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/devices/by_uris".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "uris", uris));
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+        (apiClient.deserialize(response.body, 'List<DeviceGetDTO>') as List).map((item) => item as DeviceGetDTO).toList();
+    } else {
+      return null;
+    }
+  }
   /// Get provenances of datafiles linked to this device
   ///
   /// 
+  @deprecated
   Future<List<ProvenanceGetDTO>> getDeviceDataFilesProvenances(String uri,  { String acceptLanguage }) async {
     Object postBody = null;
 
@@ -376,6 +525,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Get provenances of data that have been measured on this device
   ///
   /// 
+  @deprecated
   Future<List<ProvenanceGetDTO>> getDeviceDataProvenances(String uri,  { String acceptLanguage }) async {
     Object postBody = null;
 
@@ -431,7 +581,7 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
-  /// Get variables measured by the device
+  /// Get variables linked to the device
   ///
   /// 
   Future<List<NamedResourceDTO>> getDeviceVariables(String uri,  { String acceptLanguage }) async {
@@ -492,6 +642,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Search device data
   ///
   /// 
+  @deprecated
   Future<List<DataGetDTO>> searchDeviceData(String uri,  { String startDate, String endDate, String timezone, List<String> experiment, List<String> variable, double minConfidence, double maxConfidence, List<String> provenance, String metadata, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
     Object postBody = null;
 
@@ -586,6 +737,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Search device datafiles descriptions
   ///
   /// 
+  @deprecated
   Future<List<DataGetDTO>> searchDeviceDatafiles(String uri,  { String rdfType, String startDate, String endDate, String timezone, List<String> experiment, List<String> scientificObjects, List<String> provenances, String metadata, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
     Object postBody = null;
 
@@ -677,7 +829,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Search devices
   ///
   /// 
-  Future<List<DeviceGetDTO>> searchDevices( { String rdfType, String name, int year, DateTime existenceDate, String brand, String model, String serialNumber, String metadata, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
+  Future<List<DeviceGetDTO>> searchDevices( { String rdfType, bool includeSubtypes, String name, int year, DateTime existenceDate, String brand, String model, String serialNumber, String metadata, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -695,6 +847,9 @@ headerParams["Accept-Language"] = acceptLanguage;
     Map<String, String> formParams = {};
     if(rdfType != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "rdf_type", rdfType));
+    }
+    if(includeSubtypes != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "include_subtypes", includeSubtypes));
     }
     if(name != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "name", name));

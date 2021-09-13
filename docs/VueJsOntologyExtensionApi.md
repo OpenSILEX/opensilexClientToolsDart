@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**deleteRDFType**](VueJsOntologyExtensionApi.md#deleteRDFType) | **DELETE** /vuejs/owl_extension/rdf_type | Delete a RDF type
 [**getDataTypes1**](VueJsOntologyExtensionApi.md#getDataTypes1) | **GET** /vuejs/owl_extension/data_types | Return literal datatypes definition
 [**getObjectTypes**](VueJsOntologyExtensionApi.md#getObjectTypes) | **GET** /vuejs/owl_extension/object_types | Return object types definition
-[**getRDFType1**](VueJsOntologyExtensionApi.md#getRDFType1) | **GET** /vuejs/owl_extension/rdf_type | Return rdt type model definition with properties
+[**getRDFType1**](VueJsOntologyExtensionApi.md#getRDFType1) | **GET** /vuejs/owl_extension/rdf_type | Return rdf type model definition with properties
 [**getRDFTypeProperties**](VueJsOntologyExtensionApi.md#getRDFTypeProperties) | **GET** /vuejs/owl_extension/rdf_type_properties | Return class model properties definitions
 [**getRDFTypesParameters**](VueJsOntologyExtensionApi.md#getRDFTypesParameters) | **GET** /vuejs/owl_extension/rdf_types_parameters | Return RDF types parameters for Vue.js application
 [**setRDFTypePropertiesOrder**](VueJsOntologyExtensionApi.md#setRDFTypePropertiesOrder) | **PUT** /vuejs/owl_extension/properties_order | Define properties order
@@ -195,7 +195,7 @@ No authorization required
 # **getRDFType1**
 > VueRDFTypeDTO getRDFType1(rdfType, authorization, parentType, acceptLanguage)
 
-Return rdt type model definition with properties
+Return rdf type model definition with properties
 
 
 

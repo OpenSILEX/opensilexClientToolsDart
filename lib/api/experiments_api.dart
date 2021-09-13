@@ -120,9 +120,10 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
-  /// export data
+  /// export experiment data
   ///
   /// 
+  @deprecated
   Future exportExperimentDataList(String uri,  { String startDate, String endDate, String timezone, List<String> scientificObjects, List<String> variables, double minConfidence, double maxConfidence, String provenance, String metadata, String mode, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
     Object postBody = null;
 
@@ -449,6 +450,65 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
+  /// Get experiments URIs
+  ///
+  /// 
+  Future<List<ExperimentGetListDTO>> getExperimentsByURIs(List<String> uris,  { String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(uris == null) {
+     throw new ApiException(400, "Missing required param: uris");
+    }
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/experiments/by_uris".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "uris", uris));
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+        (apiClient.deserialize(response.body, 'List<ExperimentGetListDTO>') as List).map((item) => item as ExperimentGetListDTO).toList();
+    } else {
+      return null;
+    }
+  }
   /// Get facilities involved in an experiment
   ///
   /// 
@@ -510,7 +570,8 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Get variables involved in an experiment
   ///
   /// 
-  Future<List<NamedResourceDTO>> getUsedVariables(String uri,  { List<String> scientificObjects, String acceptLanguage }) async {
+  @deprecated
+  Future<List<NamedResourceDTO>> getUsedVariables1(String uri,  { List<String> scientificObjects, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -571,7 +632,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Import a CSV file for the given experiment URI and scientific object type.
   ///
   /// 
-  Future<DataCSVValidationDTO> importCSVData(String uri, String provenance, MultipartFile file,  { String acceptLanguage }) async {
+  Future<DataCSVValidationDTO> importCSVData1(String uri, String provenance, MultipartFile file,  { String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -643,6 +704,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Search data
   ///
   /// 
+  @deprecated
   Future<List<DataGetDTO>> searchExperimentDataList(String uri,  { String startDate, String endDate, String timezone, List<String> scientificObjects, List<String> variables, double minConfidence, double maxConfidence, List<String> provenances, String metadata, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
     Object postBody = null;
 
@@ -737,6 +799,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Get provenances involved in an experiment
   ///
   /// 
+  @deprecated
   Future<List<ProvenanceGetDTO>> searchExperimentProvenances(String uri,  { String name, String description, String activity, String activityType, String agent, String agentType, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
     Object postBody = null;
 
@@ -962,7 +1025,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Import a CSV file for the given experiment URI and scientific object type.
   ///
   /// 
-  Future<DataCSVValidationDTO> validateCSV(String uri, String provenance, MultipartFile file,  { String acceptLanguage }) async {
+  Future<DataCSVValidationDTO> validateCSV1(String uri, String provenance, MultipartFile file,  { String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set

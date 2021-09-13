@@ -13,8 +13,8 @@ class DataFileGetDTO {
 /* to specify if the offset is not in the date and if the timezone is different from the default one */
   String timezone = null;
   
-/* scientific objects URIs on which the data have been collected */
-  List<String> scientificObjects = [];
+/* target URI on which the data have been collected */
+  String target = null;
   
 
   DataProvenanceModel provenance = null;
@@ -26,7 +26,7 @@ class DataFileGetDTO {
 
   @override
   String toString() {
-    return 'DataFileGetDTO[uri=$uri, rdfType=$rdfType, date=$date, timezone=$timezone, scientificObjects=$scientificObjects, provenance=$provenance, metadata=$metadata, ]';
+    return 'DataFileGetDTO[uri=$uri, rdfType=$rdfType, date=$date, timezone=$timezone, target=$target, provenance=$provenance, metadata=$metadata, ]';
   }
 
   DataFileGetDTO.fromJson(Map<String, dynamic> json) {
@@ -43,8 +43,8 @@ class DataFileGetDTO {
     timezone =
         json['timezone']
     ;
-    scientificObjects =
-        (json['scientific_objects'] as List).map((item) => item as String).toList()
+    target =
+        json['target']
     ;
     provenance =
       
@@ -68,7 +68,7 @@ class DataFileGetDTO {
       'rdf_type': rdfType,
       'date': date,
       'timezone': timezone,
-      'scientific_objects': scientificObjects,
+      'target': target,
       'provenance': provenance,
       'metadata': metadata
      };

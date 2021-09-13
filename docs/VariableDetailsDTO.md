@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **traitName** | **String** |  | [optional] [default to null]
 **method** | [**MethodGetDTO**](MethodGetDTO.md) |  | [optional] [default to null]
 **unit** | [**UnitGetDTO**](UnitGetDTO.md) |  | [optional] [default to null]
+**species** | [**SpeciesDTO**](SpeciesDTO.md) |  | [optional] [default to null]
 **timeInterval** | **String** |  | [optional] [default to null]
 **samplingInterval** | **String** |  | [optional] [default to null]
 **datatype** | **String** |  | [optional] [default to null]

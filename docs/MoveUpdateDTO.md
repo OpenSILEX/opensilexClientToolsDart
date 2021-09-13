@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **relations** | [**List&lt;RDFObjectRelationDTO&gt;**](RDFObjectRelationDTO.md) |  | [optional] [default to []]
 **from** | **String** |  | [optional] [default to null]
 **to** | **String** |  | [optional] [default to null]
-**targetsPositions** | [**List&lt;ConcernedItemPositionCreationDTO&gt;**](ConcernedItemPositionCreationDTO.md) |  | [optional] [default to []]
+**targetsPositions** | [**List&lt;TargetPositionCreationDTO&gt;**](TargetPositionCreationDTO.md) |  | [optional] [default to []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

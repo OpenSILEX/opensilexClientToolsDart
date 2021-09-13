@@ -63,7 +63,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchPositionHistory**
-> List<PositionGetDTO> searchPositionHistory(concernedItemUri, authorization, startDateTime, endDateTime, orderBy, page, pageSize, acceptLanguage)
+> List<PositionGetDTO> searchPositionHistory(target, authorization, startDateTime, endDateTime, orderBy, page, pageSize, acceptLanguage)
 
 Search history of position of an object
 
@@ -74,7 +74,7 @@ Search history of position of an object
 import 'package:swagger/api.dart';
 
 var api_instance = new PositionsApi();
-var concernedItemUri = http://www.opensilex.org/demo/2018/o18000076; // String | Concerned item URI
+var target = http://www.opensilex.org/demo/2018/o18000076; // String | Target URI
 var authorization = authorization_example; // String | Authentication token
 var startDateTime = 2019-09-08T12:00:00+01:00; // String | Start date : match position affected after the given start date
 var endDateTime = 2021-09-08T12:00:00+01:00; // String | End date : match position affected before the given end date
@@ -84,7 +84,7 @@ var pageSize = 56; // int | Page size
 var acceptLanguage = en; // String | Request accepted language
 
 try { 
-    var result = api_instance.searchPositionHistory(concernedItemUri, authorization, startDateTime, endDateTime, orderBy, page, pageSize, acceptLanguage);
+    var result = api_instance.searchPositionHistory(target, authorization, startDateTime, endDateTime, orderBy, page, pageSize, acceptLanguage);
     print(result);
 } catch (e) {
     print("Exception when calling PositionsApi->searchPositionHistory: $e\n");
@@ -95,7 +95,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **concernedItemUri** | **String**| Concerned item URI | 
+ **target** | **String**| Target URI | 
  **authorization** | **String**| Authentication token | 
  **startDateTime** | **String**| Start date : match position affected after the given start date | [optional] 
  **endDateTime** | **String**| End date : match position affected before the given end date | [optional] 

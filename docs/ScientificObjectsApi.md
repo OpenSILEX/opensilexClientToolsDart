@@ -24,7 +24,7 @@ Method | HTTP request | Description
 [**searchScientificObjects**](ScientificObjectsApi.md#searchScientificObjects) | **GET** /core/scientific_objects | Search list of scientific objects
 [**searchScientificObjectsWithGeometryListByUris**](ScientificObjectsApi.md#searchScientificObjectsWithGeometryListByUris) | **GET** /core/scientific_objects/geometry | Get scientific objet list with geometry of a given experiment URI
 [**updateScientificObject**](ScientificObjectsApi.md#updateScientificObject) | **PUT** /core/scientific_objects | Update a scientific object for the given experiment
-[**validateCSV1**](ScientificObjectsApi.md#validateCSV1) | **POST** /core/scientific_objects/import_validation | Validate a CSV file for the given experiment URI and scientific object type.
+[**validateCSV2**](ScientificObjectsApi.md#validateCSV2) | **POST** /core/scientific_objects/import_validation | Validate a CSV file for the given experiment URI and scientific object type.
 
 
 # **createScientificObject**
@@ -771,8 +771,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **validateCSV1**
-> CSVValidationDTO validateCSV1(description, file, authorization, acceptLanguage)
+# **validateCSV2**
+> CSVValidationDTO validateCSV2(description, file, authorization, acceptLanguage)
 
 Validate a CSV file for the given experiment URI and scientific object type.
 
@@ -789,10 +789,10 @@ var authorization = authorization_example; // String | Authentication token
 var acceptLanguage = en; // String | Request accepted language
 
 try { 
-    var result = api_instance.validateCSV1(description, file, authorization, acceptLanguage);
+    var result = api_instance.validateCSV2(description, file, authorization, acceptLanguage);
     print(result);
 } catch (e) {
-    print("Exception when calling ScientificObjectsApi->validateCSV1: $e\n");
+    print("Exception when calling ScientificObjectsApi->validateCSV2: $e\n");
 }
 ```
 

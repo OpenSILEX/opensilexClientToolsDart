@@ -9,6 +9,7 @@ import 'package:swagger/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **missingHeaders** | **List&lt;String&gt;** |  | [optional] [default to []]
+**emptyHeaders** | **List&lt;int&gt;** |  | [optional] [default to []]
 **invalidHeaderURIs** | **Map&lt;String, String&gt;** |  | [optional] [default to {}]
 **datatypeErrors** | [**Map&lt;String, List&lt;CSVDatatypeError&gt;&gt;**](List.md) |  | [optional] [default to {}]
 **uriNotFoundErrors** | [**Map&lt;String, List&lt;CSVURINotFoundError&gt;&gt;**](List.md) |  | [optional] [default to {}]

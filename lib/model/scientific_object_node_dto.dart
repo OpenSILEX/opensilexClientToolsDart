@@ -1,22 +1,27 @@
 part of swagger.api;
 
 class ScientificObjectNodeDTO {
+  
   String uri = null;
+  
 
   String name = null;
+  
 
-  Map<String, dynamic> geometry = null;
+  GeoJsonObject geometry = null;
+  
 
   String rdfType = null;
+  
 
   String rdfTypeName = null;
-
+  
 /* Scientific object creation date */
   DateTime creationDate = null;
-
+  
 /* Scientific object creation date */
   DateTime destructionDate = null;
-
+  
   ScientificObjectNodeDTO();
 
   @override
@@ -26,20 +31,39 @@ class ScientificObjectNodeDTO {
 
   ScientificObjectNodeDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    uri = json['uri'];
-    name = json['name'];
-    geometry = json['geometry'];
-
-    //TODO Geojason stuff
-    //new GeoJsonObject.fromJson(json['geometry']);
-    rdfType = json['rdf_type'];
-    rdfTypeName = json['rdf_type_name'];
-    creationDate = json['creation_date'] == null
-        ? null
-        : DateTime.parse(json['creation_date']);
-    destructionDate = json['destruction_date'] == null
-        ? null
-        : DateTime.parse(json['destruction_date']);
+    uri =
+        json['uri']
+    ;
+    name =
+        json['name']
+    ;
+    geometry =
+      
+ 
+      
+ 
+      new GeoJsonObject.fromJson(json['geometry'])
+;
+    rdfType =
+        json['rdf_type']
+    ;
+    rdfTypeName =
+        json['rdf_type_name']
+    ;
+    creationDate =
+      
+ 
+      
+ 
+       json['creation_date'] == null ? null : DateTime.parse(json['creation_date'])
+;
+    destructionDate =
+      
+ 
+      
+ 
+       json['destruction_date'] == null ? null : DateTime.parse(json['destruction_date'])
+;
   }
 
   Map<String, dynamic> toJson() {
@@ -51,24 +75,19 @@ class ScientificObjectNodeDTO {
       'rdf_type_name': rdfTypeName,
       'creation_date': creationDate,
       'destruction_date': destructionDate
-    };
+     };
   }
 
   static List<ScientificObjectNodeDTO> listFromJson(List<dynamic> json) {
-    return json == null
-        ? new List<ScientificObjectNodeDTO>()
-        : json
-            .map((value) => new ScientificObjectNodeDTO.fromJson(value))
-            .toList();
+    return json == null ? new List<ScientificObjectNodeDTO>() : json.map((value) => new ScientificObjectNodeDTO.fromJson(value)).toList();
   }
 
-  static Map<String, ScientificObjectNodeDTO> mapFromJson(
-      Map<String, Map<String, dynamic>> json) {
+  static Map<String, ScientificObjectNodeDTO> mapFromJson(Map<String, Map<String, dynamic>> json) {
     var map = new Map<String, ScientificObjectNodeDTO>();
     if (json != null && json.length > 0) {
-      json.forEach((String key, Map<String, dynamic> value) =>
-          map[key] = new ScientificObjectNodeDTO.fromJson(value));
+      json.forEach((String key, Map<String, dynamic> value) => map[key] = new ScientificObjectNodeDTO.fromJson(value));
     }
     return map;
   }
 }
+
