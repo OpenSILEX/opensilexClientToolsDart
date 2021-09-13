@@ -26,7 +26,7 @@ class MultiPoint {
         (json['bbox'] as List).map((item) => item as double).toList()
     ;
     coordinates =
-      LngLatAlt.listFromJson(json['geometry']['coordinates'])
+      LngLatAlt.listFromJson(json['coordinates'])
 ;
   }
 

@@ -11,20 +11,19 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createExperiment**](ExperimentsApi.md#createExperiment) | **POST** /core/experiments | Add an experiment
 [**deleteExperiment**](ExperimentsApi.md#deleteExperiment) | **DELETE** /core/experiments/{uri} | Delete an experiment
-[**exportExperimentDataList**](ExperimentsApi.md#exportExperimentDataList) | **GET** /core/experiments/{uri}/data/export | export experiment data
+[**exportExperimentDataList**](ExperimentsApi.md#exportExperimentDataList) | **GET** /core/experiments/{uri}/data/export | export data
 [**getAvailableFacilities**](ExperimentsApi.md#getAvailableFacilities) | **GET** /core/experiments/{uri}/available_facilities | Get facilities available for an experiment
 [**getAvailableFactors**](ExperimentsApi.md#getAvailableFactors) | **GET** /core/experiments/{uri}/factors | Get factors with their levels associated to an experiment
 [**getAvailableSpecies**](ExperimentsApi.md#getAvailableSpecies) | **GET** /core/experiments/{uri}/species | Get species present in an experiment
 [**getExperiment**](ExperimentsApi.md#getExperiment) | **GET** /core/experiments/{uri} | Get an experiment
-[**getExperimentsByURIs**](ExperimentsApi.md#getExperimentsByURIs) | **GET** /core/experiments/by_uris | Get experiments URIs
 [**getFacilities**](ExperimentsApi.md#getFacilities) | **GET** /core/experiments/{uri}/facilities | Get facilities involved in an experiment
-[**getUsedVariables1**](ExperimentsApi.md#getUsedVariables1) | **GET** /core/experiments/{uri}/variables | Get variables involved in an experiment
-[**importCSVData1**](ExperimentsApi.md#importCSVData1) | **POST** /core/experiments/{uri}/data/import | Import a CSV file for the given experiment URI and scientific object type.
+[**getUsedVariables**](ExperimentsApi.md#getUsedVariables) | **GET** /core/experiments/{uri}/variables | Get variables involved in an experiment
+[**importCSVData**](ExperimentsApi.md#importCSVData) | **POST** /core/experiments/{uri}/data/import | Import a CSV file for the given experiment URI and scientific object type.
 [**searchExperimentDataList**](ExperimentsApi.md#searchExperimentDataList) | **GET** /core/experiments/{uri}/data | Search data
 [**searchExperimentProvenances**](ExperimentsApi.md#searchExperimentProvenances) | **GET** /core/experiments/{uri}/provenances | Get provenances involved in an experiment
 [**searchExperiments**](ExperimentsApi.md#searchExperiments) | **GET** /core/experiments | Search experiments
 [**updateExperiment**](ExperimentsApi.md#updateExperiment) | **PUT** /core/experiments | Update an experiment
-[**validateCSV1**](ExperimentsApi.md#validateCSV1) | **POST** /core/experiments/{uri}/data/import_validation | Import a CSV file for the given experiment URI and scientific object type.
+[**validateCSV**](ExperimentsApi.md#validateCSV) | **POST** /core/experiments/{uri}/data/import_validation | Import a CSV file for the given experiment URI and scientific object type.
 
 
 # **createExperiment**
@@ -124,7 +123,7 @@ No authorization required
 # **exportExperimentDataList**
 > exportExperimentDataList(uri, authorization, startDate, endDate, timezone, scientificObjects, variables, minConfidence, maxConfidence, provenance, metadata, mode, orderBy, page, pageSize, acceptLanguage)
 
-export experiment data
+export data
 
 
 
@@ -382,53 +381,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getExperimentsByURIs**
-> List<ExperimentGetListDTO> getExperimentsByURIs(uris, authorization, acceptLanguage)
-
-Get experiments URIs
-
-
-
-### Example 
-```dart
-import 'package:swagger/api.dart';
-
-var api_instance = new ExperimentsApi();
-var uris = []; // List<String> | Experiments URIs
-var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
-
-try { 
-    var result = api_instance.getExperimentsByURIs(uris, authorization, acceptLanguage);
-    print(result);
-} catch (e) {
-    print("Exception when calling ExperimentsApi->getExperimentsByURIs: $e\n");
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uris** | [**List&lt;String&gt;**](String.md)| Experiments URIs | 
- **authorization** | **String**| Authentication token | 
- **acceptLanguage** | **String**| Request accepted language | [optional] 
-
-### Return type
-
-[**List<ExperimentGetListDTO>**](ExperimentGetListDTO.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **getFacilities**
 > List<InfrastructureFacilityGetDTO> getFacilities(uri, authorization, acceptLanguage)
 
@@ -476,8 +428,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getUsedVariables1**
-> List<NamedResourceDTO> getUsedVariables1(uri, authorization, scientificObjects, acceptLanguage)
+# **getUsedVariables**
+> List<NamedResourceDTO> getUsedVariables(uri, authorization, scientificObjects, acceptLanguage)
 
 Get variables involved in an experiment
 
@@ -494,10 +446,10 @@ var scientificObjects = [http://opensilex.dev/opensilex/2020/o20000345]; // List
 var acceptLanguage = en; // String | Request accepted language
 
 try { 
-    var result = api_instance.getUsedVariables1(uri, authorization, scientificObjects, acceptLanguage);
+    var result = api_instance.getUsedVariables(uri, authorization, scientificObjects, acceptLanguage);
     print(result);
 } catch (e) {
-    print("Exception when calling ExperimentsApi->getUsedVariables1: $e\n");
+    print("Exception when calling ExperimentsApi->getUsedVariables: $e\n");
 }
 ```
 
@@ -525,8 +477,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **importCSVData1**
-> DataCSVValidationDTO importCSVData1(uri, provenance, file, authorization, acceptLanguage)
+# **importCSVData**
+> DataCSVValidationDTO importCSVData(uri, provenance, file, authorization, acceptLanguage)
 
 Import a CSV file for the given experiment URI and scientific object type.
 
@@ -544,10 +496,10 @@ var authorization = authorization_example; // String | Authentication token
 var acceptLanguage = en; // String | Request accepted language
 
 try { 
-    var result = api_instance.importCSVData1(uri, provenance, file, authorization, acceptLanguage);
+    var result = api_instance.importCSVData(uri, provenance, file, authorization, acceptLanguage);
     print(result);
 } catch (e) {
-    print("Exception when calling ExperimentsApi->importCSVData1: $e\n");
+    print("Exception when calling ExperimentsApi->importCSVData: $e\n");
 }
 ```
 
@@ -826,8 +778,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **validateCSV1**
-> DataCSVValidationDTO validateCSV1(uri, provenance, file, authorization, acceptLanguage)
+# **validateCSV**
+> DataCSVValidationDTO validateCSV(uri, provenance, file, authorization, acceptLanguage)
 
 Import a CSV file for the given experiment URI and scientific object type.
 
@@ -845,10 +797,10 @@ var authorization = authorization_example; // String | Authentication token
 var acceptLanguage = en; // String | Request accepted language
 
 try { 
-    var result = api_instance.validateCSV1(uri, provenance, file, authorization, acceptLanguage);
+    var result = api_instance.validateCSV(uri, provenance, file, authorization, acceptLanguage);
     print(result);
 } catch (e) {
-    print("Exception when calling ExperimentsApi->validateCSV1: $e\n");
+    print("Exception when calling ExperimentsApi->validateCSV: $e\n");
 }
 ```
 

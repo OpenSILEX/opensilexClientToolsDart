@@ -32,7 +32,7 @@ class MoveUpdateDTO {
   String to = null;
   
 
-  List<TargetPositionCreationDTO> targetsPositions = [];
+  List<ConcernedItemPositionCreationDTO> targetsPositions = [];
   
   MoveUpdateDTO();
 
@@ -74,7 +74,7 @@ class MoveUpdateDTO {
         json['to']
     ;
     targetsPositions =
-      TargetPositionCreationDTO.listFromJson(json['targets_positions'])
+      ConcernedItemPositionCreationDTO.listFromJson(json['targets_positions'])
 ;
   }
 

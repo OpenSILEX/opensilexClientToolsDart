@@ -71,13 +71,13 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Search history of position of an object
   ///
   /// 
-  Future<List<PositionGetDTO>> searchPositionHistory(String target,  { String startDateTime, String endDateTime, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
+  Future<List<PositionGetDTO>> searchPositionHistory(String concernedItemUri,  { String startDateTime, String endDateTime, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
     String authorization = apiClient.token;
-    if(target == null) {
-     throw new ApiException(400, "Missing required param: target");
+    if(concernedItemUri == null) {
+     throw new ApiException(400, "Missing required param: concernedItemUri");
     }
     if(authorization == null) {
      throw new ApiException(400, "First connect with connectToOpenSILEX function");
@@ -90,7 +90,7 @@ headerParams["Accept-Language"] = acceptLanguage;
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
-      queryParams.addAll(_convertParametersForCollectionFormat("", "target", target));
+      queryParams.addAll(_convertParametersForCollectionFormat("", "concernedItemUri", concernedItemUri));
     if(startDateTime != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "startDateTime", startDateTime));
     }

@@ -32,9 +32,6 @@ class VariableCreationDTO {
   String unit = null;
   
 
-  String species = null;
-  
-
   String datatype = null;
   
 
@@ -59,7 +56,7 @@ class VariableCreationDTO {
 
   @override
   String toString() {
-    return 'VariableCreationDTO[uri=$uri, name=$name, alternativeName=$alternativeName, description=$description, entity=$entity, characteristic=$characteristic, trait=$trait, traitName=$traitName, method=$method, unit=$unit, species=$species, datatype=$datatype, timeInterval=$timeInterval, samplingInterval=$samplingInterval, exactMatch=$exactMatch, closeMatch=$closeMatch, broadMatch=$broadMatch, narrowMatch=$narrowMatch, ]';
+    return 'VariableCreationDTO[uri=$uri, name=$name, alternativeName=$alternativeName, description=$description, entity=$entity, characteristic=$characteristic, trait=$trait, traitName=$traitName, method=$method, unit=$unit, datatype=$datatype, timeInterval=$timeInterval, samplingInterval=$samplingInterval, exactMatch=$exactMatch, closeMatch=$closeMatch, broadMatch=$broadMatch, narrowMatch=$narrowMatch, ]';
   }
 
   VariableCreationDTO.fromJson(Map<String, dynamic> json) {
@@ -93,9 +90,6 @@ class VariableCreationDTO {
     ;
     unit =
         json['unit']
-    ;
-    species =
-        json['species']
     ;
     datatype =
         json['datatype']
@@ -132,7 +126,6 @@ class VariableCreationDTO {
       'trait_name': traitName,
       'method': method,
       'unit': unit,
-      'species': species,
       'datatype': datatype,
       'time_interval': timeInterval,
       'sampling_interval': samplingInterval,

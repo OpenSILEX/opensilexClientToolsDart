@@ -10,8 +10,8 @@ class DataCreationDTO {
 /* to specify if the offset is not in the date and if the timezone is different from the default one */
   String timezone = null;
   
-/* target URI on which the data have been collected (e.g. a scientific object) */
-  String target = null;
+/* scientific objects URIs on which the data have been collected */
+  List<String> scientificObjects = [];
   
 /* variable URI */
   String variable = null;
@@ -28,14 +28,11 @@ class DataCreationDTO {
 /* key-value system to store additional information that can be used to query data */
   Map<String, Object> metadata = {};
   
-/* list of repetition values */
-  List<Object> rawData = [];
-  
   DataCreationDTO();
 
   @override
   String toString() {
-    return 'DataCreationDTO[uri=$uri, date=$date, timezone=$timezone, target=$target, variable=$variable, value=$value, confidence=$confidence, provenance=$provenance, metadata=$metadata, rawData=$rawData, ]';
+    return 'DataCreationDTO[uri=$uri, date=$date, timezone=$timezone, scientificObjects=$scientificObjects, variable=$variable, value=$value, confidence=$confidence, provenance=$provenance, metadata=$metadata, ]';
   }
 
   DataCreationDTO.fromJson(Map<String, dynamic> json) {
@@ -49,8 +46,8 @@ class DataCreationDTO {
     timezone =
         json['timezone']
     ;
-    target =
-        json['target']
+    scientificObjects =
+        (json['scientific_objects'] as List).map((item) => item as String).toList()
     ;
     variable =
         json['variable']
@@ -79,9 +76,6 @@ class DataCreationDTO {
  
       
 ;
-    rawData =
-      Object.listFromJson(json['raw_data'])
-;
   }
 
   Map<String, dynamic> toJson() {
@@ -89,13 +83,12 @@ class DataCreationDTO {
       'uri': uri,
       'date': date,
       'timezone': timezone,
-      'target': target,
+      'scientific_objects': scientificObjects,
       'variable': variable,
       'value': value,
       'confidence': confidence,
       'provenance': provenance,
-      'metadata': metadata,
-      'raw_data': rawData
+      'metadata': metadata
      };
   }
 

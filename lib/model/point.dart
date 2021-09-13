@@ -30,7 +30,7 @@ class Point {
  
       
  
-      new LngLatAlt.fromJson(json['geometry']['coordinates'])
+      new LngLatAlt.fromJson(json['coordinates'])
 ;
   }
 

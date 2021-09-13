@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **themeName** | **String** | Theme module name | [optional] [default to null]
 **openIDAuthenticationURI** | **String** | OpenID Authorization URI | [optional] [default to null]
 **openIDConnectionTitle** | **String** |  | [optional] [default to null]
-**activateResetPassword** | **bool** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
