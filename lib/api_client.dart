@@ -13,7 +13,6 @@ class ApiClient {
   void logOutOfOpenSILEX() async {
     if (api_instance_auth != null) {
       api_instance_auth.logout();
-	System.out.println("this is bad")
     }
   }
 
@@ -208,6 +207,12 @@ class ApiClient {
           return new FeatureCollection.fromJson(value);
         case 'FontConfigDTO':
           return new FontConfigDTO.fromJson(value);
+	case 'FormCreationDTO':
+          return new FormCreationDTO.fromJson(value);
+        case 'FormGetDTO':
+          return new FormGetDTO.fromJson(value);
+        case 'FormUpdateDTO':
+          return new FormUpdateDTO.fromJson(value);
         case 'FrontConfigDTO':
           return new FrontConfigDTO.fromJson(value);
         case 'GeoJsonObject':
