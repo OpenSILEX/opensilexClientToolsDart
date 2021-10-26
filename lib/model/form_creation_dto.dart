@@ -3,7 +3,7 @@ part of swagger.api;
 class FormCreationDTO {
   String type = null;
 
-  Map<String, Object> formData = {};
+  Map<String, dynamic> formData = {};
 
 /* to specify if the offset is not in the date and if the timezone is different from the default one */
   String timezone = null;

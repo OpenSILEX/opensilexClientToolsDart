@@ -3,7 +3,7 @@ part of swagger.api;
 class FormGetDTO {
   String type = null;
 
-  Map<String, Object> formData = {};
+  Map<String, dynamic> formData = {};
 
 /* to specify if the offset is not in the date and if the timezone is different from the default one */
   String timezone = null;
@@ -14,29 +14,34 @@ class FormGetDTO {
 /* timestamp */
   String modifiedDate = null;
 
+  String commitAddress = null;
+
   FormGetDTO();
 
   @override
   String toString() {
-    return 'FormGetDTO[type=$type, formData=$formData, timezone=$timezone, uri=$uri, modifiedDate=$modifiedDate, ]';
+    return 'FormGetDTO[type=$type, formData=$formData, timezone=$timezone, uri=$uri, modifiedDate=$modifiedDate, commitAddress=$commitAddress,]';
   }
 
   FormGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     type = json['type'];
-    formData = jsonDecode(json['formData'].toString());
+    //formData = jsonDecode(json['form_data'].toString());
+    formData = json['form_data'];
     timezone = json['timezone'];
     uri = json['uri'];
     modifiedDate = json['modified_date'];
+    commitAddress = json['commitAddress'];
   }
 
   Map<String, dynamic> toJson() {
     return {
       'type': type,
-      'formData': formData,
+      'form_data': formData,
       'timezone': timezone,
       'uri': uri,
-      'modified_date': modifiedDate
+      'modified_date': modifiedDate,
+      'commit_address': commitAddress
     };
   }
 
