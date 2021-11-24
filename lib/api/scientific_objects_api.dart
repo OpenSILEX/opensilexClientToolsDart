@@ -1,12 +1,5 @@
 part of swagger.api;
 
-void main() async {
-  ApiClient client = ApiClient();
-  ScientificObjectsApi scientificObjectsApi = ScientificObjectsApi(client);
-  print(await scientificObjectsApi.searchScientificObjects(
-      experiment: 'test-expe:frai21'));
-}
-
 class ScientificObjectsApi {
   final ApiClient apiClient;
 

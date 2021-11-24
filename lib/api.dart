@@ -211,7 +211,6 @@ part 'model/vue_rdf_type_dto.dart';
 part 'model/vue_rdf_type_parameter_dto.dart';
 part 'model/vue_rdf_type_property_dto.dart';
 
-
 ApiClient defaultApiClient = new ApiClient();
 
 void connectToOpenSILEX(String identifier, String password, String host) async {

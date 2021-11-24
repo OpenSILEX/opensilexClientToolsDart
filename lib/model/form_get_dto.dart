@@ -3,8 +3,8 @@ part of swagger.api;
 class FormGetDTO {
   String type = null;
 
-  List<Map<String, dynamic>> formData = [];
-  //List<dynamic> formData = [];
+  //List<Map<String, dynamic>> formData = [];
+  List<dynamic> formData = [];
 
 /* to specify if the offset is not in the date and if the timezone is different from the default one */
   String timezone = null;
@@ -29,8 +29,9 @@ class FormGetDTO {
   FormGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     type = json['type'];
-    List<dynamic> tempFdata = json['form_data'] as List;
-    formData = tempFdata.map((item) => item as Map<String, dynamic>).toList();
+    formData = json['form_data'] as List;
+    //List<dynamic> tempFdata = json['form_data'] as List;
+    //formData = tempFdata.map((item) => item as Map<String, dynamic>).toList();
     timezone = json['timezone'];
     uri = json['uri'];
     modifiedDate = json['modified_date'];

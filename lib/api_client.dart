@@ -61,6 +61,7 @@ class ApiClient {
   }
 
   dynamic _deserialize(dynamic value, String targetType) {
+    //Map<String, dynamic> value = val as Map<String, dynamic>;
     if (value["metadata"] != null && value["result"] != null) {
       value = value["result"];
     }
@@ -207,7 +208,7 @@ class ApiClient {
           return new FeatureCollection.fromJson(value);
         case 'FontConfigDTO':
           return new FontConfigDTO.fromJson(value);
-	case 'FormCreationDTO':
+        case 'FormCreationDTO':
           return new FormCreationDTO.fromJson(value);
         case 'FormGetDTO':
           return new FormGetDTO.fromJson(value);
@@ -455,6 +456,7 @@ class ApiClient {
     if (targetType == 'String') return jsonVal;
 
     var decodedJson = json.decode(jsonVal);
+    //var decodedJson = jsonVal;
     return _deserialize(decodedJson, targetType);
   }
 
