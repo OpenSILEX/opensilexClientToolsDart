@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **variables** | **List&lt;String&gt;** |  | [optional] [default to []]
 **factors** | **List&lt;String&gt;** |  | [optional] [default to []]
 **organisations** | [**List&lt;NamedResourceDTOInfrastructureModel&gt;**](NamedResourceDTOInfrastructureModel.md) |  | [optional] [default to []]
+**facilities** | [**List&lt;NamedResourceDTOInfrastructureFacilityModel&gt;**](NamedResourceDTOInfrastructureFacilityModel.md) |  | [optional] [default to []]
 **projects** | [**List&lt;NamedResourceDTOProjectModel&gt;**](NamedResourceDTOProjectModel.md) |  | [optional] [default to []]
 **scientificSupervisors** | **List&lt;String&gt;** |  | [optional] [default to []]
 **technicalSupervisors** | **List&lt;String&gt;** |  | [optional] [default to []]

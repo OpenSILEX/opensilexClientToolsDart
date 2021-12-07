@@ -35,7 +35,7 @@ class Feature {
         (json['bbox'] as List).map((item) => item as double).toList()
     ;
     coordinates =
-        (json['coordinates'] as List).map((item) => item as double).toList()
+        (json['geometry']['coordinates'] as List).map((item) => item as double).toList()
     ;
     properties =
       

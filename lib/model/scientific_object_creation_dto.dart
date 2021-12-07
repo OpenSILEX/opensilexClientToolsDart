@@ -1,7 +1,7 @@
 part of swagger.api;
 
 class ScientificObjectCreationDTO {
-  
+  /* Scientific object URI */
   String uri = null;
   
 /* Scientific object type */

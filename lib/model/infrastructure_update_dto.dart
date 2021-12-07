@@ -8,22 +8,25 @@ class InfrastructureUpdateDTO {
   String rdfType = null;
   
 
-  String rdfTypeName = null;
-  
-
   String name = null;
   
 
-  String parent = null;
+  List<String> parents = [];
   
 
-  List<String> children = [];
+  List<String> groups = [];
+  
+
+  List<String> facilities = [];
+  
+
+  String rdfTypeName = null;
   
   InfrastructureUpdateDTO();
 
   @override
   String toString() {
-    return 'InfrastructureUpdateDTO[uri=$uri, rdfType=$rdfType, rdfTypeName=$rdfTypeName, name=$name, parent=$parent, children=$children, ]';
+    return 'InfrastructureUpdateDTO[uri=$uri, rdfType=$rdfType, name=$name, parents=$parents, groups=$groups, facilities=$facilities, rdfTypeName=$rdfTypeName, ]';
   }
 
   InfrastructureUpdateDTO.fromJson(Map<String, dynamic> json) {
@@ -34,17 +37,20 @@ class InfrastructureUpdateDTO {
     rdfType =
         json['rdf_type']
     ;
-    rdfTypeName =
-        json['rdf_type_name']
-    ;
     name =
         json['name']
     ;
-    parent =
-        json['parent']
+    parents =
+        (json['parents'] as List).map((item) => item as String).toList()
     ;
-    children =
-        (json['children'] as List).map((item) => item as String).toList()
+    groups =
+        (json['groups'] as List).map((item) => item as String).toList()
+    ;
+    facilities =
+        (json['facilities'] as List).map((item) => item as String).toList()
+    ;
+    rdfTypeName =
+        json['rdf_type_name']
     ;
   }
 
@@ -52,10 +58,11 @@ class InfrastructureUpdateDTO {
     return {
       'uri': uri,
       'rdf_type': rdfType,
-      'rdf_type_name': rdfTypeName,
       'name': name,
-      'parent': parent,
-      'children': children
+      'parents': parents,
+      'groups': groups,
+      'facilities': facilities,
+      'rdf_type_name': rdfTypeName
      };
   }
 

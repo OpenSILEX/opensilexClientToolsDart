@@ -44,7 +44,7 @@ import 'package:swagger/api.dart';
 var api_instance = new SecurityApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new GroupCreationDTO(); // GroupCreationDTO | Group description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.createGroup(authorization, body, acceptLanguage);
@@ -90,7 +90,7 @@ import 'package:swagger/api.dart';
 var api_instance = new SecurityApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new ProfileCreationDTO(); // ProfileCreationDTO | Profile description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.createProfile(authorization, body, acceptLanguage);
@@ -136,7 +136,7 @@ import 'package:swagger/api.dart';
 var api_instance = new SecurityApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new UserCreationDTO(); // UserCreationDTO | User description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.createUser(authorization, body, acceptLanguage);
@@ -180,9 +180,9 @@ Delete a group
 import 'package:swagger/api.dart';
 
 var api_instance = new SecurityApi();
-var uri = http://example.com/; // String | Group URI
+var uri = "http://example.com/"; // String | Group URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.deleteGroup(uri, authorization, acceptLanguage);
@@ -226,9 +226,9 @@ Delete a profile
 import 'package:swagger/api.dart';
 
 var api_instance = new SecurityApi();
-var uri = http://example.com/; // String | Profile URI
+var uri = "http://example.com/"; // String | Profile URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.deleteProfile(uri, authorization, acceptLanguage);
@@ -272,9 +272,9 @@ Delete an user
 import 'package:swagger/api.dart';
 
 var api_instance = new SecurityApi();
-var uri = http://example.com/; // String | User URI
+var uri = "http://example.com/"; // String | User URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.deleteUser(uri, authorization, acceptLanguage);
@@ -319,8 +319,8 @@ import 'package:swagger/api.dart';
 
 var api_instance = new SecurityApi();
 var authorization = authorization_example; // String | Authentication token
-var orderBy = [email=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
-var acceptLanguage = en; // String | Request accepted language
+var orderBy = ["email=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getAllProfiles(authorization, orderBy, acceptLanguage);
@@ -365,9 +365,9 @@ Get a group
 import 'package:swagger/api.dart';
 
 var api_instance = new SecurityApi();
-var uri = dev-groups:admin_group; // String | Group URI
+var uri = "dev-groups:admin_group"; // String | Group URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getGroup(uri, authorization, acceptLanguage);
@@ -414,7 +414,7 @@ import 'package:swagger/api.dart';
 var api_instance = new SecurityApi();
 var uris = []; // List<String> | Groups URIs
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getGroupsByURI(uris, authorization, acceptLanguage);
@@ -459,9 +459,9 @@ Get a profile
 import 'package:swagger/api.dart';
 
 var api_instance = new SecurityApi();
-var uri = dev-users:Admin_OpenSilex; // String | Profile URI
+var uri = "dev-users:Admin_OpenSilex"; // String | Profile URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getProfile(uri, authorization, acceptLanguage);
@@ -506,9 +506,9 @@ Get an user
 import 'package:swagger/api.dart';
 
 var api_instance = new SecurityApi();
-var uri = dev-users:Admin_OpenSilex; // String | User URI
+var uri = "dev-users:Admin_OpenSilex"; // String | User URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getUser(uri, authorization, acceptLanguage);
@@ -553,9 +553,9 @@ Get groups of an user
 import 'package:swagger/api.dart';
 
 var api_instance = new SecurityApi();
-var uri = http://example.com/; // String | User URI
+var uri = "http://example.com/"; // String | User URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getUserGroups(uri, authorization, acceptLanguage);
@@ -602,7 +602,7 @@ import 'package:swagger/api.dart';
 var api_instance = new SecurityApi();
 var uris = []; // List<String> | Users URIs
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getUsersByURI(uris, authorization, acceptLanguage);
@@ -648,11 +648,11 @@ import 'package:swagger/api.dart';
 
 var api_instance = new SecurityApi();
 var authorization = authorization_example; // String | Authentication token
-var name = .*; // String | Regex pattern for filtering list by name
-var orderBy = [email=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var name = ".*"; // String | Regex pattern for filtering list by name
+var orderBy = ["email=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchGroups(authorization, name, orderBy, page, pageSize, acceptLanguage);
@@ -701,11 +701,11 @@ import 'package:swagger/api.dart';
 
 var api_instance = new SecurityApi();
 var authorization = authorization_example; // String | Authentication token
-var name = .*; // String | Regex pattern for filtering list by name
-var orderBy = [email=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var name = ".*"; // String | Regex pattern for filtering list by name
+var orderBy = ["email=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchProfiles(authorization, name, orderBy, page, pageSize, acceptLanguage);
@@ -754,11 +754,11 @@ import 'package:swagger/api.dart';
 
 var api_instance = new SecurityApi();
 var authorization = authorization_example; // String | Authentication token
-var name = .*; // String | Regex pattern for filtering list by name or email
-var orderBy = [email=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var name = ".*"; // String | Regex pattern for filtering list by name or email
+var orderBy = ["email=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchUsers(authorization, name, orderBy, page, pageSize, acceptLanguage);
@@ -808,7 +808,7 @@ import 'package:swagger/api.dart';
 var api_instance = new SecurityApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new GroupUpdateDTO(); // GroupUpdateDTO | Group description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateGroup(authorization, body, acceptLanguage);
@@ -855,7 +855,7 @@ import 'package:swagger/api.dart';
 var api_instance = new SecurityApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new ProfileUpdateDTO(); // ProfileUpdateDTO | Profile description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateProfile(authorization, body, acceptLanguage);
@@ -902,7 +902,7 @@ import 'package:swagger/api.dart';
 var api_instance = new SecurityApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new UserUpdateDTO(); // UserUpdateDTO | User description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateUser(authorization, body, acceptLanguage);

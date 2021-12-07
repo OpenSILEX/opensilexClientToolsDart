@@ -7,6 +7,65 @@ class EventsApi {
 
   EventsApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
+  /// Count events
+  ///
+  /// 
+  Future<int> countEvents(List<String> targets,  { String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(targets == null) {
+     throw new ApiException(400, "Missing required param: targets");
+    }
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/events/count".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "targets", targets));
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          apiClient.deserialize(response.body, 'int') as int ;
+    } else {
+      return null;
+    }
+  }
   /// Create a list of event
   ///
   /// 
@@ -407,7 +466,7 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
-  /// Import a CSV file with one move and one concerned item per line
+  /// Import a CSV file with one move and one target per line
   ///
   /// 
   Future<CSVValidationDTO> importEventCSV(MultipartFile file,  { String acceptLanguage }) async {
@@ -472,7 +531,7 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
-  /// Import a CSV file with one move and one concerned item per line
+  /// Import a CSV file with one move and one target per line
   ///
   /// 
   Future<CSVValidationDTO> importMoveCSV(MultipartFile file,  { String acceptLanguage }) async {
@@ -726,7 +785,7 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
-  /// Check a CSV file with one move and one concerned item per line
+  /// Check a CSV file with one move and one target per line
   ///
   /// 
   Future<CSVValidationDTO> validateEventCSV(MultipartFile file,  { String acceptLanguage }) async {
@@ -791,7 +850,7 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
-  /// Check a CSV file with one move and one concerned item per line
+  /// Check a CSV file with one move and one target per line
   ///
   /// 
   Future<CSVValidationDTO> validateMoveCSV(MultipartFile file,  { String acceptLanguage }) async {

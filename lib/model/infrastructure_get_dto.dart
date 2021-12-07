@@ -14,22 +14,25 @@ class InfrastructureGetDTO {
   String name = null;
   
 
-  String parent = null;
+  List<NamedResourceDTOInfrastructureModel> parents = [];
   
 
-  List<String> children = [];
+  List<NamedResourceDTOInfrastructureModel> children = [];
   
 
-  List<InfrastructureTeamDTO> groups = [];
+  List<NamedResourceDTOGroupModel> groups = [];
   
 
-  List<InfrastructureFacilityGetDTO> facilities = [];
+  List<NamedResourceDTOInfrastructureFacilityModel> facilities = [];
+  
+
+  List<NamedResourceDTOExperimentModel> experiments = [];
   
   InfrastructureGetDTO();
 
   @override
   String toString() {
-    return 'InfrastructureGetDTO[uri=$uri, rdfType=$rdfType, rdfTypeName=$rdfTypeName, name=$name, parent=$parent, children=$children, groups=$groups, facilities=$facilities, ]';
+    return 'InfrastructureGetDTO[uri=$uri, rdfType=$rdfType, rdfTypeName=$rdfTypeName, name=$name, parents=$parents, children=$children, groups=$groups, facilities=$facilities, experiments=$experiments, ]';
   }
 
   InfrastructureGetDTO.fromJson(Map<String, dynamic> json) {
@@ -46,17 +49,20 @@ class InfrastructureGetDTO {
     name =
         json['name']
     ;
-    parent =
-        json['parent']
-    ;
+    parents =
+      NamedResourceDTOInfrastructureModel.listFromJson(json['parents'])
+;
     children =
-        (json['children'] as List).map((item) => item as String).toList()
-    ;
+      NamedResourceDTOInfrastructureModel.listFromJson(json['children'])
+;
     groups =
-      InfrastructureTeamDTO.listFromJson(json['groups'])
+      NamedResourceDTOGroupModel.listFromJson(json['groups'])
 ;
     facilities =
-      InfrastructureFacilityGetDTO.listFromJson(json['facilities'])
+      NamedResourceDTOInfrastructureFacilityModel.listFromJson(json['facilities'])
+;
+    experiments =
+      NamedResourceDTOExperimentModel.listFromJson(json['experiments'])
 ;
   }
 
@@ -66,10 +72,11 @@ class InfrastructureGetDTO {
       'rdf_type': rdfType,
       'rdf_type_name': rdfTypeName,
       'name': name,
-      'parent': parent,
+      'parents': parents,
       'children': children,
       'groups': groups,
-      'facilities': facilities
+      'facilities': facilities,
+      'experiments': experiments
      };
   }
 

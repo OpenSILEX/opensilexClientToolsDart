@@ -5,6 +5,9 @@ class DataCSVValidationModel {
   List<String> missingHeaders = [];
   
 
+  List<int> emptyHeaders = [];
+  
+
   Map<String, String> invalidHeaderURIs = {};
   
 
@@ -38,7 +41,22 @@ class DataCSVValidationModel {
   Map<String, List<CSVCell>> invalidDataTypeErrors = {};
   
 
+  Map<String, List<CSVCell>> invalidExperimentErrors = {};
+  
+
+  Map<String, List<CSVCell>> invalidDeviceErrors = {};
+  
+
   Map<String, List<CSVCell>> duplicatedDataErrors = {};
+  
+
+  Map<String, List<CSVCell>> duplicatedObjectErrors = {};
+  
+
+  Map<String, List<CSVCell>> duplicatedExperimentErrors = {};
+  
+
+  Map<String, List<CSVCell>> duplicatedDeviceErrors = {};
   
 
   List<String> headers = [];
@@ -71,13 +89,16 @@ class DataCSVValidationModel {
 
   @override
   String toString() {
-    return 'DataCSVValidationModel[missingHeaders=$missingHeaders, invalidHeaderURIs=$invalidHeaderURIs, datatypeErrors=$datatypeErrors, uriNotFoundErrors=$uriNotFoundErrors, invalidURIErrors=$invalidURIErrors, missingRequiredValueErrors=$missingRequiredValueErrors, invalidValueErrors=$invalidValueErrors, alreadyExistingURIErrors=$alreadyExistingURIErrors, duplicateURIErrors=$duplicateURIErrors, invalidObjectErrors=$invalidObjectErrors, invalidDateErrors=$invalidDateErrors, invalidDataTypeErrors=$invalidDataTypeErrors, duplicatedDataErrors=$duplicatedDataErrors, headers=$headers, headersLabels=$headersLabels, nbLinesImported=$nbLinesImported, nbLinesToImport=$nbLinesToImport, validationStep=$validationStep, insertionStep=$insertionStep, validCSV=$validCSV, tooLargeDataset=$tooLargeDataset, errorMessage=$errorMessage, ]';
+    return 'DataCSVValidationModel[missingHeaders=$missingHeaders, emptyHeaders=$emptyHeaders, invalidHeaderURIs=$invalidHeaderURIs, datatypeErrors=$datatypeErrors, uriNotFoundErrors=$uriNotFoundErrors, invalidURIErrors=$invalidURIErrors, missingRequiredValueErrors=$missingRequiredValueErrors, invalidValueErrors=$invalidValueErrors, alreadyExistingURIErrors=$alreadyExistingURIErrors, duplicateURIErrors=$duplicateURIErrors, invalidObjectErrors=$invalidObjectErrors, invalidDateErrors=$invalidDateErrors, invalidDataTypeErrors=$invalidDataTypeErrors, invalidExperimentErrors=$invalidExperimentErrors, invalidDeviceErrors=$invalidDeviceErrors, duplicatedDataErrors=$duplicatedDataErrors, duplicatedObjectErrors=$duplicatedObjectErrors, duplicatedExperimentErrors=$duplicatedExperimentErrors, duplicatedDeviceErrors=$duplicatedDeviceErrors, headers=$headers, headersLabels=$headersLabels, nbLinesImported=$nbLinesImported, nbLinesToImport=$nbLinesToImport, validationStep=$validationStep, insertionStep=$insertionStep, validCSV=$validCSV, tooLargeDataset=$tooLargeDataset, errorMessage=$errorMessage, ]';
   }
 
   DataCSVValidationModel.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     missingHeaders =
         (json['missingHeaders'] as List).map((item) => item as String).toList()
+    ;
+    emptyHeaders =
+        (json['emptyHeaders'] as List).map((item) => item as int).toList()
     ;
     invalidHeaderURIs =
         json['invalidHeaderURIs']
@@ -152,10 +173,45 @@ class DataCSVValidationModel {
  
       
 ;
+    invalidExperimentErrors =
+      
+ 
+      jsonDecode(json['invalidExperimentErrors'].toString())
+ 
+      
+;
+    invalidDeviceErrors =
+      
+ 
+      jsonDecode(json['invalidDeviceErrors'].toString())
+ 
+      
+;
     duplicatedDataErrors =
       
  
       jsonDecode(json['duplicatedDataErrors'].toString())
+ 
+      
+;
+    duplicatedObjectErrors =
+      
+ 
+      jsonDecode(json['duplicatedObjectErrors'].toString())
+ 
+      
+;
+    duplicatedExperimentErrors =
+      
+ 
+      jsonDecode(json['duplicatedExperimentErrors'].toString())
+ 
+      
+;
+    duplicatedDeviceErrors =
+      
+ 
+      jsonDecode(json['duplicatedDeviceErrors'].toString())
  
       
 ;
@@ -191,6 +247,7 @@ class DataCSVValidationModel {
   Map<String, dynamic> toJson() {
     return {
       'missingHeaders': missingHeaders,
+      'emptyHeaders': emptyHeaders,
       'invalidHeaderURIs': invalidHeaderURIs,
       'datatypeErrors': datatypeErrors,
       'uriNotFoundErrors': uriNotFoundErrors,
@@ -202,7 +259,12 @@ class DataCSVValidationModel {
       'invalidObjectErrors': invalidObjectErrors,
       'invalidDateErrors': invalidDateErrors,
       'invalidDataTypeErrors': invalidDataTypeErrors,
+      'invalidExperimentErrors': invalidExperimentErrors,
+      'invalidDeviceErrors': invalidDeviceErrors,
       'duplicatedDataErrors': duplicatedDataErrors,
+      'duplicatedObjectErrors': duplicatedObjectErrors,
+      'duplicatedExperimentErrors': duplicatedExperimentErrors,
+      'duplicatedDeviceErrors': duplicatedDeviceErrors,
       'headers': headers,
       'headersLabels': headersLabels,
       'nbLinesImported': nbLinesImported,

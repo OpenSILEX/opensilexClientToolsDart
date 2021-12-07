@@ -8,22 +8,22 @@ class InfrastructureFacilityUpdateDTO {
   String rdfType = null;
   
 
-  String rdfTypeName = null;
-  
-
   String name = null;
   
 
-  String organisation = null;
+  List<String> organizations = [];
   
 
   List<RDFObjectRelationDTO> relations = [];
+  
+
+  String rdfTypeName = null;
   
   InfrastructureFacilityUpdateDTO();
 
   @override
   String toString() {
-    return 'InfrastructureFacilityUpdateDTO[uri=$uri, rdfType=$rdfType, rdfTypeName=$rdfTypeName, name=$name, organisation=$organisation, relations=$relations, ]';
+    return 'InfrastructureFacilityUpdateDTO[uri=$uri, rdfType=$rdfType, name=$name, organizations=$organizations, relations=$relations, rdfTypeName=$rdfTypeName, ]';
   }
 
   InfrastructureFacilityUpdateDTO.fromJson(Map<String, dynamic> json) {
@@ -34,28 +34,28 @@ class InfrastructureFacilityUpdateDTO {
     rdfType =
         json['rdf_type']
     ;
-    rdfTypeName =
-        json['rdf_type_name']
-    ;
     name =
         json['name']
     ;
-    organisation =
-        json['organisation']
+    organizations =
+        (json['organizations'] as List).map((item) => item as String).toList()
     ;
     relations =
       RDFObjectRelationDTO.listFromJson(json['relations'])
 ;
+    rdfTypeName =
+        json['rdf_type_name']
+    ;
   }
 
   Map<String, dynamic> toJson() {
     return {
       'uri': uri,
       'rdf_type': rdfType,
-      'rdf_type_name': rdfTypeName,
       'name': name,
-      'organisation': organisation,
-      'relations': relations
+      'organizations': organizations,
+      'relations': relations,
+      'rdf_type_name': rdfTypeName
      };
   }
 

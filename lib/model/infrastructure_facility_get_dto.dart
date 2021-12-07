@@ -14,7 +14,7 @@ class InfrastructureFacilityGetDTO {
   String name = null;
   
 
-  String organisation = null;
+  List<NamedResourceDTOInfrastructureModel> organizations = [];
   
 
   List<RDFObjectRelationDTO> relations = [];
@@ -23,7 +23,7 @@ class InfrastructureFacilityGetDTO {
 
   @override
   String toString() {
-    return 'InfrastructureFacilityGetDTO[uri=$uri, rdfType=$rdfType, rdfTypeName=$rdfTypeName, name=$name, organisation=$organisation, relations=$relations, ]';
+    return 'InfrastructureFacilityGetDTO[uri=$uri, rdfType=$rdfType, rdfTypeName=$rdfTypeName, name=$name, organizations=$organizations, relations=$relations, ]';
   }
 
   InfrastructureFacilityGetDTO.fromJson(Map<String, dynamic> json) {
@@ -40,9 +40,9 @@ class InfrastructureFacilityGetDTO {
     name =
         json['name']
     ;
-    organisation =
-        json['organisation']
-    ;
+    organizations =
+      NamedResourceDTOInfrastructureModel.listFromJson(json['organizations'])
+;
     relations =
       RDFObjectRelationDTO.listFromJson(json['relations'])
 ;
@@ -54,7 +54,7 @@ class InfrastructureFacilityGetDTO {
       'rdf_type': rdfType,
       'rdf_type_name': rdfTypeName,
       'name': name,
-      'organisation': organisation,
+      'organizations': organizations,
       'relations': relations
      };
   }

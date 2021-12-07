@@ -31,8 +31,8 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AnnotationsApi();
 var authorization = authorization_example; // String | Authentication token
-var target = http://www.opensilex.org/demo/2018/o18000076; // String | Target URI
-var acceptLanguage = en; // String | Request accepted language
+var target = "http://www.opensilex.org/demo/2018/o18000076"; // String | Target URI
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.countAnnotations(authorization, target, acceptLanguage);
@@ -79,7 +79,7 @@ import 'package:swagger/api.dart';
 var api_instance = new AnnotationsApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new AnnotationCreationDTO(); // AnnotationCreationDTO | 
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.createAnnotation(authorization, body, acceptLanguage);
@@ -124,9 +124,9 @@ Delete an annotation
 import 'package:swagger/api.dart';
 
 var api_instance = new AnnotationsApi();
-var uri = http://www.opensilex.org/annotations/12590c87-1c34-426b-a231-beb7acb33415; // String | Annotation URI
+var uri = "http://www.opensilex.org/annotations/12590c87-1c34-426b-a231-beb7acb33415"; // String | Annotation URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.deleteAnnotation(uri, authorization, acceptLanguage);
@@ -171,9 +171,9 @@ Get an annotation
 import 'package:swagger/api.dart';
 
 var api_instance = new AnnotationsApi();
-var uri = http://www.opensilex.org/annotations/12590c87-1c34-426b-a231-beb7acb33415; // String | Event URI
+var uri = "http://www.opensilex.org/annotations/12590c87-1c34-426b-a231-beb7acb33415"; // String | Event URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getAnnotation(uri, authorization, acceptLanguage);
@@ -219,14 +219,14 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AnnotationsApi();
 var authorization = authorization_example; // String | Authentication token
-var description = The pest attack; // String | Description (regex)
-var target = http://www.opensilex.org/demo/2018/o18000076; // String | Target URI
-var motivation = http://www.w3.org/ns/oa#describing; // String | Motivation URI
-var author = http://opensilex.dev/users#Admin.OpenSilex; // String | Author URI
-var orderBy = [name=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var description = "The pest attack"; // String | Description (regex)
+var target = "http://www.opensilex.org/demo/2018/o18000076"; // String | Target URI
+var motivation = "http://www.w3.org/ns/oa#describing"; // String | Motivation URI
+var author = "http://opensilex.dev/users#Admin.OpenSilex"; // String | Author URI
+var orderBy = ["author=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchAnnotations(authorization, description, target, motivation, author, orderBy, page, pageSize, acceptLanguage);
@@ -278,11 +278,11 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AnnotationsApi();
 var authorization = authorization_example; // String | Authentication token
-var name = describing; // String | Motivation name regex pattern
-var orderBy = [name=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var name = "describing"; // String | Motivation name regex pattern
+var orderBy = ["uri=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchMotivations(authorization, name, orderBy, page, pageSize, acceptLanguage);
@@ -332,7 +332,7 @@ import 'package:swagger/api.dart';
 var api_instance = new AnnotationsApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new AnnotationUpdateDTO(); // AnnotationUpdateDTO | Annotation description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateAnnotation(authorization, body, acceptLanguage);

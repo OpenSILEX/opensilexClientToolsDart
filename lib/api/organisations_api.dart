@@ -117,61 +117,6 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
-  /// Create a team
-  ///
-  /// 
-  Future<ObjectUriResponse> createInfrastructureTeam( { InfrastructureTeamDTO body, String acceptLanguage }) async {
-    Object postBody = body;
-
-    // verify required params are set
-    String authorization = apiClient.token;
-    if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
-    }
-
-    // create path and map variables
-    String path = "/core/teams".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
-
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
-    } else {
-      return null;
-    }
-  }
   /// Delete an organisation
   ///
   /// 
@@ -247,64 +192,6 @@ headerParams["Accept-Language"] = acceptLanguage;
 
     // create path and map variables
     String path = "/core/facilities/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
-
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'DELETE',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
-    } else {
-      return null;
-    }
-  }
-  /// Delete a team
-  ///
-  /// 
-  Future<ObjectUriResponse> deleteInfrastructureTeam(String uri,  { String acceptLanguage }) async {
-    Object postBody = null;
-
-    // verify required params are set
-    String authorization = apiClient.token;
-    if(uri == null) {
-     throw new ApiException(400, "Missing required param: uri");
-    }
-    if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
-    }
-
-    // create path and map variables
-    String path = "/core/teams/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -576,68 +463,10 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
-  /// Get a team
-  ///
-  /// 
-  Future<InfrastructureTeamDTO> getInfrastructureTeam(String uri,  { String acceptLanguage }) async {
-    Object postBody = null;
-
-    // verify required params are set
-    String authorization = apiClient.token;
-    if(uri == null) {
-     throw new ApiException(400, "Missing required param: uri");
-    }
-    if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
-    }
-
-    // create path and map variables
-    String path = "/core/teams/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
-
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'InfrastructureTeamDTO') as InfrastructureTeamDTO ;
-    } else {
-      return null;
-    }
-  }
   /// Search facilities
   ///
   /// 
-  Future<List<InfrastructureFacilityNamedDTO>> searchInfrastructureFacilities( { String pattern, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
+  Future<List<InfrastructureFacilityNamedDTO>> searchInfrastructureFacilities( { String pattern, List<String> organizations, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -655,6 +484,9 @@ headerParams["Accept-Language"] = acceptLanguage;
     Map<String, String> formParams = {};
     if(pattern != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "pattern", pattern));
+    }
+    if(organizations != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "organizations", organizations));
     }
     if(orderBy != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("multi", "order_by", orderBy));
@@ -704,7 +536,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Search organisations
   ///
   /// 
-  Future<List<ResourceTreeDTO>> searchInfrastructuresTree( { String pattern, List<String> organisationUris, String acceptLanguage }) async {
+  Future<List<ResourceDagDTO>> searchInfrastructures( { String pattern, List<String> organisationUris, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -757,7 +589,7 @@ headerParams["Accept-Language"] = acceptLanguage;
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
       return 
-        (apiClient.deserialize(response.body, 'List<ResourceTreeDTO>') as List).map((item) => item as ResourceTreeDTO).toList();
+        (apiClient.deserialize(response.body, 'List<ResourceDagDTO>') as List).map((item) => item as ResourceDagDTO).toList();
     } else {
       return null;
     }
@@ -831,61 +663,6 @@ headerParams["Accept-Language"] = acceptLanguage;
 
     // create path and map variables
     String path = "/core/facilities".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
-
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'PUT',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
-    } else {
-      return null;
-    }
-  }
-  /// Update a team
-  ///
-  /// 
-  Future<ObjectUriResponse> updateInfrastructureTeam( { InfrastructureTeamDTO body, String acceptLanguage }) async {
-    Object postBody = body;
-
-    // verify required params are set
-    String authorization = apiClient.token;
-    if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
-    }
-
-    // create path and map variables
-    String path = "/core/teams".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];

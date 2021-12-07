@@ -7,8 +7,8 @@ class DataGetDTO {
 /* date or datetime */
   String date = null;
   
-/* scientific objects URIs on which the data have been collected */
-  List<String> scientificObjects = [];
+/* target URI on which the data have been collected (e.g. a scientific object) */
+  String target = null;
   
 /* variable URI */
   String variable = null;
@@ -23,13 +23,16 @@ class DataGetDTO {
   DataProvenanceModel provenance = null;
   
 /* key-value system to store additional information that can be used to query data */
-  Map<String, Object> metadata = {};
+  Map<String, dynamic> metadata = {};
+  
+/* list of repetition values */
+  List<dynamic> rawData = [];
   
   DataGetDTO();
 
   @override
   String toString() {
-    return 'DataGetDTO[uri=$uri, date=$date, scientificObjects=$scientificObjects, variable=$variable, value=$value, confidence=$confidence, provenance=$provenance, metadata=$metadata, ]';
+    return 'DataGetDTO[uri=$uri, date=$date, target=$target, variable=$variable, value=$value, confidence=$confidence, provenance=$provenance, metadata=$metadata, rawData=$rawData, ]';
   }
 
   DataGetDTO.fromJson(Map<String, dynamic> json) {
@@ -40,8 +43,8 @@ class DataGetDTO {
     date =
         json['date']
     ;
-    scientificObjects =
-        (json['scientific_objects'] as List).map((item) => item as String).toList()
+    target =
+        json['target']
     ;
     variable =
         json['variable']
@@ -70,18 +73,22 @@ class DataGetDTO {
  
       
 ;
+    rawData =
+      json['raw_data'] as List
+;
   }
 
   Map<String, dynamic> toJson() {
     return {
       'uri': uri,
       'date': date,
-      'scientific_objects': scientificObjects,
+      'target': target,
       'variable': variable,
       'value': value,
       'confidence': confidence,
       'provenance': provenance,
-      'metadata': metadata
+      'metadata': metadata,
+      'raw_data': rawData
      };
   }
 

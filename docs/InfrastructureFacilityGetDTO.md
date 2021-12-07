@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **rdfType** | **String** |  | [optional] [default to null]
 **rdfTypeName** | **String** |  | [optional] [default to null]
 **name** | **String** |  | [optional] [default to null]
-**organisation** | **String** |  | [default to null]
+**organizations** | [**List&lt;NamedResourceDTOInfrastructureModel&gt;**](NamedResourceDTOInfrastructureModel.md) |  | [default to []]
 **relations** | [**List&lt;RDFObjectRelationDTO&gt;**](RDFObjectRelationDTO.md) |  | [optional] [default to []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

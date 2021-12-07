@@ -24,7 +24,7 @@ Method | HTTP request | Description
 [**searchScientificObjects**](ScientificObjectsApi.md#searchScientificObjects) | **GET** /core/scientific_objects | Search list of scientific objects
 [**searchScientificObjectsWithGeometryListByUris**](ScientificObjectsApi.md#searchScientificObjectsWithGeometryListByUris) | **GET** /core/scientific_objects/geometry | Get scientific objet list with geometry of a given experiment URI
 [**updateScientificObject**](ScientificObjectsApi.md#updateScientificObject) | **PUT** /core/scientific_objects | Update a scientific object for the given experiment
-[**validateCSV1**](ScientificObjectsApi.md#validateCSV1) | **POST** /core/scientific_objects/import_validation | Validate a CSV file for the given experiment URI and scientific object type.
+[**validateCSV2**](ScientificObjectsApi.md#validateCSV2) | **POST** /core/scientific_objects/import_validation | Validate a CSV file for the given experiment URI and scientific object type.
 
 
 # **createScientificObject**
@@ -41,7 +41,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ScientificObjectsApi();
 var body = new ScientificObjectCreationDTO(); // ScientificObjectCreationDTO | Scientific object description
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.createScientificObject(body, authorization, acceptLanguage);
@@ -86,10 +86,10 @@ Delete a scientific object
 import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
-var uri = http://example.com/; // String | scientific object URI
+var uri = "http://opensilex.org/id/Plot 12"; // String | scientific object URI
 var authorization = authorization_example; // String | Authentication token
-var experiment = http://example.com/; // String | Experiment URI
-var acceptLanguage = en; // String | Request accepted language
+var experiment = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.deleteScientificObject(uri, authorization, experiment, acceptLanguage);
@@ -136,8 +136,8 @@ import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
 var authorization = authorization_example; // String | Authentication token
-var body = new ScientificObjectCsvExportDTO(); // ScientificObjectCsvExportDTO | CSV export configuration
-var acceptLanguage = en; // String | Request accepted language
+var body = new ScientificObjectSearchDTO(); // ScientificObjectSearchDTO | CSV export configuration
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.exportCSV(authorization, body, acceptLanguage);
@@ -151,7 +151,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**| Authentication token | 
- **body** | [**ScientificObjectCsvExportDTO**](ScientificObjectCsvExportDTO.md)| CSV export configuration | [optional] 
+ **body** | [**ScientificObjectSearchDTO**](ScientificObjectSearchDTO.md)| CSV export configuration | [optional] 
  **acceptLanguage** | **String**| Request accepted language | [optional] 
 
 ### Return type
@@ -181,9 +181,9 @@ Get provenances of datafiles linked to this scientific object
 import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
-var uri = http://example.com/; // String | Scientific Object URI
+var uri = "http://opensilex.org/id/Plot 12"; // String | Scientific Object URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getScientificObjectDataFilesProvenances(uri, authorization, acceptLanguage);
@@ -228,9 +228,9 @@ Get provenances of data that have been measured on this scientific object
 import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
-var uri = http://example.com/; // String | Scientific Object URI
+var uri = "http://opensilex.org/id/Plot 12"; // String | Scientific Object URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getScientificObjectDataProvenances(uri, authorization, acceptLanguage);
@@ -275,10 +275,10 @@ Get scientific object detail
 import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
-var uri = http://opensilex.org/set/scientific-objects/so-1357dz_pg_34zm4384wwveg_323_37arch2017-03-30; // String | scientific object URI
+var uri = "http://opensilex.org/set/scientific-objects/so-1357dz_pg_34zm4384wwveg_323_37arch2017-03-30"; // String | scientific object URI
 var authorization = authorization_example; // String | Authentication token
-var experiment = http://opensilex.org/set/experiments/21ik1_cims-on; // String | Experiment URI
-var acceptLanguage = en; // String | Request accepted language
+var experiment = "http://opensilex.org/set/experiments/21ik1_cims-on"; // String | Experiment URI
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getScientificObjectDetail(uri, authorization, experiment, acceptLanguage);
@@ -324,9 +324,9 @@ Get scientific object detail for each experiments, a null value for experiment i
 import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
-var uri = http://example.com/; // String | scientific object URI
+var uri = "http://opensilex.org/id/Plot 12"; // String | scientific object URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getScientificObjectDetailByExperiments(uri, authorization, acceptLanguage);
@@ -371,9 +371,9 @@ Get variables measured on this scientific object
 import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
-var uri = http://example.com/; // String | Scientific Object URI
+var uri = "http://opensilex.org/id/Plot 12"; // String | Scientific Object URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getScientificObjectVariables(uri, authorization, acceptLanguage);
@@ -407,7 +407,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getScientificObjectsChildren**
-> List<ScientificObjectNodeWithChildrenDTO> getScientificObjectsChildren(authorization, parent, experiment, facility, orderBy, page, pageSize, acceptLanguage)
+> List<ScientificObjectNodeWithChildrenDTO> getScientificObjectsChildren(authorization, parent, experiment, rdfTypes, name, factorLevels, facility, orderBy, page, pageSize, acceptLanguage)
 
 Get list of scientific object children
 
@@ -419,16 +419,19 @@ import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
 var authorization = authorization_example; // String | Authentication token
-var parent = http://example.com/; // String | Parent object URI
-var experiment = http://example.com/; // String | Experiment URI
-var facility = diaphen:serre-2; // String | Facility
-var orderBy = [name=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var parent = "http://opensilex.org/id/Plot 12"; // String | Parent object URI
+var experiment = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
+var rdfTypes = ["vocabulary:Plant"]; // List<String> | RDF type filter
+var name = ".*"; // String | Regex pattern for filtering by name
+var factorLevels = ["vocabulary:IrrigationStress"]; // List<String> | Factor levels URI
+var facility = "diaphen:serre-2"; // String | Facility
+var orderBy = ["name=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
-    var result = api_instance.getScientificObjectsChildren(authorization, parent, experiment, facility, orderBy, page, pageSize, acceptLanguage);
+    var result = api_instance.getScientificObjectsChildren(authorization, parent, experiment, rdfTypes, name, factorLevels, facility, orderBy, page, pageSize, acceptLanguage);
     print(result);
 } catch (e) {
     print("Exception when calling ScientificObjectsApi->getScientificObjectsChildren: $e\n");
@@ -442,6 +445,9 @@ Name | Type | Description  | Notes
  **authorization** | **String**| Authentication token | 
  **parent** | **String**| Parent object URI | [optional] 
  **experiment** | **String**| Experiment URI | [optional] 
+ **rdfTypes** | [**List&lt;String&gt;**](String.md)| RDF type filter | [optional] 
+ **name** | **String**| Regex pattern for filtering by name | [optional] [default to .*]
+ **factorLevels** | [**List&lt;String&gt;**](String.md)| Factor levels URI | [optional] 
  **facility** | **String**| Facility | [optional] 
  **orderBy** | [**List&lt;String&gt;**](String.md)| List of fields to sort as an array of fieldName&#x3D;asc|desc | [optional] 
  **page** | **int**| Page number | [optional] [default to 0]
@@ -476,9 +482,9 @@ import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
 var authorization = authorization_example; // String | Authentication token
-var experiment = http://example.com/; // String | Experiment URI
+var experiment = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
 var body = [new List&lt;String&gt;()]; // List<String> | Scientific object uris
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getScientificObjectsListByUris(authorization, experiment, body, acceptLanguage);
@@ -525,8 +531,8 @@ import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
 var authorization = authorization_example; // String | Authentication token
-var experiment = http://example.com/; // String | Experiment URI
-var acceptLanguage = en; // String | Request accepted language
+var experiment = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getUsedTypes(authorization, experiment, acceptLanguage);
@@ -574,7 +580,7 @@ var api_instance = new ScientificObjectsApi();
 var description = description_example; // String | File description with metadata
 var file = /path/to/file.txt; // MultipartFile | Data file
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.importCSV(description, file, authorization, acceptLanguage);
@@ -621,19 +627,19 @@ import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
 var authorization = authorization_example; // String | Authentication token
-var experiment = http://example.com/; // String | Experiment URI
-var rdfTypes = [vocabulary:Plant]; // List<String> | RDF type filter
-var name = .*; // String | Regex pattern for filtering by name
-var parent = http://example.com/; // String | Parent URI
-var germplasm = http://aims.fao.org/aos/agrovoc/c_1066; // String | Germplasm URI
-var factorLevels = [vocabulary:IrrigationStress]; // List<String> | Factor levels URI
-var facility = diaphen:serre-2; // String | Facility
+var experiment = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
+var rdfTypes = ["vocabulary:Plant"]; // List<String> | RDF type filter
+var name = ".*"; // String | Regex pattern for filtering by name
+var parent = "http://opensilex.org/id/Plot 12"; // String | Parent URI
+var germplasm = "http://aims.fao.org/aos/agrovoc/c_1066"; // String | Germplasm URI
+var factorLevels = ["vocabulary:IrrigationStress"]; // List<String> | Factor levels URI
+var facility = "diaphen:serre-2"; // String | Facility
 var existenceDate = 2013-10-20; // DateTime | Date to filter object existence
 var creationDate = 2013-10-20; // DateTime | Date to filter object creation
-var orderBy = [name=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var orderBy = ["uri=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchScientificObjects(authorization, experiment, rdfTypes, name, parent, germplasm, factorLevels, facility, existenceDate, creationDate, orderBy, page, pageSize, acceptLanguage);
@@ -678,7 +684,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchScientificObjectsWithGeometryListByUris**
-> List<ScientificObjectNodeDTO> searchScientificObjectsWithGeometryListByUris(experiment, authorization, acceptLanguage)
+> List<ScientificObjectNodeDTO> searchScientificObjectsWithGeometryListByUris(experiment, authorization, startDate, endDate, acceptLanguage)
 
 Get scientific objet list with geometry of a given experiment URI
 
@@ -689,12 +695,14 @@ Get scientific objet list with geometry of a given experiment URI
 import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
-var experiment = http://example.com/; // String | Context URI
+var experiment = "http://example.com/"; // String | Context URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var startDate = "2020-08-21"; // String | Search by minimal date
+var endDate = "2020-08-22"; // String | Search by maximal date
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
-    var result = api_instance.searchScientificObjectsWithGeometryListByUris(experiment, authorization, acceptLanguage);
+    var result = api_instance.searchScientificObjectsWithGeometryListByUris(experiment, authorization, startDate, endDate, acceptLanguage);
     print(result);
 } catch (e) {
     print("Exception when calling ScientificObjectsApi->searchScientificObjectsWithGeometryListByUris: $e\n");
@@ -707,6 +715,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **experiment** | **String**| Context URI | 
  **authorization** | **String**| Authentication token | 
+ **startDate** | **String**| Search by minimal date | [optional] 
+ **endDate** | **String**| Search by maximal date | [optional] 
  **acceptLanguage** | **String**| Request accepted language | [optional] 
 
 ### Return type
@@ -736,9 +746,9 @@ Update a scientific object for the given experiment
 import 'package:swagger/api.dart';
 
 var api_instance = new ScientificObjectsApi();
-var body = new ScientificObjectCreationDTO(); // ScientificObjectCreationDTO | Scientific object description
+var body = new ScientificObjectUpdateDTO(); // ScientificObjectUpdateDTO | Scientific object description
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateScientificObject(body, authorization, acceptLanguage);
@@ -752,7 +762,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ScientificObjectCreationDTO**](ScientificObjectCreationDTO.md)| Scientific object description | 
+ **body** | [**ScientificObjectUpdateDTO**](ScientificObjectUpdateDTO.md)| Scientific object description | 
  **authorization** | **String**| Authentication token | 
  **acceptLanguage** | **String**| Request accepted language | [optional] 
 
@@ -771,8 +781,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **validateCSV1**
-> CSVValidationDTO validateCSV1(description, file, authorization, acceptLanguage)
+# **validateCSV2**
+> CSVValidationDTO validateCSV2(description, file, authorization, acceptLanguage)
 
 Validate a CSV file for the given experiment URI and scientific object type.
 
@@ -786,13 +796,13 @@ var api_instance = new ScientificObjectsApi();
 var description = description_example; // String | File description with metadata
 var file = /path/to/file.txt; // MultipartFile | Data file
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
-    var result = api_instance.validateCSV1(description, file, authorization, acceptLanguage);
+    var result = api_instance.validateCSV2(description, file, authorization, acceptLanguage);
     print(result);
 } catch (e) {
-    print("Exception when calling ScientificObjectsApi->validateCSV1: $e\n");
+    print("Exception when calling ScientificObjectsApi->validateCSV2: $e\n");
 }
 ```
 

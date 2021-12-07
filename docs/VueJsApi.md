@@ -29,7 +29,7 @@ Return the current configuration
 import 'package:swagger/api.dart';
 
 var api_instance = new VueJsApi();
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getConfig(acceptLanguage);
@@ -72,7 +72,7 @@ Return the front Vue JS extension file to include
 import 'package:swagger/api.dart';
 
 var api_instance = new VueJsApi();
-var module = opensilex; // String | Module identifier
+var module = "opensilex"; // String | Module identifier
 
 try { 
     var result = api_instance.getExtension(module);
@@ -115,7 +115,7 @@ Return the front Vue JS extension css file to include
 import 'package:swagger/api.dart';
 
 var api_instance = new VueJsApi();
-var module = opensilex; // String | Module identifier
+var module = "opensilex"; // String | Module identifier
 
 try { 
     var result = api_instance.getExtensionStyle(module);
@@ -158,8 +158,8 @@ Return the front Vue JS theme configuration
 import 'package:swagger/api.dart';
 
 var api_instance = new VueJsApi();
-var moduleId = opensilex-front; // String | Module identifier
-var themeId = phis; // String | Theme identifier
+var moduleId = "opensilex-front"; // String | Module identifier
+var themeId = "phis"; // String | Theme identifier
 
 try { 
     var result = api_instance.getThemeConfig(moduleId, themeId);
@@ -203,8 +203,8 @@ Return the theme css file
 import 'package:swagger/api.dart';
 
 var api_instance = new VueJsApi();
-var moduleId = opensilex-front; // String | Module identifier
-var themeId = phis; // String | Theme identifier
+var moduleId = "opensilex-front"; // String | Module identifier
+var themeId = "phis"; // String | Theme identifier
 
 try { 
     var result = api_instance.getThemeCss(moduleId, themeId);
@@ -248,9 +248,9 @@ Return the theme requested resource
 import 'package:swagger/api.dart';
 
 var api_instance = new VueJsApi();
-var moduleId = opensilex-front; // String | Module identifier
-var themeId = phis; // String | Theme identifier
-var filePath = images/opensilex.png; // String | Resource path
+var moduleId = "opensilex-front"; // String | Module identifier
+var themeId = "phis"; // String | Theme identifier
+var filePath = "images/opensilex.png"; // String | Resource path
 
 try { 
     var result = api_instance.getThemeResource(moduleId, themeId, filePath);

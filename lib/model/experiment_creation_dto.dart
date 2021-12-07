@@ -29,6 +29,9 @@ class ExperimentCreationDTO {
   List<String> organisations = [];
   
 
+  List<String> facilities = [];
+  
+
   List<String> projects = [];
   
 
@@ -50,7 +53,7 @@ class ExperimentCreationDTO {
 
   @override
   String toString() {
-    return 'ExperimentCreationDTO[uri=$uri, name=$name, startDate=$startDate, endDate=$endDate, description=$description, objective=$objective, species=$species, variables=$variables, organisations=$organisations, projects=$projects, scientificSupervisors=$scientificSupervisors, technicalSupervisors=$technicalSupervisors, groups=$groups, factors=$factors, isPublic=$isPublic, ]';
+    return 'ExperimentCreationDTO[uri=$uri, name=$name, startDate=$startDate, endDate=$endDate, description=$description, objective=$objective, species=$species, variables=$variables, organisations=$organisations, facilities=$facilities, projects=$projects, scientificSupervisors=$scientificSupervisors, technicalSupervisors=$technicalSupervisors, groups=$groups, factors=$factors, isPublic=$isPublic, ]';
   }
 
   ExperimentCreationDTO.fromJson(Map<String, dynamic> json) {
@@ -90,6 +93,9 @@ class ExperimentCreationDTO {
     organisations =
         (json['organisations'] as List).map((item) => item as String).toList()
     ;
+    facilities =
+        (json['facilities'] as List).map((item) => item as String).toList()
+    ;
     projects =
         (json['projects'] as List).map((item) => item as String).toList()
     ;
@@ -121,6 +127,7 @@ class ExperimentCreationDTO {
       'species': species,
       'variables': variables,
       'organisations': organisations,
+      'facilities': facilities,
       'projects': projects,
       'scientific_supervisors': scientificSupervisors,
       'technical_supervisors': technicalSupervisors,

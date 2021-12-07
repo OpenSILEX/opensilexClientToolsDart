@@ -11,8 +11,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**authenticate**](AuthenticationApi.md#authenticate) | **POST** /security/authenticate | Authenticate a user and return an access token
 [**authenticateOpenID**](AuthenticationApi.md#authenticateOpenID) | **GET** /security/openid | Authenticate a user and return an access token
+[**forgotPassword**](AuthenticationApi.md#forgotPassword) | **POST** /security/forgot-password | Send an e-mail confirmation
 [**getCredentialsGroups**](AuthenticationApi.md#getCredentialsGroups) | **GET** /security/credentials | Get list of existing credentials indexed by Swagger @API concepts in the application
 [**logout**](AuthenticationApi.md#logout) | **DELETE** /security/logout | Logout by discarding a user token
+[**renewPassword**](AuthenticationApi.md#renewPassword) | **PUT** /security/renew-password | Update user password
 [**renewToken**](AuthenticationApi.md#renewToken) | **PUT** /security/renew-token | Send back a new token if the provided one is still valid
 
 
@@ -102,6 +104,48 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **forgotPassword**
+> forgotPassword(identifier)
+
+Send an e-mail confirmation
+
+
+
+### Example 
+```dart
+import 'package:swagger/api.dart';
+
+var api_instance = new AuthenticationApi();
+var identifier = identifier_example; // String | User e-mail or uri
+
+try { 
+    api_instance.forgotPassword(identifier);
+} catch (e) {
+    print("Exception when calling AuthenticationApi->forgotPassword: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**| User e-mail or uri | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getCredentialsGroups**
 > List<CredentialsGroupDTO> getCredentialsGroups()
 
@@ -154,7 +198,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AuthenticationApi();
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.logout(authorization, acceptLanguage);
@@ -185,6 +229,53 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **renewPassword**
+> TokenGetDTO renewPassword(renewToken, checkOnly, password)
+
+Update user password
+
+
+
+### Example 
+```dart
+import 'package:swagger/api.dart';
+
+var api_instance = new AuthenticationApi();
+var renewToken = renewToken_example; // String | User renew token
+var checkOnly = false; // bool | Check only renew token
+var password = password_example; // String | User password
+
+try { 
+    var result = api_instance.renewPassword(renewToken, checkOnly, password);
+    print(result);
+} catch (e) {
+    print("Exception when calling AuthenticationApi->renewPassword: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **renewToken** | **String**| User renew token | 
+ **checkOnly** | **bool**| Check only renew token | [optional] [default to false]
+ **password** | **String**| User password | [optional] 
+
+### Return type
+
+[**TokenGetDTO**](TokenGetDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **renewToken**
 > TokenGetDTO renewToken(authorization, acceptLanguage)
 
@@ -198,7 +289,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AuthenticationApi();
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.renewToken(authorization, acceptLanguage);

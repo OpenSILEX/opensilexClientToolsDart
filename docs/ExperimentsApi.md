@@ -11,19 +11,19 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createExperiment**](ExperimentsApi.md#createExperiment) | **POST** /core/experiments | Add an experiment
 [**deleteExperiment**](ExperimentsApi.md#deleteExperiment) | **DELETE** /core/experiments/{uri} | Delete an experiment
-[**exportExperimentDataList**](ExperimentsApi.md#exportExperimentDataList) | **GET** /core/experiments/{uri}/data/export | export data
+[**exportExperimentDataList**](ExperimentsApi.md#exportExperimentDataList) | **GET** /core/experiments/{uri}/data/export | export experiment data
 [**getAvailableFacilities**](ExperimentsApi.md#getAvailableFacilities) | **GET** /core/experiments/{uri}/available_facilities | Get facilities available for an experiment
 [**getAvailableFactors**](ExperimentsApi.md#getAvailableFactors) | **GET** /core/experiments/{uri}/factors | Get factors with their levels associated to an experiment
 [**getAvailableSpecies**](ExperimentsApi.md#getAvailableSpecies) | **GET** /core/experiments/{uri}/species | Get species present in an experiment
 [**getExperiment**](ExperimentsApi.md#getExperiment) | **GET** /core/experiments/{uri} | Get an experiment
-[**getFacilities**](ExperimentsApi.md#getFacilities) | **GET** /core/experiments/{uri}/facilities | Get facilities involved in an experiment
-[**getUsedVariables**](ExperimentsApi.md#getUsedVariables) | **GET** /core/experiments/{uri}/variables | Get variables involved in an experiment
-[**importCSVData**](ExperimentsApi.md#importCSVData) | **POST** /core/experiments/{uri}/data/import | Import a CSV file for the given experiment URI and scientific object type.
+[**getExperimentsByURIs**](ExperimentsApi.md#getExperimentsByURIs) | **GET** /core/experiments/by_uris | Get experiments URIs
+[**getUsedVariables1**](ExperimentsApi.md#getUsedVariables1) | **GET** /core/experiments/{uri}/variables | Get variables involved in an experiment
+[**importCSVData1**](ExperimentsApi.md#importCSVData1) | **POST** /core/experiments/{uri}/data/import | Import a CSV file for the given experiment URI and scientific object type.
 [**searchExperimentDataList**](ExperimentsApi.md#searchExperimentDataList) | **GET** /core/experiments/{uri}/data | Search data
 [**searchExperimentProvenances**](ExperimentsApi.md#searchExperimentProvenances) | **GET** /core/experiments/{uri}/provenances | Get provenances involved in an experiment
 [**searchExperiments**](ExperimentsApi.md#searchExperiments) | **GET** /core/experiments | Search experiments
 [**updateExperiment**](ExperimentsApi.md#updateExperiment) | **PUT** /core/experiments | Update an experiment
-[**validateCSV**](ExperimentsApi.md#validateCSV) | **POST** /core/experiments/{uri}/data/import_validation | Import a CSV file for the given experiment URI and scientific object type.
+[**validateCSV1**](ExperimentsApi.md#validateCSV1) | **POST** /core/experiments/{uri}/data/import_validation | Import a CSV file for the given experiment URI and scientific object type.
 
 
 # **createExperiment**
@@ -40,7 +40,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ExperimentsApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new ExperimentCreationDTO(); // ExperimentCreationDTO | Experiment description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.createExperiment(authorization, body, acceptLanguage);
@@ -85,9 +85,9 @@ Delete an experiment
 import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
-var uri = http://opensilex/set/experiments/ZA17; // String | Experiment URI
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.deleteExperiment(uri, authorization, acceptLanguage);
@@ -123,7 +123,7 @@ No authorization required
 # **exportExperimentDataList**
 > exportExperimentDataList(uri, authorization, startDate, endDate, timezone, scientificObjects, variables, minConfidence, maxConfidence, provenance, metadata, mode, orderBy, page, pageSize, acceptLanguage)
 
-export data
+export experiment data
 
 
 
@@ -132,23 +132,22 @@ export data
 import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
-var uri = http://opensilex/set/experiments/ZA17; // String | Experiment URI
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
 var authorization = authorization_example; // String | Authentication token
-var startDate = 2020-08-21T00:00:00+01:00; // String | Search by minimal date
-var endDate = 2020-09-21T00:00:00+01:00; // String | Search by maximal date
-var timezone = Europe/Paris; // String | Precise the timezone corresponding to the given dates
-var scientificObjects = [http://opensilex.dev/opensilex/2020/o20000345]; // List<String> | Search by objects
-var variables = [http://opensilex.dev/variable#variable.2020-08-21_11-21-23entity6_method6_quality6_unit6]; // List<String> | Search by variables
+var startDate = "2020-08-21T00:00:00+01:00"; // String | Search by minimal date
+var endDate = "2020-09-21T00:00:00+01:00"; // String | Search by maximal date
+var timezone = "Europe/Paris"; // String | Precise the timezone corresponding to the given dates
+var scientificObjects = ["http://opensilex.dev/opensilex/2020/o20000345"]; // List<String> | Search by objects
+var variables = ["http://opensilex.dev/variable#variable.2020-08-21_11-21-23entity6_method6_quality6_unit6"]; // List<String> | Search by variables
 var minConfidence = 0.5; // double | Search by minimal confidence index
 var maxConfidence = 0.5; // double | Search by maximal confidence index
-var provenance = http://opensilex.dev/provenance/1598001689415; // String | Search by provenance uri
-var metadata = { "LabelView" : "side90",
-"paramA" : "90"}; // String | Search by metadata
-var mode = wide; // String | Format wide or long
-var orderBy = [date=desc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var provenance = "http://opensilex.dev/provenance/1598001689415"; // String | Search by provenance uri
+var metadata = "{ \"LabelView\" : \"side90\",\n\"paramA\" : \"90\"}"; // String | Search by metadata
+var mode = "wide"; // String | Format wide or long
+var orderBy = ["date=desc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.exportExperimentDataList(uri, authorization, startDate, endDate, timezone, scientificObjects, variables, minConfidence, maxConfidence, provenance, metadata, mode, orderBy, page, pageSize, acceptLanguage);
@@ -205,9 +204,9 @@ Get facilities available for an experiment
 import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
-var uri = http://opensilex/set/experiments/ZA17; // String | Experiment URI
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getAvailableFacilities(uri, authorization, acceptLanguage);
@@ -252,9 +251,9 @@ Get factors with their levels associated to an experiment
 import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
-var uri = http://opensilex/set/experiments/ZA17; // String | Experiment URI
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getAvailableFactors(uri, authorization, acceptLanguage);
@@ -299,9 +298,9 @@ Get species present in an experiment
 import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
-var uri = http://opensilex/set/experiments/ZA17; // String | Experiment URI
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getAvailableSpecies(uri, authorization, acceptLanguage);
@@ -346,9 +345,9 @@ Get an experiment
 import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
-var uri = http://opensilex.dev/set/experiments/ZA17; // String | Experiment URI
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getExperiment(uri, authorization, acceptLanguage);
@@ -381,10 +380,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getFacilities**
-> List<InfrastructureFacilityGetDTO> getFacilities(uri, authorization, acceptLanguage)
+# **getExperimentsByURIs**
+> List<ExperimentGetListDTO> getExperimentsByURIs(uris, authorization, acceptLanguage)
 
-Get facilities involved in an experiment
+Get experiments URIs
 
 
 
@@ -393,15 +392,15 @@ Get facilities involved in an experiment
 import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
-var uri = http://opensilex/set/experiments/ZA17; // String | Experiment URI
+var uris = []; // List<String> | Experiments URIs
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
-    var result = api_instance.getFacilities(uri, authorization, acceptLanguage);
+    var result = api_instance.getExperimentsByURIs(uris, authorization, acceptLanguage);
     print(result);
 } catch (e) {
-    print("Exception when calling ExperimentsApi->getFacilities: $e\n");
+    print("Exception when calling ExperimentsApi->getExperimentsByURIs: $e\n");
 }
 ```
 
@@ -409,13 +408,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uri** | **String**| Experiment URI | 
+ **uris** | [**List&lt;String&gt;**](String.md)| Experiments URIs | 
  **authorization** | **String**| Authentication token | 
  **acceptLanguage** | **String**| Request accepted language | [optional] 
 
 ### Return type
 
-[**List<InfrastructureFacilityGetDTO>**](InfrastructureFacilityGetDTO.md)
+[**List<ExperimentGetListDTO>**](ExperimentGetListDTO.md)
 
 ### Authorization
 
@@ -428,8 +427,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getUsedVariables**
-> List<NamedResourceDTO> getUsedVariables(uri, authorization, scientificObjects, acceptLanguage)
+# **getUsedVariables1**
+> List<NamedResourceDTO> getUsedVariables1(uri, authorization, scientificObjects, acceptLanguage)
 
 Get variables involved in an experiment
 
@@ -440,16 +439,16 @@ Get variables involved in an experiment
 import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
-var uri = http://opensilex/set/experiments/ZA17; // String | Experiment URI
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
 var authorization = authorization_example; // String | Authentication token
-var scientificObjects = [http://opensilex.dev/opensilex/2020/o20000345]; // List<String> | Search by objects uris
-var acceptLanguage = en; // String | Request accepted language
+var scientificObjects = ["http://opensilex.dev/opensilex/2020/o20000345"]; // List<String> | Search by objects uris
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
-    var result = api_instance.getUsedVariables(uri, authorization, scientificObjects, acceptLanguage);
+    var result = api_instance.getUsedVariables1(uri, authorization, scientificObjects, acceptLanguage);
     print(result);
 } catch (e) {
-    print("Exception when calling ExperimentsApi->getUsedVariables: $e\n");
+    print("Exception when calling ExperimentsApi->getUsedVariables1: $e\n");
 }
 ```
 
@@ -477,8 +476,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **importCSVData**
-> DataCSVValidationDTO importCSVData(uri, provenance, file, authorization, acceptLanguage)
+# **importCSVData1**
+> DataCSVValidationDTO importCSVData1(uri, provenance, file, authorization, acceptLanguage)
 
 Import a CSV file for the given experiment URI and scientific object type.
 
@@ -489,17 +488,17 @@ Import a CSV file for the given experiment URI and scientific object type.
 import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
-var uri = http://opensilex/set/experiments/ZA17; // String | Experiment URI
-var provenance = http://opensilex.dev/id/provenance/provenancelabel; // String | Provenance URI
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
+var provenance = "http://opensilex.dev/id/provenance/provenancelabel"; // String | Provenance URI
 var file = /path/to/file.txt; // MultipartFile | Data file
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
-    var result = api_instance.importCSVData(uri, provenance, file, authorization, acceptLanguage);
+    var result = api_instance.importCSVData1(uri, provenance, file, authorization, acceptLanguage);
     print(result);
 } catch (e) {
-    print("Exception when calling ExperimentsApi->importCSVData: $e\n");
+    print("Exception when calling ExperimentsApi->importCSVData1: $e\n");
 }
 ```
 
@@ -540,22 +539,21 @@ Search data
 import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
-var uri = http://opensilex/set/experiments/ZA17; // String | Experiment URI
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
 var authorization = authorization_example; // String | Authentication token
-var startDate = 2020-08-21T00:00:00+01:00; // String | Search by minimal date
-var endDate = 2020-09-21T00:00:00+01:00; // String | Search by maximal date
-var timezone = Europe/Paris; // String | Precise the timezone corresponding to the given dates
-var scientificObjects = [http://opensilex.dev/opensilex/2020/o20000345]; // List<String> | Search by objects
-var variables = [http://opensilex.dev/variable#variable.2020-08-21_11-21-23entity6_method6_quality6_unit6]; // List<String> | Search by variables
+var startDate = "2020-08-21T00:00:00+01:00"; // String | Search by minimal date
+var endDate = "2020-09-21T00:00:00+01:00"; // String | Search by maximal date
+var timezone = "Europe/Paris"; // String | Precise the timezone corresponding to the given dates
+var scientificObjects = ["http://opensilex.dev/opensilex/2020/o20000345"]; // List<String> | Search by objects
+var variables = ["http://opensilex.dev/variable#variable.2020-08-21_11-21-23entity6_method6_quality6_unit6"]; // List<String> | Search by variables
 var minConfidence = 0.5; // double | Search by minimal confidence index
 var maxConfidence = 0.5; // double | Search by maximal confidence index
-var provenances = [http://opensilex.dev/provenance/1598001689415]; // List<String> | Search by provenance uri
-var metadata = { "LabelView" : "side90",
-"paramA" : "90"}; // String | Search by metadata
-var orderBy = [date=desc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var provenances = ["http://opensilex.dev/provenance/1598001689415"]; // List<String> | Search by provenance uri
+var metadata = "{ \"LabelView\" : \"side90\",\n\"paramA\" : \"90\"}"; // String | Search by metadata
+var orderBy = ["date=desc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchExperimentDataList(uri, authorization, startDate, endDate, timezone, scientificObjects, variables, minConfidence, maxConfidence, provenances, metadata, orderBy, page, pageSize, acceptLanguage);
@@ -612,7 +610,7 @@ Get provenances involved in an experiment
 import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
-var uri = http://opensilex/set/experiments/ZA17; // String | Experiment URI
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
 var authorization = authorization_example; // String | Authentication token
 var name = name_example; // String | Regex pattern for filtering by name
 var description = description_example; // String | Search by description
@@ -620,10 +618,10 @@ var activity = activity_example; // String | Search by activity URI
 var activityType = activityType_example; // String | Search by activity type
 var agent = agent_example; // String | Search by agent URI
 var agentType = agentType_example; // String | Search by agent type
-var orderBy = [date=desc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var orderBy = ["date=desc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchExperimentProvenances(uri, authorization, name, description, activity, activityType, agent, agentType, orderBy, page, pageSize, acceptLanguage);
@@ -678,18 +676,17 @@ import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
 var authorization = authorization_example; // String | Authentication token
-var name = ZA17; // String | Regex pattern for filtering by name
+var name = "ZA17"; // String | Regex pattern for filtering by name
 var year = 2017; // int | Search by year
 var isEnded = true; // bool | Search ended(false) or active experiments(true)
-var species = [http://www.phenome-fppn.fr/id/species/zeamays]; // List<String> | Search by involved species
-var factors = [http://purl.obolibrary.org/obo/CHEBI_25555]; // List<String> | Search by studied effect
-var projects = [http://www.phenome-fppn.fr/projects/ZA17
-http://www.phenome-fppn.fr/id/projects/ZA18]; // List<String> | Search by related project uri
+var species = ["http://www.phenome-fppn.fr/id/species/zeamays"]; // List<String> | Search by involved species
+var factors = ["http://purl.obolibrary.org/obo/CHEBI_25555"]; // List<String> | Search by studied effect
+var projects = ["http://www.phenome-fppn.fr/projects/ZA17\nhttp://www.phenome-fppn.fr/id/projects/ZA18"]; // List<String> | Search by related project uri
 var isPublic = true; // bool | Search private(false) or public experiments(true)
-var orderBy = [name=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var orderBy = ["uri=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchExperiments(authorization, name, year, isEnded, species, factors, projects, isPublic, orderBy, page, pageSize, acceptLanguage);
@@ -745,7 +742,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ExperimentsApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new ExperimentCreationDTO(); // ExperimentCreationDTO | Experiment description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateExperiment(authorization, body, acceptLanguage);
@@ -778,8 +775,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **validateCSV**
-> DataCSVValidationDTO validateCSV(uri, provenance, file, authorization, acceptLanguage)
+# **validateCSV1**
+> DataCSVValidationDTO validateCSV1(uri, provenance, file, authorization, acceptLanguage)
 
 Import a CSV file for the given experiment URI and scientific object type.
 
@@ -790,17 +787,17 @@ Import a CSV file for the given experiment URI and scientific object type.
 import 'package:swagger/api.dart';
 
 var api_instance = new ExperimentsApi();
-var uri = http://opensilex/set/experiments/ZA17; // String | Experiment URI
-var provenance = http://opensilex.dev/id/provenance/provenancelabel; // String | Provenance URI
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Experiment URI
+var provenance = "http://opensilex.dev/id/provenance/provenancelabel"; // String | Provenance URI
 var file = /path/to/file.txt; // MultipartFile | Data file
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
-    var result = api_instance.validateCSV(uri, provenance, file, authorization, acceptLanguage);
+    var result = api_instance.validateCSV1(uri, provenance, file, authorization, acceptLanguage);
     print(result);
 } catch (e) {
-    print("Exception when calling ExperimentsApi->validateCSV: $e\n");
+    print("Exception when calling ExperimentsApi->validateCSV1: $e\n");
 }
 ```
 

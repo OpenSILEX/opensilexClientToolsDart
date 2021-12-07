@@ -9,6 +9,7 @@ import 'package:swagger/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **missingHeaders** | **List&lt;String&gt;** |  | [optional] [default to []]
+**emptyHeaders** | **List&lt;int&gt;** |  | [optional] [default to []]
 **invalidHeaderURIs** | **Map&lt;String, String&gt;** |  | [optional] [default to {}]
 **datatypeErrors** | [**Map&lt;String, List&lt;CSVDatatypeError&gt;&gt;**](List.md) |  | [optional] [default to {}]
 **uriNotFoundErrors** | [**Map&lt;String, List&lt;CSVURINotFoundError&gt;&gt;**](List.md) |  | [optional] [default to {}]
@@ -20,7 +21,12 @@ Name | Type | Description | Notes
 **invalidObjectErrors** | [**Map&lt;String, List&lt;CSVCell&gt;&gt;**](List.md) |  | [optional] [default to {}]
 **invalidDateErrors** | [**Map&lt;String, List&lt;CSVCell&gt;&gt;**](List.md) |  | [optional] [default to {}]
 **invalidDataTypeErrors** | [**Map&lt;String, List&lt;CSVCell&gt;&gt;**](List.md) |  | [optional] [default to {}]
+**invalidExperimentErrors** | [**Map&lt;String, List&lt;CSVCell&gt;&gt;**](List.md) |  | [optional] [default to {}]
+**invalidDeviceErrors** | [**Map&lt;String, List&lt;CSVCell&gt;&gt;**](List.md) |  | [optional] [default to {}]
 **duplicatedDataErrors** | [**Map&lt;String, List&lt;CSVCell&gt;&gt;**](List.md) |  | [optional] [default to {}]
+**duplicatedObjectErrors** | [**Map&lt;String, List&lt;CSVCell&gt;&gt;**](List.md) |  | [optional] [default to {}]
+**duplicatedExperimentErrors** | [**Map&lt;String, List&lt;CSVCell&gt;&gt;**](List.md) |  | [optional] [default to {}]
+**duplicatedDeviceErrors** | [**Map&lt;String, List&lt;CSVCell&gt;&gt;**](List.md) |  | [optional] [default to {}]
 **headers** | **List&lt;String&gt;** |  | [optional] [default to []]
 **headersLabels** | **List&lt;String&gt;** |  | [optional] [default to []]
 **nbLinesImported** | **int** |  | [optional] [default to null]

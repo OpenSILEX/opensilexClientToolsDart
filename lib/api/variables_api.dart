@@ -7,6 +7,61 @@ class VariablesApi {
 
   VariablesApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
+  /// export variable by list of uris
+  ///
+  /// 
+  Future classicExportVariableByURIs( { URIsListPostDTO body, String acceptLanguage }) async {
+    Object postBody = body;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/variables/export_classic_by_uris".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          ;
+    } else {
+      return ;
+    }
+  }
   /// Add a characteristic
   ///
   /// 
@@ -76,6 +131,61 @@ headerParams["Accept-Language"] = acceptLanguage;
 
     // create path and map variables
     String path = "/core/entities".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+    } else {
+      return null;
+    }
+  }
+  /// Add an entity of interest
+  ///
+  /// 
+  Future<ObjectUriResponse> createInterestEntity( { InterestEntityCreationDTO body, String acceptLanguage }) async {
+    Object postBody = body;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/entities_of_interest".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -282,6 +392,61 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
+  /// Add a variables group
+  ///
+  /// 
+  Future<ObjectUriResponse> createVariablesGroup( { VariablesGroupCreationDTO body, String acceptLanguage }) async {
+    Object postBody = body;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/variables_group".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+    } else {
+      return null;
+    }
+  }
   /// Delete a characteristic
   ///
   /// 
@@ -357,6 +522,64 @@ headerParams["Accept-Language"] = acceptLanguage;
 
     // create path and map variables
     String path = "/core/entities/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'DELETE',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+    } else {
+      return null;
+    }
+  }
+  /// Delete an entity of interest
+  ///
+  /// 
+  Future<ObjectUriResponse> deleteInterestEntity(String uri,  { String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(uri == null) {
+     throw new ApiException(400, "Missing required param: uri");
+    }
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/entities_of_interest/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -572,6 +795,119 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
+  /// Delete a variables group
+  ///
+  /// 
+  Future<ObjectUriResponse> deleteVariablesGroup(String uri,  { String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(uri == null) {
+     throw new ApiException(400, "Missing required param: uri");
+    }
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/variables_group/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'DELETE',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+    } else {
+      return null;
+    }
+  }
+  /// export detailed variable by list of uris
+  ///
+  /// 
+  Future detailsExportVariableByURIs( { URIsListPostDTO body, String acceptLanguage }) async {
+    Object postBody = body;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/variables/export_details_by_uris".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          ;
+    } else {
+      return ;
+    }
+  }
   /// Get a characteristic
   ///
   /// 
@@ -739,6 +1075,64 @@ headerParams["Accept-Language"] = acceptLanguage;
     } else if(response.body != null) {
       return 
           apiClient.deserialize(response.body, 'EntityDetailsDTO') as EntityDetailsDTO ;
+    } else {
+      return null;
+    }
+  }
+  /// Get an entity of interest
+  ///
+  /// 
+  Future<InterestEntityDetailsDTO> getInterestEntity(String uri,  { String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(uri == null) {
+     throw new ApiException(400, "Missing required param: uri");
+    }
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/entities_of_interest/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          apiClient.deserialize(response.body, 'InterestEntityDetailsDTO') as InterestEntityDetailsDTO ;
     } else {
       return null;
     }
@@ -976,6 +1370,123 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
+  /// Get a variables group
+  ///
+  /// 
+  Future<VariablesGroupGetDTO> getVariablesGroup(String uri,  { String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(uri == null) {
+     throw new ApiException(400, "Missing required param: uri");
+    }
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/variables_group/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          apiClient.deserialize(response.body, 'VariablesGroupGetDTO') as VariablesGroupGetDTO ;
+    } else {
+      return null;
+    }
+  }
+  /// Get variables groups by their URIs
+  ///
+  /// 
+  Future<List<VariablesGroupGetDTO>> getVariablesGroupByURIs(List<String> uris,  { String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(uris == null) {
+     throw new ApiException(400, "Missing required param: uris");
+    }
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/variables_group/by_uris".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "uris", uris));
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+        (apiClient.deserialize(response.body, 'List<VariablesGroupGetDTO>') as List).map((item) => item as VariablesGroupGetDTO).toList();
+    } else {
+      return null;
+    }
+  }
   /// Search characteristics by name
   ///
   /// 
@@ -1106,6 +1617,73 @@ headerParams["Accept-Language"] = acceptLanguage;
     } else if(response.body != null) {
       return 
         (apiClient.deserialize(response.body, 'List<EntityGetDTO>') as List).map((item) => item as EntityGetDTO).toList();
+    } else {
+      return null;
+    }
+  }
+  /// Search entities of interest by name
+  ///
+  /// 
+  Future<List<InterestEntityGetDTO>> searchInterestEntity( { String name, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/entities_of_interest".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    if(name != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "name", name));
+    }
+    if(orderBy != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "order_by", orderBy));
+    }
+    if(page != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "page", page));
+    }
+    if(pageSize != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "page_size", pageSize));
+    }
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+        (apiClient.deserialize(response.body, 'List<InterestEntityGetDTO>') as List).map((item) => item as InterestEntityGetDTO).toList();
     } else {
       return null;
     }
@@ -1378,6 +1956,76 @@ headerParams["Accept-Language"] = acceptLanguage;
       return null;
     }
   }
+  /// Search variables groups
+  ///
+  /// 
+  Future<List<VariablesGroupGetDTO>> searchVariablesGroups( { String name, String variableUri, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/variables_group".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    if(name != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "name", name));
+    }
+    if(variableUri != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "variableUri", variableUri));
+    }
+    if(orderBy != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "order_by", orderBy));
+    }
+    if(page != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "page", page));
+    }
+    if(pageSize != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "page_size", pageSize));
+    }
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+        (apiClient.deserialize(response.body, 'List<VariablesGroupGetDTO>') as List).map((item) => item as VariablesGroupGetDTO).toList();
+    } else {
+      return null;
+    }
+  }
   /// Update a characteristic
   ///
   /// 
@@ -1447,6 +2095,61 @@ headerParams["Accept-Language"] = acceptLanguage;
 
     // create path and map variables
     String path = "/core/entities".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'PUT',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+    } else {
+      return null;
+    }
+  }
+  /// Update an entity of interest
+  ///
+  /// 
+  Future<ObjectUriResponse> updateInterestEntity( { InterestEntityUpdateDTO body, String acceptLanguage }) async {
+    Object postBody = body;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/entities_of_interest".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -1612,6 +2315,61 @@ headerParams["Accept-Language"] = acceptLanguage;
 
     // create path and map variables
     String path = "/core/variables".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'PUT',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+    } else {
+      return null;
+    }
+  }
+  /// Update a variables group
+  ///
+  /// 
+  Future<ObjectUriResponse> updateVariablesGroup( { VariablesGroupUpdateDTO body, String acceptLanguage }) async {
+    Object postBody = body;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/core/variables_group".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];

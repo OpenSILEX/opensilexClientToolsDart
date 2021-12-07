@@ -38,7 +38,7 @@ import 'package:swagger/api.dart';
 var api_instance = new FactorsApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new FactorCreationDTO(); // FactorCreationDTO | Factor description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.createFactor(authorization, body, acceptLanguage);
@@ -82,9 +82,9 @@ Delete a factor
 import 'package:swagger/api.dart';
 
 var api_instance = new FactorsApi();
-var uri = platform-factor:irrigation; // String | Factor URI
+var uri = "platform-factor:irrigation"; // String | Factor URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.deleteFactor(uri, authorization, acceptLanguage);
@@ -129,9 +129,9 @@ Delete a factor level
 import 'package:swagger/api.dart';
 
 var api_instance = new FactorsApi();
-var uri = platform-factor:irrigation; // String | Factor level URI
+var uri = "platform-factor:irrigation"; // String | Factor level URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.deleteFactorLevel(uri, authorization, acceptLanguage);
@@ -176,9 +176,9 @@ Get factor associated experiments
 import 'package:swagger/api.dart';
 
 var api_instance = new FactorsApi();
-var uri = platform-factor:irrigation; // String | Factor URI
+var uri = "platform-factor:irrigation"; // String | Factor URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getFactorAssociatedExperiments(uri, authorization, acceptLanguage);
@@ -223,9 +223,9 @@ Get a factor
 import 'package:swagger/api.dart';
 
 var api_instance = new FactorsApi();
-var uri = platform-factor:irrigation; // String | Factor URI
+var uri = "platform-factor:irrigation"; // String | Factor URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getFactorByURI(uri, authorization, acceptLanguage);
@@ -270,9 +270,9 @@ Get a factor level
 import 'package:swagger/api.dart';
 
 var api_instance = new FactorsApi();
-var uri = http://opensilex/set/factorLevel/irrigation.ww; // String | Factor Level URI
+var uri = "http://opensilex/set/factorLevel/irrigation.ww"; // String | Factor Level URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getFactorLevel(uri, authorization, acceptLanguage);
@@ -317,9 +317,9 @@ Get a factor level
 import 'package:swagger/api.dart';
 
 var api_instance = new FactorsApi();
-var uri = http://opensilex/set/factorLevel/irrigation.ww; // String | Factor Level URI
+var uri = "http://opensilex/set/factorLevel/irrigation.ww"; // String | Factor Level URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getFactorLevelDetail(uri, authorization, acceptLanguage);
@@ -364,9 +364,9 @@ Get factor levels
 import 'package:swagger/api.dart';
 
 var api_instance = new FactorsApi();
-var uri = platform-factor:irrigation; // String | Factor URI
+var uri = "platform-factor:irrigation"; // String | Factor URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getFactorLevels(uri, authorization, acceptLanguage);
@@ -413,7 +413,7 @@ import 'package:swagger/api.dart';
 var api_instance = new FactorsApi();
 var uris = []; // List<String> | Factors URIs
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getFactorsByURIs(uris, authorization, acceptLanguage);
@@ -458,9 +458,9 @@ Search categories
 import 'package:swagger/api.dart';
 
 var api_instance = new FactorsApi();
-var name = describing; // String | Category name regex pattern
-var orderBy = [name=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
-var acceptLanguage = en; // String | Request accepted language
+var name = "describing"; // String | Category name regex pattern
+var orderBy = ["name=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchCategories(name, orderBy, acceptLanguage);
@@ -506,11 +506,11 @@ import 'package:swagger/api.dart';
 
 var api_instance = new FactorsApi();
 var authorization = authorization_example; // String | Authentication token
-var name = WW; // String | Regex pattern for filtering on name
-var orderBy = [name=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var name = "WW"; // String | Regex pattern for filtering on name
+var orderBy = ["name=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchFactorLevels(authorization, name, orderBy, page, pageSize, acceptLanguage);
@@ -559,14 +559,14 @@ import 'package:swagger/api.dart';
 
 var api_instance = new FactorsApi();
 var authorization = authorization_example; // String | Authentication token
-var name = irrigation; // String | Regex pattern for filtering on name
-var description = 20ml of water; // String | Regex pattern for filtering on description
-var category = http://aims.fao.org/aos/agrovoc/c_32668; // String | Filter by category of a factor
-var experiment = demo-exp:experiment1; // String | Filter by experiment
-var orderBy = [name=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var name = "irrigation"; // String | Regex pattern for filtering on name
+var description = "20ml of water"; // String | Regex pattern for filtering on description
+var category = "http://aims.fao.org/aos/agrovoc/c_32668"; // String | Filter by category of a factor
+var experiment = "demo-exp:experiment1"; // String | Filter by experiment
+var orderBy = ["uri=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchFactors(authorization, name, description, category, experiment, orderBy, page, pageSize, acceptLanguage);
@@ -619,7 +619,7 @@ import 'package:swagger/api.dart';
 var api_instance = new FactorsApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new FactorUpdateDTO(); // FactorUpdateDTO | Factor description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateFactor(authorization, body, acceptLanguage);

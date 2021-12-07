@@ -9,6 +9,7 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**countEvents**](EventsApi.md#countEvents) | **GET** /core/events/count | Count events
 [**createEvents**](EventsApi.md#createEvents) | **POST** /core/events | Create a list of event
 [**createMoves**](EventsApi.md#createMoves) | **POST** /core/events/moves | Create a list of move event
 [**deleteEvent**](EventsApi.md#deleteEvent) | **DELETE** /core/events/{uri} | Delete an event
@@ -16,14 +17,61 @@ Method | HTTP request | Description
 [**getEvent**](EventsApi.md#getEvent) | **GET** /core/events/{uri} | Get an event
 [**getEventDetails**](EventsApi.md#getEventDetails) | **GET** /core/events/{uri}/details | Get an event with all it&#39;s properties
 [**getMoveEvent**](EventsApi.md#getMoveEvent) | **GET** /core/events/moves/{uri} | Get a move with all it&#39;s properties
-[**importEventCSV**](EventsApi.md#importEventCSV) | **POST** /core/events/import | Import a CSV file with one move and one concerned item per line
-[**importMoveCSV**](EventsApi.md#importMoveCSV) | **POST** /core/events/moves/import | Import a CSV file with one move and one concerned item per line
+[**importEventCSV**](EventsApi.md#importEventCSV) | **POST** /core/events/import | Import a CSV file with one move and one target per line
+[**importMoveCSV**](EventsApi.md#importMoveCSV) | **POST** /core/events/moves/import | Import a CSV file with one move and one target per line
 [**searchEvents**](EventsApi.md#searchEvents) | **GET** /core/events | Search events
 [**updateEvent**](EventsApi.md#updateEvent) | **PUT** /core/events | Update an event
 [**updateMoveEvent**](EventsApi.md#updateMoveEvent) | **PUT** /core/events/moves | Update a move event
-[**validateEventCSV**](EventsApi.md#validateEventCSV) | **POST** /core/events/import_validation | Check a CSV file with one move and one concerned item per line
-[**validateMoveCSV**](EventsApi.md#validateMoveCSV) | **POST** /core/events/moves/import_validation | Check a CSV file with one move and one concerned item per line
+[**validateEventCSV**](EventsApi.md#validateEventCSV) | **POST** /core/events/import_validation | Check a CSV file with one move and one target per line
+[**validateMoveCSV**](EventsApi.md#validateMoveCSV) | **POST** /core/events/moves/import_validation | Check a CSV file with one move and one target per line
 
+
+# **countEvents**
+> int countEvents(targets, authorization, acceptLanguage)
+
+Count events
+
+
+
+### Example 
+```dart
+import 'package:swagger/api.dart';
+
+var api_instance = new EventsApi();
+var targets = []; // List<String> | Targets URIs
+var authorization = authorization_example; // String | Authentication token
+var acceptLanguage = "en"; // String | Request accepted language
+
+try { 
+    var result = api_instance.countEvents(targets, authorization, acceptLanguage);
+    print(result);
+} catch (e) {
+    print("Exception when calling EventsApi->countEvents: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **targets** | [**List&lt;String&gt;**](String.md)| Targets URIs | 
+ **authorization** | **String**| Authentication token | 
+ **acceptLanguage** | **String**| Request accepted language | [optional] 
+
+### Return type
+
+**int**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createEvents**
 > ObjectUriResponse createEvents(authorization, body, acceptLanguage)
@@ -39,7 +87,7 @@ import 'package:swagger/api.dart';
 var api_instance = new EventsApi();
 var authorization = authorization_example; // String | Authentication token
 var body = [new List&lt;EventCreationDTO&gt;()]; // List<EventCreationDTO> | 
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.createEvents(authorization, body, acceptLanguage);
@@ -86,7 +134,7 @@ import 'package:swagger/api.dart';
 var api_instance = new EventsApi();
 var authorization = authorization_example; // String | Authentication token
 var body = [new List&lt;MoveCreationDTO&gt;()]; // List<MoveCreationDTO> | 
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.createMoves(authorization, body, acceptLanguage);
@@ -131,9 +179,9 @@ Delete an event
 import 'package:swagger/api.dart';
 
 var api_instance = new EventsApi();
-var uri = http://opensilex.dev/events/deplacement/1865162374; // String | Event URI
+var uri = "http://opensilex.dev/events/deplacement/1865162374"; // String | Event URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.deleteEvent(uri, authorization, acceptLanguage);
@@ -178,9 +226,9 @@ Delete a move event
 import 'package:swagger/api.dart';
 
 var api_instance = new EventsApi();
-var uri = http://opensilex.dev/events/deplacement/1865162374; // String | Event URI
+var uri = "http://opensilex.dev/events/deplacement/1865162374"; // String | Event URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.deleteMoveEvent(uri, authorization, acceptLanguage);
@@ -225,9 +273,9 @@ Get an event
 import 'package:swagger/api.dart';
 
 var api_instance = new EventsApi();
-var uri = http://opensilex.dev/events/1865162374; // String | Event URI
+var uri = "http://opensilex.dev/events/1865162374"; // String | Event URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getEvent(uri, authorization, acceptLanguage);
@@ -272,9 +320,9 @@ Get an event with all it's properties
 import 'package:swagger/api.dart';
 
 var api_instance = new EventsApi();
-var uri = http://opensilex.dev/events/1865162374; // String | Event URI
+var uri = "http://opensilex.dev/events/1865162374"; // String | Event URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getEventDetails(uri, authorization, acceptLanguage);
@@ -319,9 +367,9 @@ Get a move with all it's properties
 import 'package:swagger/api.dart';
 
 var api_instance = new EventsApi();
-var uri = http://opensilex.dev/events/1865162374; // String | Move URI
+var uri = "http://opensilex.dev/events/1865162374"; // String | Move URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getMoveEvent(uri, authorization, acceptLanguage);
@@ -357,7 +405,7 @@ No authorization required
 # **importEventCSV**
 > CSVValidationDTO importEventCSV(file, authorization, acceptLanguage)
 
-Import a CSV file with one move and one concerned item per line
+Import a CSV file with one move and one target per line
 
 
 
@@ -368,7 +416,7 @@ import 'package:swagger/api.dart';
 var api_instance = new EventsApi();
 var file = /path/to/file.txt; // MultipartFile | Event file
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.importEventCSV(file, authorization, acceptLanguage);
@@ -404,7 +452,7 @@ No authorization required
 # **importMoveCSV**
 > CSVValidationDTO importMoveCSV(file, authorization, acceptLanguage)
 
-Import a CSV file with one move and one concerned item per line
+Import a CSV file with one move and one target per line
 
 
 
@@ -415,7 +463,7 @@ import 'package:swagger/api.dart';
 var api_instance = new EventsApi();
 var file = /path/to/file.txt; // MultipartFile | Move file
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.importMoveCSV(file, authorization, acceptLanguage);
@@ -461,15 +509,15 @@ import 'package:swagger/api.dart';
 
 var api_instance = new EventsApi();
 var authorization = authorization_example; // String | Authentication token
-var rdfType = http://www.opensilex.org/vocabulary/oeev#MoveFrom; // String | Event type
-var start = 2019-09-08T12:00:00+01:00; // String | Start date : match event after the given start date
-var end = 2021-09-08T12:00:00+01:00; // String | End date : match event before the given end date
-var target = http://www.opensilex.org/demo/2018/o18000076; // String | Concerned item URI regex pattern
-var description = The pest attack; // String | Description regex pattern
-var orderBy = []; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var rdfType = "http://www.opensilex.org/vocabulary/oeev#MoveFrom"; // String | Event type
+var start = "2019-09-08T12:00:00+01:00"; // String | Start date : match event after the given start date
+var end = "2021-09-08T12:00:00+01:00"; // String | End date : match event before the given end date
+var target = "http://www.opensilex.org/demo/2018/o18000076(exact match) or o18000076(partial match)"; // String | Target partial/exact URI
+var description = "The pest attack"; // String | Description regex pattern
+var orderBy = ["end=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 56; // int | Page number
 var pageSize = 56; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchEvents(authorization, rdfType, start, end, target, description, orderBy, page, pageSize, acceptLanguage);
@@ -487,7 +535,7 @@ Name | Type | Description  | Notes
  **rdfType** | **String**| Event type | [optional] 
  **start** | **String**| Start date : match event after the given start date | [optional] 
  **end** | **String**| End date : match event before the given end date | [optional] 
- **target** | **String**| Concerned item URI regex pattern | [optional] 
+ **target** | **String**| Target partial/exact URI | [optional] 
  **description** | **String**| Description regex pattern | [optional] 
  **orderBy** | [**List&lt;String&gt;**](String.md)| List of fields to sort as an array of fieldName&#x3D;asc|desc | [optional] 
  **page** | **int**| Page number | [optional] 
@@ -523,7 +571,7 @@ import 'package:swagger/api.dart';
 var api_instance = new EventsApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new EventUpdateDTO(); // EventUpdateDTO | Event description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateEvent(authorization, body, acceptLanguage);
@@ -570,7 +618,7 @@ import 'package:swagger/api.dart';
 var api_instance = new EventsApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new MoveUpdateDTO(); // MoveUpdateDTO | Event description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateMoveEvent(authorization, body, acceptLanguage);
@@ -606,7 +654,7 @@ No authorization required
 # **validateEventCSV**
 > CSVValidationDTO validateEventCSV(file, authorization, acceptLanguage)
 
-Check a CSV file with one move and one concerned item per line
+Check a CSV file with one move and one target per line
 
 
 
@@ -617,7 +665,7 @@ import 'package:swagger/api.dart';
 var api_instance = new EventsApi();
 var file = /path/to/file.txt; // MultipartFile | Event file
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.validateEventCSV(file, authorization, acceptLanguage);
@@ -653,7 +701,7 @@ No authorization required
 # **validateMoveCSV**
 > CSVValidationDTO validateMoveCSV(file, authorization, acceptLanguage)
 
-Check a CSV file with one move and one concerned item per line
+Check a CSV file with one move and one target per line
 
 
 
@@ -664,7 +712,7 @@ import 'package:swagger/api.dart';
 var api_instance = new EventsApi();
 var file = /path/to/file.txt; // MultipartFile | Move file
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.validateMoveCSV(file, authorization, acceptLanguage);

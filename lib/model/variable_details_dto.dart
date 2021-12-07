@@ -17,6 +17,9 @@ class VariableDetailsDTO {
   EntityGetDTO entity = null;
   
 
+  NamedResourceDTOInterestEntityModel entityOfInterest = null;
+  
+
   CharacteristicGetDTO characteristic = null;
   
 
@@ -30,6 +33,9 @@ class VariableDetailsDTO {
   
 
   UnitGetDTO unit = null;
+  
+
+  SpeciesDTO species = null;
   
 
   String timeInterval = null;
@@ -56,7 +62,7 @@ class VariableDetailsDTO {
 
   @override
   String toString() {
-    return 'VariableDetailsDTO[uri=$uri, name=$name, alternativeName=$alternativeName, description=$description, entity=$entity, characteristic=$characteristic, trait=$trait, traitName=$traitName, method=$method, unit=$unit, timeInterval=$timeInterval, samplingInterval=$samplingInterval, datatype=$datatype, exactMatch=$exactMatch, closeMatch=$closeMatch, broadMatch=$broadMatch, narrowMatch=$narrowMatch, ]';
+    return 'VariableDetailsDTO[uri=$uri, name=$name, alternativeName=$alternativeName, description=$description, entity=$entity, entityOfInterest=$entityOfInterest, characteristic=$characteristic, trait=$trait, traitName=$traitName, method=$method, unit=$unit, species=$species, timeInterval=$timeInterval, samplingInterval=$samplingInterval, datatype=$datatype, exactMatch=$exactMatch, closeMatch=$closeMatch, broadMatch=$broadMatch, narrowMatch=$narrowMatch, ]';
   }
 
   VariableDetailsDTO.fromJson(Map<String, dynamic> json) {
@@ -79,6 +85,13 @@ class VariableDetailsDTO {
       
  
       new EntityGetDTO.fromJson(json['entity'])
+;
+    entityOfInterest =
+      
+ 
+      
+ 
+      new NamedResourceDTOInterestEntityModel.fromJson(json['entity_of_interest'])
 ;
     characteristic =
       
@@ -106,6 +119,13 @@ class VariableDetailsDTO {
       
  
       new UnitGetDTO.fromJson(json['unit'])
+;
+    species =
+      
+ 
+      
+ 
+      new SpeciesDTO.fromJson(json['species'])
 ;
     timeInterval =
         json['time_interval']
@@ -137,11 +157,13 @@ class VariableDetailsDTO {
       'alternative_name': alternativeName,
       'description': description,
       'entity': entity,
+      'entity_of_interest': entityOfInterest,
       'characteristic': characteristic,
       'trait': trait,
       'trait_name': traitName,
       'method': method,
       'unit': unit,
+      'species': species,
       'time_interval': timeInterval,
       'sampling_interval': samplingInterval,
       'datatype': datatype,

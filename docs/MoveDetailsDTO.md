@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **relations** | [**List&lt;RDFObjectRelationDTO&gt;**](RDFObjectRelationDTO.md) |  | [optional] [default to []]
 **from** | [**InfrastructureFacilityNamedDTO**](InfrastructureFacilityNamedDTO.md) |  | [optional] [default to null]
 **to** | [**InfrastructureFacilityNamedDTO**](InfrastructureFacilityNamedDTO.md) |  | [optional] [default to null]
-**targetsPositions** | [**List&lt;ConcernedItemPositionGetDTO&gt;**](ConcernedItemPositionGetDTO.md) |  | [optional] [default to []]
+**targetsPositions** | [**List&lt;TargetPositionGetDTO&gt;**](TargetPositionGetDTO.md) |  | [optional] [default to []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

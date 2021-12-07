@@ -10,8 +10,8 @@ class DataUpdateDTO {
 /* to specify if the offset is not in the date and if the timezone is different from the default one */
   String timezone = null;
   
-/* scientific objects URIs on which the data have been collected */
-  List<String> scientificObjects = [];
+/* target URI on which the data have been collected (e.g. a scientific object) */
+  String target = null;
   
 /* variable URI */
   String variable = null;
@@ -26,13 +26,16 @@ class DataUpdateDTO {
   DataProvenanceModel provenance = null;
   
 /* key-value system to store additional information that can be used to query data */
-  Map<String, Object> metadata = {};
+  Map<String, dynamic> metadata = {};
+  
+/* list of repetition values */
+  List<dynamic> rawData = [];
   
   DataUpdateDTO();
 
   @override
   String toString() {
-    return 'DataUpdateDTO[uri=$uri, date=$date, timezone=$timezone, scientificObjects=$scientificObjects, variable=$variable, value=$value, confidence=$confidence, provenance=$provenance, metadata=$metadata, ]';
+    return 'DataUpdateDTO[uri=$uri, date=$date, timezone=$timezone, target=$target, variable=$variable, value=$value, confidence=$confidence, provenance=$provenance, metadata=$metadata, rawData=$rawData, ]';
   }
 
   DataUpdateDTO.fromJson(Map<String, dynamic> json) {
@@ -46,8 +49,8 @@ class DataUpdateDTO {
     timezone =
         json['timezone']
     ;
-    scientificObjects =
-        (json['scientific_objects'] as List).map((item) => item as String).toList()
+    target =
+        json['target']
     ;
     variable =
         json['variable']
@@ -76,6 +79,9 @@ class DataUpdateDTO {
  
       
 ;
+    rawData =
+      json['raw_data'] as List
+;
   }
 
   Map<String, dynamic> toJson() {
@@ -83,12 +89,13 @@ class DataUpdateDTO {
       'uri': uri,
       'date': date,
       'timezone': timezone,
-      'scientific_objects': scientificObjects,
+      'target': target,
       'variable': variable,
       'value': value,
       'confidence': confidence,
       'provenance': provenance,
-      'metadata': metadata
+      'metadata': metadata,
+      'raw_data': rawData
      };
   }
 

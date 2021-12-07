@@ -8,15 +8,7 @@ class QueryParam {
 }
 
 class ApiClient {
-  //added by max :--------------------
-  AuthenticationApi api_instance_auth;
-  void logOutOfOpenSILEX() async {
-    if (api_instance_auth != null) {
-      api_instance_auth.logout();
-    }
-  }
 
-  //----------------------------------
   String basePath;
   String token;
   var client = new Client();
@@ -31,40 +23,42 @@ class ApiClient {
     // Setup authentications (key: authentication name, value: authentication).
   }
 
-  connectToOpenSILEX(
-      {String identifier: "", String password: "", String host: ""}) async {
+   
+  connectToOpenSILEX({
+    String identifier: "",
+    String password: "",
+    String host: ""}) async {
     await _connect(host, identifier, password);
     // Setup authentications (key: authentication name, value: authentication).
   }
 
   _connect(String host, String identifier, String password) async {
     this.basePath = host;
-    api_instance_auth = new AuthenticationApi(this);
-    var authenticate = new AuthenticationDTO();
+    var api_instance_auth = new AuthenticationApi(this);
+    var authenticate = new AuthenticationDTO(); 
 
     authenticate.identifier = identifier;
     authenticate.password = password;
 
     try {
       var result = await api_instance_auth.authenticate(body: authenticate);
-      this.token = result.token;
+      this.token = result.token; 
       if (this.token == null) {
-        throw new Exception("Error on connection");
+        throw new Exception("Error on connection" );
       }
     } catch (e) {
-      throw new Exception("Error on connection $e");
+      throw new Exception("Error on connection $e" );
     }
   }
 
   void addDefaultHeader(String key, String value) {
-    _defaultHeaderMap[key] = value;
+     _defaultHeaderMap[key] = value;
   }
 
   dynamic _deserialize(dynamic value, String targetType) {
-    //Map<String, dynamic> value = val as Map<String, dynamic>;
-    if (value["metadata"] != null && value["result"] != null) {
-      value = value["result"];
-    }
+    if(value["metadata"] != null && value["result"] != null){
+       value = value["result"];
+    } 
 
     try {
       switch (targetType) {
@@ -88,6 +82,16 @@ class ApiClient {
           return new AnnotationGetDTO.fromJson(value);
         case 'AnnotationUpdateDTO':
           return new AnnotationUpdateDTO.fromJson(value);
+        case 'ApiContactInfoDTO':
+          return new ApiContactInfoDTO.fromJson(value);
+        case 'ApiExternalDocsDTO':
+          return new ApiExternalDocsDTO.fromJson(value);
+        case 'ApiGitCommitDTO':
+          return new ApiGitCommitDTO.fromJson(value);
+        case 'ApiLicenseInfoDTO':
+          return new ApiLicenseInfoDTO.fromJson(value);
+        case 'ApiModulesInfo':
+          return new ApiModulesInfo.fromJson(value);
         case 'AreaCreationDTO':
           return new AreaCreationDTO.fromJson(value);
         case 'AreaGetDTO':
@@ -118,10 +122,10 @@ class ApiClient {
           return new CharacteristicGetDTO.fromJson(value);
         case 'CharacteristicUpdateDTO':
           return new CharacteristicUpdateDTO.fromJson(value);
-        case 'ConcernedItemPositionCreationDTO':
-          return new ConcernedItemPositionCreationDTO.fromJson(value);
-        case 'ConcernedItemPositionGetDTO':
-          return new ConcernedItemPositionGetDTO.fromJson(value);
+        case 'CodeLotCSVValidationDTO':
+          return new CodeLotCSVValidationDTO.fromJson(value);
+        case 'CodeLotCSVValidationModel':
+          return new CodeLotCSVValidationModel.fromJson(value);
         case 'Contact':
           return new Contact.fromJson(value);
         case 'CredentialDTO':
@@ -202,10 +206,6 @@ class ApiClient {
           return new FactorLevelGetDetailDTO.fromJson(value);
         case 'FactorUpdateDTO':
           return new FactorUpdateDTO.fromJson(value);
-        case 'Feature':
-          return new Feature.fromJson(value);
-        case 'FeatureCollection':
-          return new FeatureCollection.fromJson(value);
         case 'FontConfigDTO':
           return new FontConfigDTO.fromJson(value);
         case 'FormCreationDTO':
@@ -218,10 +218,10 @@ class ApiClient {
           return new FrontConfigDTO.fromJson(value);
         case 'GeoJsonObject':
           return new GeoJsonObject.fromJson(value);
-        case 'GeometryCollection':
-          return new GeometryCollection.fromJson(value);
         case 'GermplasmCreationDTO':
           return new GermplasmCreationDTO.fromJson(value);
+        case 'GermplasmDTO':
+          return new GermplasmDTO.fromJson(value);
         case 'GermplasmGetAllDTO':
           return new GermplasmGetAllDTO.fromJson(value);
         case 'GermplasmGetSingleDTO':
@@ -248,14 +248,18 @@ class ApiClient {
           return new InfrastructureFacilityUpdateDTO.fromJson(value);
         case 'InfrastructureGetDTO':
           return new InfrastructureGetDTO.fromJson(value);
-        case 'InfrastructureTeamDTO':
-          return new InfrastructureTeamDTO.fromJson(value);
         case 'InfrastructureUpdateDTO':
           return new InfrastructureUpdateDTO.fromJson(value);
+        case 'InterestEntityCreationDTO':
+          return new InterestEntityCreationDTO.fromJson(value);
+        case 'InterestEntityDetailsDTO':
+          return new InterestEntityDetailsDTO.fromJson(value);
+        case 'InterestEntityGetDTO':
+          return new InterestEntityGetDTO.fromJson(value);
+        case 'InterestEntityUpdateDTO':
+          return new InterestEntityUpdateDTO.fromJson(value);
         case 'Level':
           return new Level.fromJson(value);
-        case 'LineString':
-          return new LineString.fromJson(value);
         case 'ListItemDTO':
           return new ListItemDTO.fromJson(value);
         case 'LngLatAlt':
@@ -284,18 +288,20 @@ class ApiClient {
           return new MoveDetailsDTO.fromJson(value);
         case 'MoveUpdateDTO':
           return new MoveUpdateDTO.fromJson(value);
-        case 'MultiLineString':
-          return new MultiLineString.fromJson(value);
-        case 'MultiPoint':
-          return new MultiPoint.fromJson(value);
-        case 'MultiPolygon':
-          return new MultiPolygon.fromJson(value);
         case 'NamedResourceDTO':
           return new NamedResourceDTO.fromJson(value);
+        case 'NamedResourceDTOExperimentModel':
+          return new NamedResourceDTOExperimentModel.fromJson(value);
         case 'NamedResourceDTOFactorLevelModel':
           return new NamedResourceDTOFactorLevelModel.fromJson(value);
+        case 'NamedResourceDTOGroupModel':
+          return new NamedResourceDTOGroupModel.fromJson(value);
+        case 'NamedResourceDTOInfrastructureFacilityModel':
+          return new NamedResourceDTOInfrastructureFacilityModel.fromJson(value);
         case 'NamedResourceDTOInfrastructureModel':
           return new NamedResourceDTOInfrastructureModel.fromJson(value);
+        case 'NamedResourceDTOInterestEntityModel':
+          return new NamedResourceDTOInterestEntityModel.fromJson(value);
         case 'NamedResourceDTOProjectModel':
           return new NamedResourceDTOProjectModel.fromJson(value);
         case 'OWLClassPropertyRestrictionDTO':
@@ -316,12 +322,10 @@ class ApiClient {
           return new ObservationVariableDTO.fromJson(value);
         case 'OntologyReference':
           return new OntologyReference.fromJson(value);
+        case 'OrderBy':
+          return new OrderBy.fromJson(value);
         case 'PaginationDTO':
           return new PaginationDTO.fromJson(value);
-        case 'Point':
-          return new Point.fromJson(value);
-        case 'Polygon':
-          return new Polygon.fromJson(value);
         case 'PositionCreationDTO':
           return new PositionCreationDTO.fromJson(value);
         case 'PositionGetDTO':
@@ -354,6 +358,8 @@ class ApiClient {
           return new RDFPropertyDTO.fromJson(value);
         case 'RDFTypeDTO':
           return new RDFTypeDTO.fromJson(value);
+        case 'ResourceDagDTO':
+          return new ResourceDagDTO.fromJson(value);
         case 'ResourceTreeDTO':
           return new ResourceTreeDTO.fromJson(value);
         case 'RouteDTO':
@@ -362,8 +368,6 @@ class ApiClient {
           return new Scale.fromJson(value);
         case 'ScientificObjectCreationDTO':
           return new ScientificObjectCreationDTO.fromJson(value);
-        case 'ScientificObjectCsvExportDTO':
-          return new ScientificObjectCsvExportDTO.fromJson(value);
         case 'ScientificObjectDetailByExperimentsDTO':
           return new ScientificObjectDetailByExperimentsDTO.fromJson(value);
         case 'ScientificObjectDetailDTO':
@@ -372,8 +376,18 @@ class ApiClient {
           return new ScientificObjectNodeDTO.fromJson(value);
         case 'ScientificObjectNodeWithChildrenDTO':
           return new ScientificObjectNodeWithChildrenDTO.fromJson(value);
+        case 'ScientificObjectSearchDTO':
+          return new ScientificObjectSearchDTO.fromJson(value);
+        case 'ScientificObjectUpdateDTO':
+          return new ScientificObjectUpdateDTO.fromJson(value);
         case 'Season':
           return new Season.fromJson(value);
+        case 'SectionCreationDTO':
+          return new SectionCreationDTO.fromJson(value);
+        case 'SectionGetDTO':
+          return new SectionGetDTO.fromJson(value);
+        case 'SectionUpdateDTO':
+          return new SectionUpdateDTO.fromJson(value);
         case 'SpeciesDTO':
           return new SpeciesDTO.fromJson(value);
         case 'StatusDTO':
@@ -382,6 +396,10 @@ class ApiClient {
           return new StudyDTO.fromJson(value);
         case 'StudyDetailsDTO':
           return new StudyDetailsDTO.fromJson(value);
+        case 'TargetPositionCreationDTO':
+          return new TargetPositionCreationDTO.fromJson(value);
+        case 'TargetPositionGetDTO':
+          return new TargetPositionGetDTO.fromJson(value);
         case 'ThemeConfigDTO':
           return new ThemeConfigDTO.fromJson(value);
         case 'TokenGetDTO':
@@ -416,6 +434,14 @@ class ApiClient {
           return new VariableGetDTO.fromJson(value);
         case 'VariableUpdateDTO':
           return new VariableUpdateDTO.fromJson(value);
+        case 'VariablesGroupCreationDTO':
+          return new VariablesGroupCreationDTO.fromJson(value);
+        case 'VariablesGroupGetDTO':
+          return new VariablesGroupGetDTO.fromJson(value);
+        case 'VariablesGroupUpdateDTO':
+          return new VariablesGroupUpdateDTO.fromJson(value);
+        case 'VersionInfoDTO':
+          return new VersionInfoDTO.fromJson(value);
         case 'VueDataTypeDTO':
           return new VueDataTypeDTO.fromJson(value);
         case 'VueObjectTypeDTO':
@@ -426,6 +452,24 @@ class ApiClient {
           return new VueRDFTypeParameterDTO.fromJson(value);
         case 'VueRDFTypePropertyDTO':
           return new VueRDFTypePropertyDTO.fromJson(value);
+        case 'Feature':
+          return new Feature.fromJson(value);
+        case 'FeatureCollection':
+          return new FeatureCollection.fromJson(value);
+        case 'GeometryCollection':
+          return new GeometryCollection.fromJson(value);
+        case 'LineString':
+          return new LineString.fromJson(value);
+        case 'MultiLineString':
+          return new MultiLineString.fromJson(value);
+        case 'MultiPoint':
+          return new MultiPoint.fromJson(value);
+        case 'MultiPolygon':
+          return new MultiPolygon.fromJson(value);
+        case 'Point':
+          return new Point.fromJson(value);
+        case 'Polygon':
+          return new Polygon.fromJson(value);
         default:
           {
             Match match;
@@ -442,11 +486,9 @@ class ApiClient {
           }
       }
     } catch (e, stack) {
-      throw new ApiException.withInner(
-          500, 'Exception during deserialization.', e, stack);
+      throw new ApiException.withInner(500, 'Exception during deserialization.', e, stack);
     }
-    throw new ApiException(
-        500, 'Could not find a suitable class for deserialization');
+    throw new ApiException(500, 'Could not find a suitable class for deserialization');
   }
 
   dynamic deserialize(String jsonVal, String targetType) {
@@ -456,7 +498,6 @@ class ApiClient {
     if (targetType == 'String') return jsonVal;
 
     var decodedJson = json.decode(jsonVal);
-    //var decodedJson = jsonVal;
     return _deserialize(decodedJson, targetType);
   }
 
@@ -472,28 +513,28 @@ class ApiClient {
 
   // We don't use a Map<String, String> for queryParams.
   // If collectionFormat is 'multi' a key might appear multiple times.
-  Future<Response> invokeAPI(
-      String path,
-      String method,
-      Iterable<QueryParam> queryParams,
-      Object body,
-      Map<String, String> headerParams,
-      Map<String, String> formParams,
-      String contentType,
-      List<String> authNames) async {
+  Future<Response> invokeAPI(String path,
+                             String method,
+                             Iterable<QueryParam> queryParams,
+                             Object body,
+                             Map<String, String> headerParams,
+                             Map<String, String> formParams,
+                             String contentType,
+                             List<String> authNames) async {
+
     _updateParamsForAuth(authNames, queryParams, headerParams);
 
-    var ps = queryParams
-        .where((p) => p.value != null)
-        .map((p) => '${p.name}=${p.value}');
-    String queryString = ps.isNotEmpty ? '?' + ps.join('&') : '';
+    var ps = queryParams.where((p) => p.value != null).map((p) => '${p.name}=${p.value}');
+    String queryString = ps.isNotEmpty ?
+                         '?' + ps.join('&') :
+                         '';
 
     String url = basePath + path + queryString;
 
     headerParams.addAll(_defaultHeaderMap);
     headerParams['Content-Type'] = contentType;
 
-    if (body is MultipartRequest) {
+    if(body is MultipartRequest) {
       var request = new MultipartRequest(method, Uri.parse(url));
       request.fields.addAll(body.fields);
       request.files.addAll(body.files);
@@ -502,35 +543,28 @@ class ApiClient {
       var response = await client.send(request);
       return Response.fromStream(response);
     } else {
-      var msgBody = contentType == "application/x-www-form-urlencoded"
-          ? formParams
-          : serialize(body);
-      switch (method) {
+      var msgBody = contentType == "application/x-www-form-urlencoded" ? formParams : serialize(body);
+      switch(method) {
         case "POST":
-          return client.post(Uri.parse(url),
-              headers: headerParams, body: msgBody);
+          return client.post(url, headers: headerParams, body: msgBody);
         case "PUT":
-          return client.put(Uri.parse(url),
-              headers: headerParams, body: msgBody);
+          return client.put(url, headers: headerParams, body: msgBody);
         case "DELETE":
-          return client.delete(Uri.parse(url), headers: headerParams);
+          return client.delete(url, headers: headerParams);
         case "PATCH":
-          return client.patch(Uri.parse(url),
-              headers: headerParams, body: msgBody);
+          return client.patch(url, headers: headerParams, body: msgBody);
         default:
-          return client.get(Uri.parse(url), headers: headerParams);
+          return client.get(url, headers: headerParams);
       }
     }
   }
 
   /// Update query and header parameters based on authentication settings.
   /// @param authNames The authentications to apply
-  void _updateParamsForAuth(List<String> authNames,
-      List<QueryParam> queryParams, Map<String, String> headerParams) {
+  void _updateParamsForAuth(List<String> authNames, List<QueryParam> queryParams, Map<String, String> headerParams) {
     authNames.forEach((authName) {
       Authentication auth = _authentications[authName];
-      if (auth == null)
-        throw new ArgumentError("Authentication undefined: " + authName);
+      if (auth == null) throw new ArgumentError("Authentication undefined: " + authName);
       auth.applyToParams(queryParams, headerParams);
     });
   }

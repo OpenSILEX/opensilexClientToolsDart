@@ -14,16 +14,19 @@ class InfrastructureCreationDTO {
   String name = null;
   
 
-  String parent = null;
+  List<String> parents = [];
   
 
-  List<String> children = [];
+  List<String> groups = [];
+  
+
+  List<String> facilities = [];
   
   InfrastructureCreationDTO();
 
   @override
   String toString() {
-    return 'InfrastructureCreationDTO[uri=$uri, rdfType=$rdfType, rdfTypeName=$rdfTypeName, name=$name, parent=$parent, children=$children, ]';
+    return 'InfrastructureCreationDTO[uri=$uri, rdfType=$rdfType, rdfTypeName=$rdfTypeName, name=$name, parents=$parents, groups=$groups, facilities=$facilities, ]';
   }
 
   InfrastructureCreationDTO.fromJson(Map<String, dynamic> json) {
@@ -40,11 +43,14 @@ class InfrastructureCreationDTO {
     name =
         json['name']
     ;
-    parent =
-        json['parent']
+    parents =
+        (json['parents'] as List).map((item) => item as String).toList()
     ;
-    children =
-        (json['children'] as List).map((item) => item as String).toList()
+    groups =
+        (json['groups'] as List).map((item) => item as String).toList()
+    ;
+    facilities =
+        (json['facilities'] as List).map((item) => item as String).toList()
     ;
   }
 
@@ -54,8 +60,9 @@ class InfrastructureCreationDTO {
       'rdf_type': rdfType,
       'rdf_type_name': rdfTypeName,
       'name': name,
-      'parent': parent,
-      'children': children
+      'parents': parents,
+      'groups': groups,
+      'facilities': facilities
      };
   }
 

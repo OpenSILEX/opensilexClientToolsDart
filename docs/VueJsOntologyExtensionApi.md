@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**deleteRDFType**](VueJsOntologyExtensionApi.md#deleteRDFType) | **DELETE** /vuejs/owl_extension/rdf_type | Delete a RDF type
 [**getDataTypes1**](VueJsOntologyExtensionApi.md#getDataTypes1) | **GET** /vuejs/owl_extension/data_types | Return literal datatypes definition
 [**getObjectTypes**](VueJsOntologyExtensionApi.md#getObjectTypes) | **GET** /vuejs/owl_extension/object_types | Return object types definition
-[**getRDFType1**](VueJsOntologyExtensionApi.md#getRDFType1) | **GET** /vuejs/owl_extension/rdf_type | Return rdt type model definition with properties
+[**getRDFType1**](VueJsOntologyExtensionApi.md#getRDFType1) | **GET** /vuejs/owl_extension/rdf_type | Return rdf type model definition with properties
 [**getRDFTypeProperties**](VueJsOntologyExtensionApi.md#getRDFTypeProperties) | **GET** /vuejs/owl_extension/rdf_type_properties | Return class model properties definitions
 [**getRDFTypesParameters**](VueJsOntologyExtensionApi.md#getRDFTypesParameters) | **GET** /vuejs/owl_extension/rdf_types_parameters | Return RDF types parameters for Vue.js application
 [**setRDFTypePropertiesOrder**](VueJsOntologyExtensionApi.md#setRDFTypePropertiesOrder) | **PUT** /vuejs/owl_extension/properties_order | Define properties order
@@ -34,7 +34,7 @@ import 'package:swagger/api.dart';
 var api_instance = new VueJsOntologyExtensionApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new VueRDFTypeDTO(); // VueRDFTypeDTO | Class description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.createRDFType(authorization, body, acceptLanguage);
@@ -81,7 +81,7 @@ import 'package:swagger/api.dart';
 var api_instance = new VueJsOntologyExtensionApi();
 var authorization = authorization_example; // String | Authentication token
 var rdfType = rdfType_example; // String | RDF type
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.deleteRDFType(authorization, rdfType, acceptLanguage);
@@ -195,7 +195,7 @@ No authorization required
 # **getRDFType1**
 > VueRDFTypeDTO getRDFType1(rdfType, authorization, parentType, acceptLanguage)
 
-Return rdt type model definition with properties
+Return rdf type model definition with properties
 
 
 
@@ -207,7 +207,7 @@ var api_instance = new VueJsOntologyExtensionApi();
 var rdfType = rdfType_example; // String | RDF type URI
 var authorization = authorization_example; // String | Authentication token
 var parentType = parentType_example; // String | Parent RDF class URI
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getRDFType1(rdfType, authorization, parentType, acceptLanguage);
@@ -256,7 +256,7 @@ var api_instance = new VueJsOntologyExtensionApi();
 var rdfType = rdfType_example; // String | RDF class URI
 var parentType = parentType_example; // String | Parent RDF class URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getRDFTypeProperties(rdfType, parentType, authorization, acceptLanguage);
@@ -344,7 +344,7 @@ var api_instance = new VueJsOntologyExtensionApi();
 var rdfType = rdfType_example; // String | RDF type
 var authorization = authorization_example; // String | Authentication token
 var body = [new List&lt;String&gt;()]; // List<String> | Array of properties
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.setRDFTypePropertiesOrder(rdfType, authorization, body, acceptLanguage);
@@ -392,7 +392,7 @@ import 'package:swagger/api.dart';
 var api_instance = new VueJsOntologyExtensionApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new VueRDFTypeDTO(); // VueRDFTypeDTO | RDF type definition
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateRDFType(authorization, body, acceptLanguage);

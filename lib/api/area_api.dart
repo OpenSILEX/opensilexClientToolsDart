@@ -181,7 +181,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Get area whose geometry corresponds to the Intersections
   ///
   /// 
-  Future<List<AreaGetDTO>> searchIntersects(GeoJsonObject body,  { String acceptLanguage }) async {
+  Future<List<AreaGetDTO>> searchIntersects(GeoJsonObject body,  { String start, String end, String acceptLanguage }) async {
     Object postBody = body;
 
     // verify required params are set
@@ -200,6 +200,12 @@ headerParams["Accept-Language"] = acceptLanguage;
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
+    if(start != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "start", start));
+    }
+    if(end != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "end", end));
+    }
     headerParams["Authorization"] = authorization;
 headerParams["Accept-Language"] = acceptLanguage;
 

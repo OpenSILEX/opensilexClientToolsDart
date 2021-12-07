@@ -11,6 +11,9 @@ class VariableGetDTO {
   EntityGetDTO entity = null;
   
 
+  NamedResourceDTO entityOfInterest = null;
+  
+
   CharacteristicGetDTO characteristic = null;
   
 
@@ -23,7 +26,7 @@ class VariableGetDTO {
 
   @override
   String toString() {
-    return 'VariableGetDTO[uri=$uri, name=$name, entity=$entity, characteristic=$characteristic, method=$method, unit=$unit, ]';
+    return 'VariableGetDTO[uri=$uri, name=$name, entity=$entity, entityOfInterest=$entityOfInterest, characteristic=$characteristic, method=$method, unit=$unit, ]';
   }
 
   VariableGetDTO.fromJson(Map<String, dynamic> json) {
@@ -40,6 +43,13 @@ class VariableGetDTO {
       
  
       new EntityGetDTO.fromJson(json['entity'])
+;
+    entityOfInterest =
+      
+ 
+      
+ 
+      new NamedResourceDTO.fromJson(json['entity_of_interest'])
 ;
     characteristic =
       
@@ -69,6 +79,7 @@ class VariableGetDTO {
       'uri': uri,
       'name': name,
       'entity': entity,
+      'entity_of_interest': entityOfInterest,
       'characteristic': characteristic,
       'method': method,
       'unit': unit

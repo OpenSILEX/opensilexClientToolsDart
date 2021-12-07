@@ -31,7 +31,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ProjectsApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new ProjectCreationDTO(); // ProjectCreationDTO | Project description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.createProject(authorization, body, acceptLanguage);
@@ -76,9 +76,9 @@ Delete a project
 import 'package:swagger/api.dart';
 
 var api_instance = new ProjectsApi();
-var uri = http://opensilex/set/project/BW1; // String | Project URI
+var uri = "http://opensilex/set/project/BW1"; // String | Project URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.deleteProject(uri, authorization, acceptLanguage);
@@ -123,9 +123,9 @@ Get a project
 import 'package:swagger/api.dart';
 
 var api_instance = new ProjectsApi();
-var uri = http://example.com/; // String | Project URI
+var uri = "http://example.com/"; // String | Project URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getProject(uri, authorization, acceptLanguage);
@@ -172,7 +172,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ProjectsApi();
 var uris = []; // List<String> | Projects URIs
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getProjectsByURI(uris, authorization, acceptLanguage);
@@ -218,14 +218,14 @@ import 'package:swagger/api.dart';
 
 var api_instance = new ProjectsApi();
 var authorization = authorization_example; // String | Authentication token
-var name = PJ17; // String | Regex pattern for filtering by name or shortname
+var name = "PJ17"; // String | Regex pattern for filtering by name or shortname
 var year = 2017; // int | Search by year
-var keyword = climate; // String | Regex pattern for filtering on description or objective
-var financialFunding = ANR; // String | Regex pattern for filtering by financial funding
-var orderBy = [name=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var keyword = "climate"; // String | Regex pattern for filtering on description or objective
+var financialFunding = "ANR"; // String | Regex pattern for filtering by financial funding
+var orderBy = ["uri=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchProjects(authorization, name, year, keyword, financialFunding, orderBy, page, pageSize, acceptLanguage);
@@ -278,7 +278,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ProjectsApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new ProjectCreationDTO(); // ProjectCreationDTO | Project description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateProject(authorization, body, acceptLanguage);

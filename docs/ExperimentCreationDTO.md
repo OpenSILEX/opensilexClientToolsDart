@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **species** | **List&lt;String&gt;** |  | [optional] [default to []]
 **variables** | **List&lt;String&gt;** |  | [optional] [default to []]
 **organisations** | **List&lt;String&gt;** |  | [optional] [default to []]
+**facilities** | **List&lt;String&gt;** |  | [optional] [default to []]
 **projects** | **List&lt;String&gt;** |  | [optional] [default to []]
 **scientificSupervisors** | **List&lt;String&gt;** |  | [optional] [default to []]
 **technicalSupervisors** | **List&lt;String&gt;** |  | [optional] [default to []]

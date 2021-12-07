@@ -24,7 +24,7 @@ get species (no pagination)
 import 'package:swagger/api.dart';
 
 var api_instance = new SpeciesApi();
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getAllSpecies(acceptLanguage);

@@ -1,69 +1,116 @@
 part of swagger.api;
 
 class FormGetDTO {
-  String type = null;
-
-  //List<Map<String, dynamic>> formData = [];
-  List<dynamic> formData = [];
-
-/* to specify if the offset is not in the date and if the timezone is different from the default one */
-  String timezone = null;
-
+  /* to specify if the offset is not in the date and if the timezone is different from the default one */
+  String offset = null;
+  
 /* URI of the form being updated */
   String uri = null;
+  
 
+  List<String> sectionUris = [];
+  
+
+  List<String> formChildrenUris = [];
+  
+
+  List<String> formParentsUris = [];
+  
+
+  List<String> emptyChildrenUris = [];
+  
+
+  String type = null;
+  
+/* code lot of the form */
+  String codeLot = null;
+  
 /* timestamp */
-  String modifiedDate = null;
-
+  String createdDate = null;
+  
+/* address of the commit */
   String commitAddress = null;
-
-  String name = null;
-
+  
+/* timestamp */
+  String updatedDate = null;
+  
+/* boolean */
+  bool isRoot = null;
+  
   FormGetDTO();
 
   @override
   String toString() {
-    return 'FormGetDTO[type=$type, formData=$formData, timezone=$timezone, uri=$uri, modifiedDate=$modifiedDate, commitAddress=$commitAddress, name=$name]';
+    return 'FormGetDTO[offset=$offset, uri=$uri, sectionUris=$sectionUris, formChildrenUris=$formChildrenUris, formParentsUris=$formParentsUris, emptyChildrenUris=$emptyChildrenUris, type=$type, codeLot=$codeLot, createdDate=$createdDate, commitAddress=$commitAddress, updatedDate=$updatedDate, isRoot=$isRoot, ]';
   }
 
   FormGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    type = json['type'];
-    formData = json['form_data'] as List;
-    //List<dynamic> tempFdata = json['form_data'] as List;
-    //formData = tempFdata.map((item) => item as Map<String, dynamic>).toList();
-    timezone = json['timezone'];
-    uri = json['uri'];
-    modifiedDate = json['modified_date'];
-    commitAddress = json['commit_address'];
-    name = json['name'];
+    offset =
+        json['offset']
+    ;
+    uri =
+        json['uri']
+    ;
+    sectionUris =
+        (json['section_uris'] as List).map((item) => item as String).toList()
+    ;
+    formChildrenUris =
+        (json['form_children_uris'] as List).map((item) => item as String).toList()
+    ;
+    formParentsUris =
+        (json['form_parents_uris'] as List).map((item) => item as String).toList()
+    ;
+    emptyChildrenUris =
+        (json['empty_children_uris'] as List).map((item) => item as String).toList()
+    ;
+    type =
+        json['type']
+    ;
+    codeLot =
+        json['code_lot']
+    ;
+    createdDate =
+        json['created_date']
+    ;
+    commitAddress =
+        json['commit_address']
+    ;
+    updatedDate =
+        json['updated_date']
+    ;
+    isRoot =
+        json['is_root']
+    ;
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'type': type,
-      'form_data': formData,
-      'timezone': timezone,
+      'offset': offset,
       'uri': uri,
-      'modified_date': modifiedDate,
+      'section_uris': sectionUris,
+      'form_children_uris': formChildrenUris,
+      'form_parents_uris': formParentsUris,
+      'empty_children_uris': emptyChildrenUris,
+      'type': type,
+      'code_lot': codeLot,
+      'created_date': createdDate,
       'commit_address': commitAddress,
-      'name': name
-    };
+      'updated_date': updatedDate,
+      'is_root': isRoot
+     };
   }
 
   static List<FormGetDTO> listFromJson(List<dynamic> json) {
-    return json == null
-        ? new List<FormGetDTO>()
-        : json.map((value) => new FormGetDTO.fromJson(value)).toList();
+    return json == null ? new List<FormGetDTO>() : json.map((value) => new FormGetDTO.fromJson(value)).toList();
   }
 
-  static Map<String, FormGetDTO> mapFromJson(
-      Map<String, Map<String, dynamic>> json) {
+  static Map<String, FormGetDTO> mapFromJson(Map<String, Map<String, dynamic>> json) {
     var map = new Map<String, FormGetDTO>();
     if (json != null && json.length > 0) {
-      json.forEach((String key, Map<String, dynamic> value) =>
-          map[key] = new FormGetDTO.fromJson(value));
+      json.forEach((String key, Map<String, dynamic> value) => map[key] = new FormGetDTO.fromJson(value));
     }
     return map;
   }
 }
+

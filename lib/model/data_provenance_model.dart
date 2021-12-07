@@ -7,6 +7,9 @@ class DataProvenanceModel {
 /* list of inputs of the process described in the provenance */
   List<ProvEntityModel> provUsed = [];
   
+/* allow an activity to be linked to an agent */
+  List<ProvEntityModel> provWasAssociatedWith = [];
+  
 /* a key-value system to store specific information */
   Map<String, Object> settings = {};
   
@@ -17,7 +20,7 @@ class DataProvenanceModel {
 
   @override
   String toString() {
-    return 'DataProvenanceModel[uri=$uri, provUsed=$provUsed, settings=$settings, experiments=$experiments, ]';
+    return 'DataProvenanceModel[uri=$uri, provUsed=$provUsed, provWasAssociatedWith=$provWasAssociatedWith, settings=$settings, experiments=$experiments, ]';
   }
 
   DataProvenanceModel.fromJson(Map<String, dynamic> json) {
@@ -27,6 +30,9 @@ class DataProvenanceModel {
     ;
     provUsed =
       ProvEntityModel.listFromJson(json['prov_used'])
+;
+    provWasAssociatedWith =
+      ProvEntityModel.listFromJson(json['prov_was_associated_with'])
 ;
     settings =
       
@@ -44,6 +50,7 @@ class DataProvenanceModel {
     return {
       'uri': uri,
       'prov_used': provUsed,
+      'prov_was_associated_with': provWasAssociatedWith,
       'settings': settings,
       'experiments': experiments
      };

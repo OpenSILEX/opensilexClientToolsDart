@@ -17,6 +17,9 @@ class VariableUpdateDTO {
   String entity = null;
   
 
+  String entityOfInterest = null;
+  
+
   String characteristic = null;
   
 
@@ -30,6 +33,9 @@ class VariableUpdateDTO {
   
 
   String unit = null;
+  
+
+  String species = null;
   
 
   String datatype = null;
@@ -56,7 +62,7 @@ class VariableUpdateDTO {
 
   @override
   String toString() {
-    return 'VariableUpdateDTO[uri=$uri, name=$name, alternativeName=$alternativeName, description=$description, entity=$entity, characteristic=$characteristic, trait=$trait, traitName=$traitName, method=$method, unit=$unit, datatype=$datatype, timeInterval=$timeInterval, samplingInterval=$samplingInterval, exactMatch=$exactMatch, closeMatch=$closeMatch, broadMatch=$broadMatch, narrowMatch=$narrowMatch, ]';
+    return 'VariableUpdateDTO[uri=$uri, name=$name, alternativeName=$alternativeName, description=$description, entity=$entity, entityOfInterest=$entityOfInterest, characteristic=$characteristic, trait=$trait, traitName=$traitName, method=$method, unit=$unit, species=$species, datatype=$datatype, timeInterval=$timeInterval, samplingInterval=$samplingInterval, exactMatch=$exactMatch, closeMatch=$closeMatch, broadMatch=$broadMatch, narrowMatch=$narrowMatch, ]';
   }
 
   VariableUpdateDTO.fromJson(Map<String, dynamic> json) {
@@ -76,6 +82,9 @@ class VariableUpdateDTO {
     entity =
         json['entity']
     ;
+    entityOfInterest =
+        json['entity_of_interest']
+    ;
     characteristic =
         json['characteristic']
     ;
@@ -90,6 +99,9 @@ class VariableUpdateDTO {
     ;
     unit =
         json['unit']
+    ;
+    species =
+        json['species']
     ;
     datatype =
         json['datatype']
@@ -121,11 +133,13 @@ class VariableUpdateDTO {
       'alternative_name': alternativeName,
       'description': description,
       'entity': entity,
+      'entity_of_interest': entityOfInterest,
       'characteristic': characteristic,
       'trait': trait,
       'trait_name': traitName,
       'method': method,
       'unit': unit,
+      'species': species,
       'datatype': datatype,
       'time_interval': timeInterval,
       'sampling_interval': samplingInterval,

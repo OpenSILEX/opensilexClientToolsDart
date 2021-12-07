@@ -10,6 +10,7 @@ All URIs are relative to *https://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getCalls**](BRAPIApi.md#getCalls) | **GET** /brapi/v1/calls | Check the available BrAPI calls
+[**getGermplasmBySearch**](BRAPIApi.md#getGermplasmBySearch) | **GET** /brapi/v1/germplasm | Submit a search request for germplasm
 [**getObservationUnits**](BRAPIApi.md#getObservationUnits) | **GET** /brapi/v1/studies/{studyDbId}/observationunits | List all the observation units measured in the study.
 [**getObservationVariables**](BRAPIApi.md#getObservationVariables) | **GET** /brapi/v1/studies/{studyDbId}/observationvariables | List all the observation variables measured in the study.
 [**getObservations**](BRAPIApi.md#getObservations) | **GET** /brapi/v1/studies/{studyDbId}/observations | Get the observations associated to a specific study
@@ -34,7 +35,7 @@ import 'package:swagger/api.dart';
 var api_instance = new BRAPIApi();
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var dataType = json; // String | datatype
+var dataType = "json"; // String | datatype
 
 try { 
     var result = api_instance.getCalls(page, pageSize, dataType);
@@ -67,6 +68,63 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getGermplasmBySearch**
+> GermplasmDTO getGermplasmBySearch(authorization, germplasmDbId, germplasmPUI, germplasmName, commonCropName, page, pageSize, acceptLanguage)
+
+Submit a search request for germplasm
+
+
+
+### Example 
+```dart
+import 'package:swagger/api.dart';
+
+var api_instance = new BRAPIApi();
+var authorization = authorization_example; // String | Authentication token
+var germplasmDbId = germplasmDbId_example; // String | Search by germplasmDbId
+var germplasmPUI = germplasmPUI_example; // String | Search by germplasmPUI
+var germplasmName = germplasmName_example; // String | Search by germplasmName
+var commonCropName = commonCropName_example; // String | Search by commonCropName
+var page = 0; // int | Page number
+var pageSize = 20; // int | Page size
+var acceptLanguage = "en"; // String | Request accepted language
+
+try { 
+    var result = api_instance.getGermplasmBySearch(authorization, germplasmDbId, germplasmPUI, germplasmName, commonCropName, page, pageSize, acceptLanguage);
+    print(result);
+} catch (e) {
+    print("Exception when calling BRAPIApi->getGermplasmBySearch: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **String**| Authentication token | 
+ **germplasmDbId** | **String**| Search by germplasmDbId | [optional] 
+ **germplasmPUI** | **String**| Search by germplasmPUI | [optional] 
+ **germplasmName** | **String**| Search by germplasmName | [optional] 
+ **commonCropName** | **String**| Search by commonCropName | [optional] 
+ **page** | **int**| Page number | [optional] [default to 0]
+ **pageSize** | **int**| Page size | [optional] [default to 20]
+ **acceptLanguage** | **String**| Request accepted language | [optional] 
+
+### Return type
+
+[**GermplasmDTO**](GermplasmDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getObservationUnits**
 > List<ObservationUnitDTO> getObservationUnits(studyDbId, authorization, observationLevel, pageSize, page, acceptLanguage)
 
@@ -81,10 +139,10 @@ import 'package:swagger/api.dart';
 var api_instance = new BRAPIApi();
 var studyDbId = studyDbId_example; // String | studyDbId
 var authorization = authorization_example; // String | Authentication token
-var observationLevel = Plot; // String | observationLevel
+var observationLevel = "Plot"; // String | observationLevel
 var pageSize = 56; // int | pageSize
 var page = 56; // int | page
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getObservationUnits(studyDbId, authorization, observationLevel, pageSize, page, acceptLanguage);
@@ -136,7 +194,7 @@ var studyDbId = studyDbId_example; // String | studyDbId
 var authorization = authorization_example; // String | Authentication token
 var pageSize = 56; // int | pageSize
 var page = 56; // int | page
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getObservationVariables(studyDbId, authorization, pageSize, page, acceptLanguage);
@@ -188,7 +246,7 @@ var authorization = authorization_example; // String | Authentication token
 var observationVariableDbIds = []; // List<String> | observationVariableDbIds
 var pageSize = 56; // int | pageSize
 var page = 56; // int | page
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getObservations(studyDbId, authorization, observationVariableDbIds, pageSize, page, acceptLanguage);
@@ -243,7 +301,7 @@ var sortBy = sortBy_example; // String | Name of the field to sort by: studyDbId
 var sortOrder = sortOrder_example; // String | Sort order direction - ASC or DESC
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getStudies(authorization, studyDbId, active, sortBy, sortOrder, page, pageSize, acceptLanguage);
@@ -300,7 +358,7 @@ var sortBy = sortBy_example; // String | Name of the field to sort by: studyDbId
 var sortOrder = sortOrder_example; // String | Sort order direction - ASC or DESC
 var pageSize = 56; // int | pageSize
 var page = 56; // int | page
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getStudiesSearch(authorization, studyDbId, active, sortBy, sortOrder, pageSize, page, acceptLanguage);
@@ -352,7 +410,7 @@ import 'package:swagger/api.dart';
 var api_instance = new BRAPIApi();
 var studyDbId = studyDbId_example; // String | Search by studyDbId
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getStudyDetails(studyDbId, authorization, acceptLanguage);
@@ -399,7 +457,7 @@ import 'package:swagger/api.dart';
 var api_instance = new BRAPIApi();
 var observationVariableDbId = observationVariableDbId_example; // String | A variable URI (Unique Resource Identifier)
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getVariableDetails(observationVariableDbId, authorization, acceptLanguage);
@@ -448,7 +506,7 @@ var authorization = authorization_example; // String | Authentication token
 var observationVariableDbId = observationVariableDbId_example; // String | observationVariableDbId
 var pageSize = 56; // int | pageSize
 var page = 56; // int | page
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getVariablesList(authorization, observationVariableDbId, pageSize, page, acceptLanguage);

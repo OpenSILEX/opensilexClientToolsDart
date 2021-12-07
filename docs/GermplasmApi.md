@@ -35,7 +35,7 @@ var api_instance = new GermplasmApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new GermplasmCreationDTO(); // GermplasmCreationDTO | Germplasm description
 var checkOnly = false; // bool | Checking only
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.createGermplasm(authorization, body, checkOnly, acceptLanguage);
@@ -81,9 +81,9 @@ Delete a germplasm
 import 'package:swagger/api.dart';
 
 var api_instance = new GermplasmApi();
-var uri = http://example.com/; // String | Germplasm URI
+var uri = "http://example.com/"; // String | Germplasm URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.deleteGermplasm(uri, authorization, acceptLanguage);
@@ -128,20 +128,19 @@ import 'package:swagger/api.dart';
 
 var api_instance = new GermplasmApi();
 var authorization = authorization_example; // String | Authentication token
-var uri = http://opensilex/set/experiments/ZA17; // String | Regex pattern for filtering list by uri
-var rdfType = http://www.opensilex.org/vocabulary/oeso#Variety; // String | Search by type
-var name = .*; // String | Regex pattern for filtering list by name and synonyms
-var code = .*; // String | Regex pattern for filtering list by code
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Regex pattern for filtering list by uri
+var rdfType = "http://www.opensilex.org/vocabulary/oeso#Variety"; // String | Search by type
+var name = ".*"; // String | Regex pattern for filtering list by name and synonyms
+var code = ".*"; // String | Regex pattern for filtering list by code
 var productionYear = 2020; // int | Search by productionYear
-var species = http://www.phenome-fppn.fr/id/species/zeamays; // String | Search by species
+var species = "http://www.phenome-fppn.fr/id/species/zeamays"; // String | Search by species
 var variety = variety_example; // String | Search by variety
 var accession = accession_example; // String | Search by accession
-var institute = INRA; // String | Search by institute
+var institute = "INRA"; // String | Search by institute
 var experiment = experiment_example; // String | Search by experiment
-var metadata = { "water_stress" : "resistant",
-"yield" : "moderate"}; // String | Search by metadata
-var orderBy = [name=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
-var acceptLanguage = en; // String | Request accepted language
+var metadata = "{ \"water_stress\" : \"resistant\",\n\"yield\" : \"moderate\"}"; // String | Search by metadata
+var orderBy = ["name=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.exportGermplasm(authorization, uri, rdfType, name, code, productionYear, species, variety, accession, institute, experiment, metadata, orderBy, acceptLanguage);
@@ -198,7 +197,7 @@ import 'package:swagger/api.dart';
 var api_instance = new GermplasmApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new URIsListPostDTO(); // URIsListPostDTO | List of germplasm URI
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.exportGermplasmByURIs(authorization, body, acceptLanguage);
@@ -242,9 +241,9 @@ Get a germplasm
 import 'package:swagger/api.dart';
 
 var api_instance = new GermplasmApi();
-var uri = http://www.phenome-fppn.fr/id/species/zeamays; // String | germplasm URI
+var uri = "http://www.phenome-fppn.fr/id/species/zeamays"; // String | germplasm URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getGermplasm(uri, authorization, acceptLanguage);
@@ -289,13 +288,13 @@ Get experiments where a germplasm has been used
 import 'package:swagger/api.dart';
 
 var api_instance = new GermplasmApi();
-var uri = dev-germplasm:g01; // String | germplasm URI
+var uri = "dev-germplasm:g01"; // String | germplasm URI
 var authorization = authorization_example; // String | Authentication token
-var name = .*; // String | Regex pattern for filtering experiments by name
-var orderBy = [name=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var name = ".*"; // String | Regex pattern for filtering experiments by name
+var orderBy = ["name=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getGermplasmExperiments(uri, authorization, name, orderBy, page, pageSize, acceptLanguage);
@@ -346,7 +345,7 @@ import 'package:swagger/api.dart';
 var api_instance = new GermplasmApi();
 var uris = []; // List<String> | Germplasms URIs
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getGermplasmsByURI(uris, authorization, acceptLanguage);
@@ -392,22 +391,21 @@ import 'package:swagger/api.dart';
 
 var api_instance = new GermplasmApi();
 var authorization = authorization_example; // String | Authentication token
-var uri = http://opensilex/set/experiments/ZA17; // String | Regex pattern for filtering list by uri
-var rdfType = http://www.opensilex.org/vocabulary/oeso#Variety; // String | Search by type
-var name = .*; // String | Regex pattern for filtering list by name and synonyms
-var code = .*; // String | Regex pattern for filtering list by code
+var uri = "http://opensilex/set/experiments/ZA17"; // String | Regex pattern for filtering list by uri
+var rdfType = "http://www.opensilex.org/vocabulary/oeso#Variety"; // String | Search by type
+var name = ".*"; // String | Regex pattern for filtering list by name and synonyms
+var code = ".*"; // String | Regex pattern for filtering list by code
 var productionYear = 2020; // int | Search by production year
-var species = http://www.phenome-fppn.fr/id/species/zeamays; // String | Search by species
+var species = "http://www.phenome-fppn.fr/id/species/zeamays"; // String | Search by species
 var variety = variety_example; // String | Search by variety
 var accession = accession_example; // String | Search by accession
-var institute = INRA; // String | Search by institute
+var institute = "INRA"; // String | Search by institute
 var experiment = experiment_example; // String | Search by experiment
-var metadata = { "water_stress" : "resistant",
-"yield" : "moderate"}; // String | Search by metadata
-var orderBy = [name=asc]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
+var metadata = "{ \"water_stress\" : \"resistant\",\n\"yield\" : \"moderate\"}"; // String | Search by metadata
+var orderBy = ["uri=asc"]; // List<String> | List of fields to sort as an array of fieldName=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchGermplasm(authorization, uri, rdfType, name, code, productionYear, species, variety, accession, institute, experiment, metadata, orderBy, page, pageSize, acceptLanguage);
@@ -467,7 +465,7 @@ import 'package:swagger/api.dart';
 var api_instance = new GermplasmApi();
 var authorization = authorization_example; // String | Authentication token
 var body = new GermplasmUpdateDTO(); // GermplasmUpdateDTO | Germplasm description
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateGermplasm(authorization, body, acceptLanguage);

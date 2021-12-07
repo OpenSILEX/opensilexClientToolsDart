@@ -66,6 +66,79 @@ class BRAPIApi {
       return null;
     }
   }
+  /// Submit a search request for germplasm
+  ///
+  /// 
+  Future<GermplasmDTO> getGermplasmBySearch( { String germplasmDbId, String germplasmPUI, String germplasmName, String commonCropName, int page, int pageSize, String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(authorization == null) {
+     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/brapi/v1/germplasm".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    if(germplasmDbId != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "germplasmDbId", germplasmDbId));
+    }
+    if(germplasmPUI != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "germplasmPUI", germplasmPUI));
+    }
+    if(germplasmName != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "germplasmName", germplasmName));
+    }
+    if(commonCropName != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "commonCropName", commonCropName));
+    }
+    if(page != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "page", page));
+    }
+    if(pageSize != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "page_size", pageSize));
+    }
+    headerParams["Authorization"] = authorization;
+headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          apiClient.deserialize(response.body, 'GermplasmDTO') as GermplasmDTO ;
+    } else {
+      return null;
+    }
+  }
   /// List all the observation units measured in the study.
   ///
   /// List all the observation units measured in the study.

@@ -32,7 +32,7 @@ var api_instance = new DocumentsApi();
 var description = description_example; // String | File description with metadata
 var authorization = authorization_example; // String | Authentication token
 var file = /path/to/file.txt; // MultipartFile | file
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.createDocument(description, authorization, file, acceptLanguage);
@@ -80,7 +80,7 @@ import 'package:swagger/api.dart';
 var api_instance = new DocumentsApi();
 var uri = uri_example; // String | Document URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.deleteDocument(uri, authorization, acceptLanguage);
@@ -125,9 +125,9 @@ Get document
 import 'package:swagger/api.dart';
 
 var api_instance = new DocumentsApi();
-var uri = http://opensilex.dev/set/documents/ZA17; // String | Document URI
+var uri = "http://opensilex.dev/set/documents/ZA17"; // String | Document URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     api_instance.getDocumentFile(uri, authorization, acceptLanguage);
@@ -171,9 +171,9 @@ Get document's description
 import 'package:swagger/api.dart';
 
 var api_instance = new DocumentsApi();
-var uri = http://opensilex.dev/set/documents/ZA17; // String | Document URI
+var uri = "http://opensilex.dev/set/documents/ZA17"; // String | Document URI
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.getDocumentMetadata(uri, authorization, acceptLanguage);
@@ -219,18 +219,18 @@ import 'package:swagger/api.dart';
 
 var api_instance = new DocumentsApi();
 var authorization = authorization_example; // String | Authentication token
-var rdfType = http://www.opensilex.org/vocabulary/oeso#ScientificDocument; // String | Search by type
-var title = experimental_protocol_3; // String | Regex pattern for filtering list by title
-var date = 2020; // String | Regex pattern for filtering list by date
-var targets = dev-expe:za17; // String | Search by targets
-var authors = Firstname Lastname; // String | Regex pattern for filtering list by author
-var keyword = keyword; // String | Regex pattern for filtering list by keyword
-var multiple = keyword or title; // String | Regex pattern for filtering list by keyword or title
-var deprecated = true; // String | Search deprecated file
-var orderBy = [date=asc]; // List<String> | List of fields to sort as an array of fieldTitle=asc|desc
+var rdfType = "http://www.opensilex.org/vocabulary/oeso#ScientificDocument"; // String | Search by type
+var title = "experimental_protocol_3"; // String | Regex pattern for filtering list by title
+var date = "2020"; // String | Regex pattern for filtering list by date
+var targets = "dev-expe:za17"; // String | Search by targets
+var authors = "Firstname Lastname"; // String | Regex pattern for filtering list by author
+var keyword = "keyword"; // String | Regex pattern for filtering list by keyword
+var multiple = "keyword or title"; // String | Regex pattern for filtering list by keyword or title
+var deprecated = "true"; // String | Search deprecated file
+var orderBy = ["date=asc"]; // List<String> | List of fields to sort as an array of fieldTitle=asc|desc
 var page = 0; // int | Page number
 var pageSize = 20; // int | Page size
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.searchDocuments(authorization, rdfType, title, date, targets, authors, keyword, multiple, deprecated, orderBy, page, pageSize, acceptLanguage);
@@ -287,7 +287,7 @@ import 'package:swagger/api.dart';
 var api_instance = new DocumentsApi();
 var description = description_example; // String | description
 var authorization = authorization_example; // String | Authentication token
-var acceptLanguage = en; // String | Request accepted language
+var acceptLanguage = "en"; // String | Request accepted language
 
 try { 
     var result = api_instance.updateDocument(description, authorization, acceptLanguage);
