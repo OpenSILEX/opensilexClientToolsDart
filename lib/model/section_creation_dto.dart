@@ -8,7 +8,7 @@ class SectionCreationDTO {
   String createdDate = null;
   
 
-  List<Map<String, dynamic>> sectionData = [];
+  List<Map<String, Object>> sectionData = [];
   
 /* address of the commit */
   String commitAddress = null;
