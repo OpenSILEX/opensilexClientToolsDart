@@ -25,6 +25,9 @@ class FormCreationDTO {
 /* timestamp */
   String createdDate = null;
   
+/* address of the commit */
+  String commitAddress = null;
+  
 /* boolean */
   bool isRoot = null;
   
@@ -32,7 +35,7 @@ class FormCreationDTO {
 
   @override
   String toString() {
-    return 'FormCreationDTO[offset=$offset, sectionUris=$sectionUris, formChildrenUris=$formChildrenUris, formParentsUris=$formParentsUris, emptyChildrenUris=$emptyChildrenUris, type=$type, codeLot=$codeLot, createdDate=$createdDate, isRoot=$isRoot, ]';
+    return 'FormCreationDTO[offset=$offset, sectionUris=$sectionUris, formChildrenUris=$formChildrenUris, formParentsUris=$formParentsUris, emptyChildrenUris=$emptyChildrenUris, type=$type, codeLot=$codeLot, createdDate=$createdDate, commitAddress=$commitAddress, isRoot=$isRoot, ]';
   }
 
   FormCreationDTO.fromJson(Map<String, dynamic> json) {
@@ -61,6 +64,9 @@ class FormCreationDTO {
     createdDate =
         json['created_date']
     ;
+    commitAddress =
+        json['commit_address']
+    ;
     isRoot =
         json['is_root']
     ;
@@ -76,6 +82,7 @@ class FormCreationDTO {
       'type': type,
       'code_lot': codeLot,
       'created_date': createdDate,
+      'commit_address': commitAddress,
       'is_root': isRoot
      };
   }

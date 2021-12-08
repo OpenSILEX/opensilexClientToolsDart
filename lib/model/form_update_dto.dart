@@ -28,6 +28,9 @@ class FormUpdateDTO {
 /* timestamp */
   String createdDate = null;
   
+/* address of the commit */
+  String commitAddress = null;
+  
 /* timestamp */
   String updatedDate = null;
   
@@ -38,7 +41,7 @@ class FormUpdateDTO {
 
   @override
   String toString() {
-    return 'FormUpdateDTO[offset=$offset, uri=$uri, sectionUris=$sectionUris, formChildrenUris=$formChildrenUris, formParentsUris=$formParentsUris, emptyChildrenUris=$emptyChildrenUris, type=$type, codeLot=$codeLot, createdDate=$createdDate, updatedDate=$updatedDate, isRoot=$isRoot, ]';
+    return 'FormUpdateDTO[offset=$offset, uri=$uri, sectionUris=$sectionUris, formChildrenUris=$formChildrenUris, formParentsUris=$formParentsUris, emptyChildrenUris=$emptyChildrenUris, type=$type, codeLot=$codeLot, createdDate=$createdDate, commitAddress=$commitAddress, updatedDate=$updatedDate, isRoot=$isRoot, ]';
   }
 
   FormUpdateDTO.fromJson(Map<String, dynamic> json) {
@@ -70,6 +73,9 @@ class FormUpdateDTO {
     createdDate =
         json['created_date']
     ;
+    commitAddress =
+        json['commit_address']
+    ;
     updatedDate =
         json['updated_date']
     ;
@@ -89,6 +95,7 @@ class FormUpdateDTO {
       'type': type,
       'code_lot': codeLot,
       'created_date': createdDate,
+      'commit_address': commitAddress,
       'updated_date': updatedDate,
       'is_root': isRoot
      };
