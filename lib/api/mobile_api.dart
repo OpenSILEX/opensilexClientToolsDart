@@ -297,7 +297,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Search sections
   ///
   /// 
-  Future<List<SectionGetDTO>> searchFormList( { List<String> uris, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
+  Future<List<SectionGetDTO>> searchSections( { List<String> uris, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
