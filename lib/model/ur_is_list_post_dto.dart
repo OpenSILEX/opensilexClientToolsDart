@@ -35,5 +35,6 @@ class URIsListPostDTO {
     }
     return map;
   }
+
 }
 

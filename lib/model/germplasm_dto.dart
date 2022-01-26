@@ -35,10 +35,10 @@ class GermplasmDTO {
   String documentationURL = null;
   
 
-  List<dynamic> donors = [];
+  List<Object> donors = [];
   
 
-  List<dynamic> externalReferences = [];
+  List<Object> externalReferences = [];
   
 
   String genus = null;
@@ -50,7 +50,7 @@ class GermplasmDTO {
   String germplasmName = null;
   
 
-  List<dynamic> germplasmOrigin = [];
+  List<Object> germplasmOrigin = [];
   
 
   String germplasmPreprocessing = null;
@@ -77,7 +77,7 @@ class GermplasmDTO {
   String speciesAuthority = null;
   
 
-  List<dynamic> storageTypes = [];
+  List<Object> storageTypes = [];
   
 
   String subtaxa = null;
@@ -86,10 +86,10 @@ class GermplasmDTO {
   String subtaxaAuthority = null;
   
 
-  List<dynamic> synonyms = [];
+  List<Object> synonyms = [];
   
 
-  List<dynamic> taxonIds = [];
+  List<Object> taxonIds = [];
   
   GermplasmDTO();
 
@@ -101,94 +101,118 @@ class GermplasmDTO {
   GermplasmDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     accessionNumber =
-        json['accessionNumber']
+        
+            json['accessionNumber']
     ;
     acquisitionDate =
-        json['acquisitionDate']
+        
+            json['acquisitionDate']
     ;
     additionalInfo =
-        json['additionalInfo']
+        
+            json['additionalInfo']
     ;
     biologicalStatusOfAccessionCode =
-        json['biologicalStatusOfAccessionCode']
+        
+            json['biologicalStatusOfAccessionCode']
     ;
     biologicalStatusOfAccessionDescription =
-        json['biologicalStatusOfAccessionDescription']
+        
+            json['biologicalStatusOfAccessionDescription']
     ;
     breedingMethodDbId =
-        json['breedingMethodDbId']
+        
+            json['breedingMethodDbId']
     ;
     collection =
-        json['collection']
+        
+            json['collection']
     ;
     commonCropName =
-        json['commonCropName']
+        
+            json['commonCropName']
     ;
     countryOfOriginCode =
-        json['countryOfOriginCode']
+        
+            json['countryOfOriginCode']
     ;
     defaultDisplayName =
-        json['defaultDisplayName']
+        
+            json['defaultDisplayName']
     ;
     documentationURL =
-        json['documentationURL']
+        
+            json['documentationURL']
     ;
     donors =
-      json['donors'] as List
+       ((json['donors'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     externalReferences =
-      json['externalReferences'] as List
+       ((json['externalReferences'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     genus =
-        json['genus']
+        
+            json['genus']
     ;
     germplasmDbId =
-        json['germplasmDbId']
+        
+            json['germplasmDbId']
     ;
     germplasmName =
-        json['germplasmName']
+        
+            json['germplasmName']
     ;
     germplasmOrigin =
-      json['germplasmOrigin'] as List
+       ((json['germplasmOrigin'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     germplasmPreprocessing =
-        json['germplasmPreprocessing']
+        
+            json['germplasmPreprocessing']
     ;
     instituteCode =
-        json['instituteCode']
+        
+            json['instituteCode']
     ;
     instituteName =
-        json['instituteName']
+        
+            json['instituteName']
     ;
     pedigree =
-        json['pedigree']
+        
+            json['pedigree']
     ;
     seedSource =
-        json['seedSource']
+        
+            json['seedSource']
     ;
     seedSourceDescription =
-        json['seedSourceDescription']
+        
+            json['seedSourceDescription']
     ;
     species =
-        json['species']
+        
+            json['species']
     ;
     speciesAuthority =
-        json['speciesAuthority']
+        
+            json['speciesAuthority']
     ;
     storageTypes =
-      json['storageTypes'] as List
+       ((json['storageTypes'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     subtaxa =
-        json['subtaxa']
+        
+            json['subtaxa']
     ;
     subtaxaAuthority =
-        json['subtaxaAuthority']
+        
+            json['subtaxaAuthority']
     ;
     synonyms =
-      json['synonyms'] as List
+       ((json['synonyms'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     taxonIds =
-      json['taxonIds'] as List
+       ((json['taxonIds'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
   }
 
@@ -238,5 +262,6 @@ class GermplasmDTO {
     }
     return map;
   }
+
 }
 

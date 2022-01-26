@@ -24,7 +24,8 @@ class ObjectUriResponse {
       new MetadataDTO.fromJson(json['metadata'])
 ;
     result =
-        json['result']
+        
+            json['result']
     ;
   }
 
@@ -46,5 +47,6 @@ class ObjectUriResponse {
     }
     return map;
   }
+
 }
 

@@ -59,10 +59,12 @@ class ExperimentCreationDTO {
   ExperimentCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     startDate =
       
@@ -79,10 +81,12 @@ class ExperimentCreationDTO {
        json['end_date'] == null ? null : DateTime.parse(json['end_date'])
 ;
     description =
-        json['description']
+        
+            json['description']
     ;
     objective =
-        json['objective']
+        
+            json['objective']
     ;
     species =
         (json['species'] as List).map((item) => item as String).toList()
@@ -112,7 +116,8 @@ class ExperimentCreationDTO {
         (json['factors'] as List).map((item) => item as String).toList()
     ;
     isPublic =
-        json['is_public']
+        
+            json['is_public']
     ;
   }
 
@@ -148,5 +153,6 @@ class ExperimentCreationDTO {
     }
     return map;
   }
+
 }
 

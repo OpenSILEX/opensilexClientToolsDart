@@ -17,10 +17,12 @@ class ApiGitCommitDTO {
   ApiGitCommitDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     commitId =
-        json['commit_id']
+        
+            json['commit_id']
     ;
     commitMessage =
-        json['commit_message']
+        
+            json['commit_message']
     ;
   }
 
@@ -42,5 +44,6 @@ class ApiGitCommitDTO {
     }
     return map;
   }
+
 }
 

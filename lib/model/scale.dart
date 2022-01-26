@@ -35,13 +35,16 @@ class Scale {
   Scale.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     dataType =
-        json['dataType']
+        
+            json['dataType']
     ;
     decimalPlaces =
-        json['decimalPlaces']
+        
+            json['decimalPlaces']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     ontologyReference =
       
@@ -51,16 +54,20 @@ class Scale {
       new OntologyReference.fromJson(json['ontologyReference'])
 ;
     scaleDbId =
-        json['scaleDbId']
+        
+            json['scaleDbId']
     ;
     scaleName =
-        json['scaleName']
+        
+            json['scaleName']
     ;
     validValues =
-        json['validValues']
+        
+            json['validValues']
     ;
     xref =
-        json['xref']
+        
+            json['xref']
     ;
   }
 
@@ -88,5 +95,6 @@ class Scale {
     }
     return map;
   }
+
 }
 

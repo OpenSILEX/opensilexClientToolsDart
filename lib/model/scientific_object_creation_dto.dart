@@ -29,19 +29,23 @@ class ScientificObjectCreationDTO {
   ScientificObjectCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     experiment =
-        json['experiment']
+        
+            json['experiment']
     ;
     relations =
-      RDFObjectRelationDTO.listFromJson(json['relations'])
+      RDFObjectRelationDTO.listFromJson((json['relations'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     geometry =
       
@@ -74,5 +78,6 @@ class ScientificObjectCreationDTO {
     }
     return map;
   }
+
 }
 

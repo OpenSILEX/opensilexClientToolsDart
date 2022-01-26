@@ -719,7 +719,6 @@ headerParams["Accept-Language"] = acceptLanguage;
       
       if (file != null) {
         hasFields = true;
-        mp.fields['file'] = file.field;
         mp.files.add(file);
       }
       
@@ -1008,7 +1007,6 @@ headerParams["Accept-Language"] = acceptLanguage;
       
       if (file != null) {
         hasFields = true;
-        mp.fields['file'] = file.field;
         mp.files.add(file);
       }
       

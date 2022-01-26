@@ -20,13 +20,16 @@ class VueRDFTypeParameterDTO {
   VueRDFTypeParameterDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     icon =
-        json['icon']
+        
+            json['icon']
     ;
     isAbstract =
-        json['is_abstract']
+        
+            json['is_abstract']
     ;
   }
 
@@ -49,5 +52,6 @@ class VueRDFTypeParameterDTO {
     }
     return map;
   }
+
 }
 

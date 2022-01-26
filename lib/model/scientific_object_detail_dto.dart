@@ -38,28 +38,34 @@ class ScientificObjectDetailDTO {
   ScientificObjectDetailDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     parent =
-        json['parent']
+        
+            json['parent']
     ;
     parentName =
-        json['parent_name']
+        
+            json['parent_name']
     ;
     factorLevel =
-      NamedResourceDTOFactorLevelModel.listFromJson(json['factor_level'])
+      NamedResourceDTOFactorLevelModel.listFromJson((json['factor_level'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     relations =
-      RDFObjectRelationDTO.listFromJson(json['relations'])
+      RDFObjectRelationDTO.listFromJson((json['relations'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     geometry =
       
@@ -95,5 +101,6 @@ class ScientificObjectDetailDTO {
     }
     return map;
   }
+
 }
 

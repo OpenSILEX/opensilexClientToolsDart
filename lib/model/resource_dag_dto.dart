@@ -29,10 +29,12 @@ class ResourceDagDTO {
   ResourceDagDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     parents =
         (json['parents'] as List).map((item) => item as String).toList()
@@ -41,10 +43,12 @@ class ResourceDagDTO {
         (json['children'] as List).map((item) => item as String).toList()
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
   }
 
@@ -70,5 +74,6 @@ class ResourceDagDTO {
     }
     return map;
   }
+
 }
 

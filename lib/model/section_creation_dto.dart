@@ -26,19 +26,23 @@ class SectionCreationDTO {
   SectionCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     timezone =
-        json['timezone']
+        
+            json['timezone']
     ;
     createdDate =
-        json['created_date']
+        
+            json['created_date']
     ;
     sectionData =
-      json['section_data'] as List
+       ((json['section_data'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     commitAddress =
-        json['commit_address']
+        
+            json['commit_address']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
   }
 
@@ -63,5 +67,6 @@ class SectionCreationDTO {
     }
     return map;
   }
+
 }
 

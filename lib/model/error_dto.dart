@@ -17,10 +17,12 @@ class ErrorDTO {
   ErrorDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     title =
-        json['title']
+        
+            json['title']
     ;
     message =
-        json['message']
+        
+            json['message']
     ;
   }
 
@@ -42,5 +44,6 @@ class ErrorDTO {
     }
     return map;
   }
+
 }
 

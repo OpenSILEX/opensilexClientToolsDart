@@ -89,89 +89,92 @@ class CodeLotCSVValidationModel {
         (json['emptyHeaders'] as List).map((item) => item as int).toList()
     ;
     invalidHeaderURIs =
-        json['invalidHeaderURIs']
+        (json['invalidHeaderURIs'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
     datatypeErrors =
       
  
-      jsonDecode(json['datatypeErrors'].toString())
+
+        (json['datatypeErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVDatatypeError.listFromJson(value as List<dynamic>)))
  
       
 ;
     uriNotFoundErrors =
       
  
-      jsonDecode(json['uriNotFoundErrors'].toString())
+
+        (json['uriNotFoundErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVURINotFoundError.listFromJson(value as List<dynamic>)))
  
       
 ;
     invalidURIErrors =
       
- 
-      jsonDecode(json['invalidURIErrors'].toString())
+
+        (json['invalidURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+
  
       
 ;
     missingRequiredValueErrors =
       
- 
-      jsonDecode(json['missingRequiredValueErrors'].toString())
+
+        (json['missingRequiredValueErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
  
       
 ;
     invalidValueErrors =
       
- 
-      jsonDecode(json['invalidValueErrors'].toString())
+
+        (json['invalidValueErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
  
       
 ;
     alreadyExistingURIErrors =
       
  
-      jsonDecode(json['alreadyExistingURIErrors'].toString())
+      CSVCell.mapFromJson((json['alreadyExistingURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
     duplicateURIErrors =
       
  
-      jsonDecode(json['duplicateURIErrors'].toString())
+      CSVDuplicateURIError.mapFromJson((json['duplicateURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
     noParentErrors =
       
- 
-      jsonDecode(json['noParentErrors'].toString())
+
+        (json['noParentErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
  
       
 ;
     boucleErrors =
       
- 
-      jsonDecode(json['boucleErrors'].toString())
+
+        (json['boucleErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
  
       
 ;
     linkedSibblingErrors =
       
- 
-      jsonDecode(json['linkedSibblingErrors'].toString())
+
+        (json['linkedSibblingErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
  
       
 ;
     shortCircuitErrors =
       
- 
-      jsonDecode(json['shortCircuitErrors'].toString())
+
+        (json['shortCircuitErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
  
       
 ;
     duplicatedDataErrors =
       
- 
-      jsonDecode(json['duplicatedDataErrors'].toString())
+
+        (json['duplicatedDataErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
  
       
 ;
@@ -182,25 +185,32 @@ class CodeLotCSVValidationModel {
         (json['headersLabels'] as List).map((item) => item as String).toList()
     ;
     nbLinesImported =
-        json['nbLinesImported']
+        
+            json['nbLinesImported']
     ;
     nbLinesToImport =
-        json['nbLinesToImport']
+        
+            json['nbLinesToImport']
     ;
     validationStep =
-        json['validationStep']
+        
+            json['validationStep']
     ;
     tooLargeDataset =
-        json['tooLargeDataset']
+        
+            json['tooLargeDataset']
     ;
     insertionStep =
-        json['insertionStep']
+        
+            json['insertionStep']
     ;
     validCSV =
-        json['validCSV']
+        
+            json['validCSV']
     ;
     errorMessage =
-        json['errorMessage']
+        
+            json['errorMessage']
     ;
   }
 
@@ -244,5 +254,6 @@ class CodeLotCSVValidationModel {
     }
     return map;
   }
+
 }
 

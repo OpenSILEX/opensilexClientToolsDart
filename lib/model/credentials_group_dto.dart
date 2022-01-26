@@ -20,13 +20,15 @@ class CredentialsGroupDTO {
   CredentialsGroupDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     groupId =
-        json['group_id']
+        
+            json['group_id']
     ;
     groupKeyName =
-        json['group_key_name']
+        
+            json['group_key_name']
     ;
     credentials =
-      CredentialDTO.listFromJson(json['credentials'])
+      CredentialDTO.listFromJson((json['credentials'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
   }
 
@@ -49,5 +51,6 @@ class CredentialsGroupDTO {
     }
     return map;
   }
+
 }
 

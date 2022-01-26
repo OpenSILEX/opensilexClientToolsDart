@@ -20,7 +20,8 @@ class GeoJsonObject {
   GeoJsonObject.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     type =
-        json['type']
+        
+            json['type']
     ;
     bbox =
         (json['bbox'] as List).map((item) => item as double).toList()
@@ -49,5 +50,6 @@ class GeoJsonObject {
     }
     return map;
   }
+
 }
 

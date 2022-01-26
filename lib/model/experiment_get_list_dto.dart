@@ -35,10 +35,12 @@ class ExperimentGetListDTO {
   ExperimentGetListDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     startDate =
       
@@ -55,16 +57,19 @@ class ExperimentGetListDTO {
        json['end_date'] == null ? null : DateTime.parse(json['end_date'])
 ;
     description =
-        json['description']
+        
+            json['description']
     ;
     objective =
-        json['objective']
+        
+            json['objective']
     ;
     species =
         (json['species'] as List).map((item) => item as String).toList()
     ;
     isPublic =
-        json['is_public']
+        
+            json['is_public']
     ;
   }
 
@@ -92,5 +97,6 @@ class ExperimentGetListDTO {
     }
     return map;
   }
+
 }
 

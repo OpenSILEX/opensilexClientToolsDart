@@ -44,37 +44,46 @@ class RDFPropertyDTO {
   RDFPropertyDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     comment =
-        json['comment']
+        
+            json['comment']
     ;
     domain =
-        json['domain']
+        
+            json['domain']
     ;
     range =
-        json['range']
+        
+            json['range']
     ;
     parent =
-        json['parent']
+        
+            json['parent']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     nameTranslations =
-        json['name_translations']
+        (json['name_translations'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
     commentTranslations =
-        json['comment_translations']
+        (json['comment_translations'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
     domainRdfType =
-        json['domain_rdf_type']
+        
+            json['domain_rdf_type']
     ;
     rangeLabel =
-        json['range_label']
+        
+            json['range_label']
     ;
   }
 
@@ -105,5 +114,6 @@ class RDFPropertyDTO {
     }
     return map;
   }
+
 }
 

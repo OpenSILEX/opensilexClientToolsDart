@@ -23,16 +23,20 @@ class DataLink {
   DataLink.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     dataLinkName =
-        json['dataLinkName']
+        
+            json['dataLinkName']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     type =
-        json['type']
+        
+            json['type']
     ;
     url =
-        json['url']
+        
+            json['url']
     ;
   }
 
@@ -56,5 +60,6 @@ class DataLink {
     }
     return map;
   }
+
 }
 

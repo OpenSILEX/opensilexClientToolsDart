@@ -29,22 +29,28 @@ class Contact {
   Contact.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     contactDbId =
-        json['contactDbId']
+        
+            json['contactDbId']
     ;
     email =
-        json['email']
+        
+            json['email']
     ;
     institutionName =
-        json['institutionName']
+        
+            json['institutionName']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     orcid =
-        json['orcid']
+        
+            json['orcid']
     ;
     type =
-        json['type']
+        
+            json['type']
     ;
   }
 
@@ -70,5 +76,6 @@ class Contact {
     }
     return map;
   }
+
 }
 

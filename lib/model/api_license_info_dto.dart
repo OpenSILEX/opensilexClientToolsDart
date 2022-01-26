@@ -17,10 +17,12 @@ class ApiLicenseInfoDTO {
   ApiLicenseInfoDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     name =
-        json['name']
+        
+            json['name']
     ;
     url =
-        json['url']
+        
+            json['url']
     ;
   }
 
@@ -42,5 +44,6 @@ class ApiLicenseInfoDTO {
     }
     return map;
   }
+
 }
 

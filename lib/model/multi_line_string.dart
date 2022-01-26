@@ -20,13 +20,14 @@ class MultiLineString {
   MultiLineString.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     type =
-        json['type']
+        
+            json['type']
     ;
     bbox =
         (json['bbox'] as List).map((item) => item as double).toList()
     ;
-    coordinates =
-      jsonDecode(json['geometry']['coordinates'])
+    coordinates =[]
+       /*((json['geometry']['coordinates'] as List).map((e) => e as Map<String, dynamic>).toList())*/
 ;
   }
 
@@ -49,5 +50,6 @@ class MultiLineString {
     }
     return map;
   }
+
 }
 

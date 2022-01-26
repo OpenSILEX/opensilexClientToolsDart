@@ -29,22 +29,26 @@ class InfrastructureFacilityCreationDTO {
   InfrastructureFacilityCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     organizations =
         (json['organizations'] as List).map((item) => item as String).toList()
     ;
     relations =
-      RDFObjectRelationDTO.listFromJson(json['relations'])
+      RDFObjectRelationDTO.listFromJson((json['relations'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
   }
 
@@ -70,5 +74,6 @@ class InfrastructureFacilityCreationDTO {
     }
     return map;
   }
+
 }
 

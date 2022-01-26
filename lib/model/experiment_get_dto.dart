@@ -59,10 +59,12 @@ class ExperimentGetDTO {
   ExperimentGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     startDate =
       
@@ -79,10 +81,12 @@ class ExperimentGetDTO {
        json['end_date'] == null ? null : DateTime.parse(json['end_date'])
 ;
     description =
-        json['description']
+        
+            json['description']
     ;
     objective =
-        json['objective']
+        
+            json['objective']
     ;
     species =
         (json['species'] as List).map((item) => item as String).toList()
@@ -94,13 +98,13 @@ class ExperimentGetDTO {
         (json['factors'] as List).map((item) => item as String).toList()
     ;
     organisations =
-      NamedResourceDTOInfrastructureModel.listFromJson(json['organisations'])
+      NamedResourceDTOInfrastructureModel.listFromJson((json['organisations'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     facilities =
-      NamedResourceDTOInfrastructureFacilityModel.listFromJson(json['facilities'])
+      NamedResourceDTOInfrastructureFacilityModel.listFromJson((json['facilities'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     projects =
-      NamedResourceDTOProjectModel.listFromJson(json['projects'])
+      NamedResourceDTOProjectModel.listFromJson((json['projects'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     scientificSupervisors =
         (json['scientific_supervisors'] as List).map((item) => item as String).toList()
@@ -112,7 +116,8 @@ class ExperimentGetDTO {
         (json['groups'] as List).map((item) => item as String).toList()
     ;
     isPublic =
-        json['is_public']
+        
+            json['is_public']
     ;
   }
 
@@ -148,5 +153,6 @@ class ExperimentGetDTO {
     }
     return map;
   }
+
 }
 

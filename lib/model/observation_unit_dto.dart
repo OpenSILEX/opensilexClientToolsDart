@@ -80,73 +80,93 @@ class ObservationUnitDTO {
   ObservationUnitDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     blockNumber =
-        json['blockNumber']
+        
+            json['blockNumber']
     ;
     entryNumber =
-        json['entryNumber']
+        
+            json['entryNumber']
     ;
     entryType =
-        json['entryType']
+        
+            json['entryType']
     ;
     germplasmDbId =
-        json['germplasmDbId']
+        
+            json['germplasmDbId']
     ;
     germplasmName =
-        json['germplasmName']
+        
+            json['germplasmName']
     ;
     observationLevel =
-        json['observationLevel']
+        
+            json['observationLevel']
     ;
     observationLevels =
-        json['observationLevels']
+        
+            json['observationLevels']
     ;
     observationUnitDbId =
-        json['observationUnitDbId']
+        
+            json['observationUnitDbId']
     ;
     observationUnitXref =
-      ObservationUnitXref.listFromJson(json['observationUnitXref'])
+      ObservationUnitXref.listFromJson((json['observationUnitXref'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     observations =
-      ObservationSummary.listFromJson(json['observations'])
+      ObservationSummary.listFromJson((json['observations'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     plantNumber =
-        json['plantNumber']
+        
+            json['plantNumber']
     ;
     plotNumber =
-        json['plotNumber']
+        
+            json['plotNumber']
     ;
     positionCoordinateX =
-        json['positionCoordinateX']
+        
+            json['positionCoordinateX']
     ;
     positionCoordinateXType =
-        json['positionCoordinateXType']
+        
+            json['positionCoordinateXType']
     ;
     positionCoordinateY =
-        json['positionCoordinateY']
+        
+            json['positionCoordinateY']
     ;
     positionCoordinateYType =
-        json['positionCoordinateYType']
+        
+            json['positionCoordinateYType']
     ;
     programName =
-        json['programName']
+        
+            json['programName']
     ;
     replicate =
-        json['replicate']
+        
+            json['replicate']
     ;
     studyDbId =
-        json['studyDbId']
+        
+            json['studyDbId']
     ;
     studyLocation =
-        json['studyLocation']
+        
+            json['studyLocation']
     ;
     studyLocationDbId =
-        json['studyLocationDbId']
+        
+            json['studyLocationDbId']
     ;
     studyName =
-        json['studyName']
+        
+            json['studyName']
     ;
     treatments =
-      ObservationTreatment.listFromJson(json['treatments'])
+      ObservationTreatment.listFromJson((json['treatments'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
   }
 
@@ -189,5 +209,6 @@ class ObservationUnitDTO {
     }
     return map;
   }
+
 }
 

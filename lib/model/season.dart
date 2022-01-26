@@ -20,13 +20,16 @@ class Season {
   Season.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     season =
-        json['season']
+        
+            json['season']
     ;
     seasonDbId =
-        json['seasonDbId']
+        
+            json['seasonDbId']
     ;
     year =
-        json['year']
+        
+            json['year']
     ;
   }
 
@@ -49,5 +52,6 @@ class Season {
     }
     return map;
   }
+
 }
 

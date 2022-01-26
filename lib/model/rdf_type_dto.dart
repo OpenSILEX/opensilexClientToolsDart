@@ -23,16 +23,20 @@ class RDFTypeDTO {
   RDFTypeDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     comment =
-        json['comment']
+        
+            json['comment']
     ;
     parent =
-        json['parent']
+        
+            json['parent']
     ;
   }
 
@@ -56,5 +60,6 @@ class RDFTypeDTO {
     }
     return map;
   }
+
 }
 

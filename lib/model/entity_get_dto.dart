@@ -17,10 +17,12 @@ class EntityGetDTO {
   EntityGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
   }
 
@@ -42,5 +44,6 @@ class EntityGetDTO {
     }
     return map;
   }
+
 }
 

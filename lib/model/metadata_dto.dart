@@ -27,7 +27,7 @@ class MetadataDTO {
       new PaginationDTO.fromJson(json['pagination'])
 ;
     status =
-      StatusDTO.listFromJson(json['status'])
+      StatusDTO.listFromJson((json['status'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     datafiles =
         (json['datafiles'] as List).map((item) => item as String).toList()
@@ -53,5 +53,6 @@ class MetadataDTO {
     }
     return map;
   }
+
 }
 

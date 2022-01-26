@@ -68,16 +68,20 @@ class VariableDetailsDTO {
   VariableDetailsDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     alternativeName =
-        json['alternative_name']
+        
+            json['alternative_name']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     entity =
       
@@ -101,10 +105,12 @@ class VariableDetailsDTO {
       new CharacteristicGetDTO.fromJson(json['characteristic'])
 ;
     trait =
-        json['trait']
+        
+            json['trait']
     ;
     traitName =
-        json['trait_name']
+        
+            json['trait_name']
     ;
     method =
       
@@ -128,13 +134,16 @@ class VariableDetailsDTO {
       new SpeciesDTO.fromJson(json['species'])
 ;
     timeInterval =
-        json['time_interval']
+        
+            json['time_interval']
     ;
     samplingInterval =
-        json['sampling_interval']
+        
+            json['sampling_interval']
     ;
     datatype =
-        json['datatype']
+        
+            json['datatype']
     ;
     exactMatch =
         (json['exact_match'] as List).map((item) => item as String).toList()
@@ -185,5 +194,6 @@ class VariableDetailsDTO {
     }
     return map;
   }
+
 }
 

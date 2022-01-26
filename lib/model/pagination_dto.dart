@@ -23,16 +23,20 @@ class PaginationDTO {
   PaginationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     pageSize =
-        json['pageSize']
+        
+            json['pageSize']
     ;
     currentPage =
-        json['currentPage']
+        
+            json['currentPage']
     ;
     totalCount =
-        json['totalCount']
+        
+            json['totalCount']
     ;
     totalPages =
-        json['totalPages']
+        
+            json['totalPages']
     ;
   }
 
@@ -56,5 +60,6 @@ class PaginationDTO {
     }
     return map;
   }
+
 }
 

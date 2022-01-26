@@ -35,10 +35,12 @@ class ScientificObjectNodeWithChildrenDTO {
   ScientificObjectNodeWithChildrenDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     geometry =
       
@@ -48,10 +50,12 @@ class ScientificObjectNodeWithChildrenDTO {
       new GeoJsonObject.fromJson(json['geometry'])
 ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
     creationDate =
       
@@ -68,7 +72,8 @@ class ScientificObjectNodeWithChildrenDTO {
        json['destruction_date'] == null ? null : DateTime.parse(json['destruction_date'])
 ;
     childCount =
-        json['child_count']
+        
+            json['child_count']
     ;
   }
 
@@ -96,5 +101,6 @@ class ScientificObjectNodeWithChildrenDTO {
     }
     return map;
   }
+
 }
 

@@ -20,15 +20,17 @@ class AgentModel {
   AgentModel.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     settings =
       
  
-      jsonDecode(json['settings'].toString())
+       ((json['settings'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
@@ -53,5 +55,6 @@ class AgentModel {
     }
     return map;
   }
+
 }
 

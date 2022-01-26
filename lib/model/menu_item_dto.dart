@@ -23,13 +23,15 @@ class MenuItemDTO {
   MenuItemDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     id =
-        json['id']
+        
+            json['id']
     ;
     label =
-        json['label']
+        
+            json['label']
     ;
     children =
-      MenuItemDTO.listFromJson(json['children'])
+      MenuItemDTO.listFromJson((json['children'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     route =
       
@@ -60,5 +62,6 @@ class MenuItemDTO {
     }
     return map;
   }
+
 }
 

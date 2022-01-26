@@ -53,13 +53,16 @@ class ProjectCreationDTO {
   ProjectCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     shortname =
-        json['shortname']
+        
+            json['shortname']
     ;
     startDate =
       
@@ -76,16 +79,20 @@ class ProjectCreationDTO {
        json['end_date'] == null ? null : DateTime.parse(json['end_date'])
 ;
     description =
-        json['description']
+        
+            json['description']
     ;
     objective =
-        json['objective']
+        
+            json['objective']
     ;
     financialFunding =
-        json['financial_funding']
+        
+            json['financial_funding']
     ;
     website =
-        json['website']
+        
+            json['website']
     ;
     relatedProjects =
         (json['related_projects'] as List).map((item) => item as String).toList()
@@ -134,5 +141,6 @@ class ProjectCreationDTO {
     }
     return map;
   }
+
 }
 

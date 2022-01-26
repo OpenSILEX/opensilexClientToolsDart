@@ -53,46 +53,58 @@ class FrontConfigDTO {
   FrontConfigDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     pathPrefix =
-        json['pathPrefix']
+        
+            json['pathPrefix']
     ;
     homeComponent =
-        json['homeComponent']
+        
+            json['homeComponent']
     ;
     notFoundComponent =
-        json['notFoundComponent']
+        
+            json['notFoundComponent']
     ;
     headerComponent =
-        json['headerComponent']
+        
+            json['headerComponent']
     ;
     loginComponent =
-        json['loginComponent']
+        
+            json['loginComponent']
     ;
     menuComponent =
-        json['menuComponent']
+        
+            json['menuComponent']
     ;
     footerComponent =
-        json['footerComponent']
+        
+            json['footerComponent']
     ;
     menu =
-      MenuItemDTO.listFromJson(json['menu'])
+      MenuItemDTO.listFromJson((json['menu'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     routes =
-      RouteDTO.listFromJson(json['routes'])
+      RouteDTO.listFromJson((json['routes'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     themeModule =
-        json['themeModule']
+        
+            json['themeModule']
     ;
     themeName =
-        json['themeName']
+        
+            json['themeName']
     ;
     openIDAuthenticationURI =
-        json['openIDAuthenticationURI']
+        
+            json['openIDAuthenticationURI']
     ;
     openIDConnectionTitle =
-        json['openIDConnectionTitle']
+        
+            json['openIDConnectionTitle']
     ;
     activateResetPassword =
-        json['activateResetPassword']
+        
+            json['activateResetPassword']
     ;
   }
 
@@ -126,5 +138,6 @@ class FrontConfigDTO {
     }
     return map;
   }
+
 }
 

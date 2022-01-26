@@ -41,13 +41,16 @@ class VersionInfoDTO {
   VersionInfoDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     title =
-        json['title']
+        
+            json['title']
     ;
     version =
-        json['version']
+        
+            json['version']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     contact =
       
@@ -64,7 +67,7 @@ class VersionInfoDTO {
       new ApiLicenseInfoDTO.fromJson(json['license'])
 ;
     modulesVersion =
-      ApiModulesInfo.listFromJson(json['modules_version'])
+      ApiModulesInfo.listFromJson((json['modules_version'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     externalDocs =
       
@@ -88,7 +91,8 @@ class VersionInfoDTO {
       new ApiGitCommitDTO.fromJson(json['git_commit'])
 ;
     githubPage =
-        json['github_page']
+        
+            json['github_page']
     ;
   }
 
@@ -118,5 +122,6 @@ class VersionInfoDTO {
     }
     return map;
   }
+
 }
 

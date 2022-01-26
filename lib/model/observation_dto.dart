@@ -53,34 +53,44 @@ class ObservationDTO {
   ObservationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     germplasmDbId =
-        json['germplasmDbId']
+        
+            json['germplasmDbId']
     ;
     germplasmName =
-        json['germplasmName']
+        
+            json['germplasmName']
     ;
     observationDbId =
-        json['observationDbId']
+        
+            json['observationDbId']
     ;
     observationLevel =
-        json['observationLevel']
+        
+            json['observationLevel']
     ;
     observationTimeStamp =
-        json['observationTimeStamp']
+        
+            json['observationTimeStamp']
     ;
     observationUnitDbId =
-        json['observationUnitDbId']
+        
+            json['observationUnitDbId']
     ;
     observationUnitName =
-        json['observationUnitName']
+        
+            json['observationUnitName']
     ;
     observationVariableDbId =
-        json['observationVariableDbId']
+        
+            json['observationVariableDbId']
     ;
     observationVariableName =
-        json['observationVariableName']
+        
+            json['observationVariableName']
     ;
     operator_ =
-        json['operator']
+        
+            json['operator']
     ;
     season =
       
@@ -90,13 +100,16 @@ class ObservationDTO {
       new Season.fromJson(json['season'])
 ;
     studyDbId =
-        json['studyDbId']
+        
+            json['studyDbId']
     ;
     uploadedBy =
-        json['uploadedBy']
+        
+            json['uploadedBy']
     ;
     value =
-        json['value']
+        
+            json['value']
     ;
   }
 
@@ -130,5 +143,6 @@ class ObservationDTO {
     }
     return map;
   }
+
 }
 

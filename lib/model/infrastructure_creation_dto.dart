@@ -32,16 +32,20 @@ class InfrastructureCreationDTO {
   InfrastructureCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     parents =
         (json['parents'] as List).map((item) => item as String).toList()
@@ -77,5 +81,6 @@ class InfrastructureCreationDTO {
     }
     return map;
   }
+
 }
 

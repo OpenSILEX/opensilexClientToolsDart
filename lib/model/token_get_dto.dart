@@ -14,7 +14,8 @@ class TokenGetDTO {
   TokenGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     token =
-        json['token']
+        
+            json['token']
     ;
   }
 
@@ -35,5 +36,6 @@ class TokenGetDTO {
     }
     return map;
   }
+
 }
 

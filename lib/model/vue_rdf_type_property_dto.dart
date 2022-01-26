@@ -44,37 +44,47 @@ class VueRDFTypePropertyDTO {
   VueRDFTypePropertyDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     property =
-        json['property']
+        
+            json['property']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     comment =
-        json['comment']
+        
+            json['comment']
     ;
     inherited =
-        json['inherited']
+        
+            json['inherited']
     ;
     targetProperty =
-        json['target_property']
+        
+            json['target_property']
     ;
     inputComponent =
-        json['input_component']
+        
+            json['input_component']
     ;
     inputComponentsByProperty =
-        json['input_components_by_property']
+        (json['input_components_by_property'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
     viewComponent =
-        json['view_component']
+        
+            json['view_component']
     ;
     isList =
-        json['is_list']
+        
+            json['is_list']
     ;
     isRequired =
-        json['is_required']
+        
+            json['is_required']
     ;
     isCustom =
-        json['is_custom']
+        
+            json['is_custom']
     ;
   }
 
@@ -105,5 +115,6 @@ class VueRDFTypePropertyDTO {
     }
     return map;
   }
+
 }
 

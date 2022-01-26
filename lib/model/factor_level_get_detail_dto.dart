@@ -26,19 +26,24 @@ class FactorLevelGetDetailDTO {
   FactorLevelGetDetailDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     factor =
-        json['factor']
+        
+            json['factor']
     ;
     factorName =
-        json['factor_name']
+        
+            json['factor_name']
     ;
   }
 
@@ -63,5 +68,6 @@ class FactorLevelGetDetailDTO {
     }
     return map;
   }
+
 }
 

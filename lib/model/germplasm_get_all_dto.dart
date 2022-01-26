@@ -29,22 +29,28 @@ class GermplasmGetAllDTO {
   GermplasmGetAllDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     species =
-        json['species']
+        
+            json['species']
     ;
     speciesName =
-        json['species_name']
+        
+            json['species_name']
     ;
   }
 
@@ -70,5 +76,6 @@ class GermplasmGetAllDTO {
     }
     return map;
   }
+
 }
 

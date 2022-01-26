@@ -17,7 +17,8 @@ class URITypesDTO {
   URITypesDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfTypes =
         (json['rdf_types'] as List).map((item) => item as String).toList()
@@ -42,5 +43,6 @@ class URITypesDTO {
     }
     return map;
   }
+
 }
 

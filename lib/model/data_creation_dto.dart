@@ -26,10 +26,10 @@ class DataCreationDTO {
   DataProvenanceModel provenance = null;
   
 /* key-value system to store additional information that can be used to query data */
-  Map<String, dynamic> metadata = {};
+  Map<String, Object> metadata = {};
   
 /* list of repetition values */
-  List<dynamic> rawData = [];
+  List<Object> rawData = [];
   
   DataCreationDTO();
 
@@ -41,29 +41,35 @@ class DataCreationDTO {
   DataCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     date =
-        json['date']
+        
+            json['date']
     ;
     timezone =
-        json['timezone']
+        
+            json['timezone']
     ;
     target =
-        json['target']
+        
+            json['target']
     ;
     variable =
-        json['variable']
+        
+            json['variable']
     ;
     value =
       
  
       
  
-      jsonDecode(json['value'])
+       (json['value'])
 ;
     confidence =
-        json['confidence']
+        
+            json['confidence']
     ;
     provenance =
       
@@ -75,12 +81,12 @@ class DataCreationDTO {
     metadata =
       
  
-      jsonDecode(json['metadata'].toString())
+       ((json['metadata'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
     rawData =
-      json['raw_data'] as List
+       ((json['raw_data'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
   }
 
@@ -110,5 +116,6 @@ class DataCreationDTO {
     }
     return map;
   }
+
 }
 

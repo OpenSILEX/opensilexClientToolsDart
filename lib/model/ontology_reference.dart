@@ -23,16 +23,19 @@ class OntologyReference {
   OntologyReference.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     documentationLinks =
-      DocumentationLink.listFromJson(json['documentationLinks'])
+      DocumentationLink.listFromJson((json['documentationLinks'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     ontologyDbId =
-        json['ontologyDbId']
+        
+            json['ontologyDbId']
     ;
     ontologyName =
-        json['ontologyName']
+        
+            json['ontologyName']
     ;
     version =
-        json['version']
+        
+            json['version']
     ;
   }
 
@@ -56,5 +59,6 @@ class OntologyReference {
     }
     return map;
   }
+
 }
 

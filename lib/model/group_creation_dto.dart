@@ -29,22 +29,27 @@ class GroupCreationDTO {
   GroupCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     userProfiles =
-      GroupUserProfileDTO.listFromJson(json['user_profiles'])
+      GroupUserProfileDTO.listFromJson((json['user_profiles'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
   }
 
@@ -70,5 +75,6 @@ class GroupCreationDTO {
     }
     return map;
   }
+
 }
 

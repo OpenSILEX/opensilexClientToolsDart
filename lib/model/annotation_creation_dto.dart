@@ -23,16 +23,19 @@ class AnnotationCreationDTO {
   AnnotationCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     targets =
         (json['targets'] as List).map((item) => item as String).toList()
     ;
     motivation =
-        json['motivation']
+        
+            json['motivation']
     ;
   }
 
@@ -56,5 +59,6 @@ class AnnotationCreationDTO {
     }
     return map;
   }
+
 }
 

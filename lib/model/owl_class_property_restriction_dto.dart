@@ -26,19 +26,24 @@ class OWLClassPropertyRestrictionDTO {
   OWLClassPropertyRestrictionDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     property =
-        json['property']
+        
+            json['property']
     ;
     required =
-        json['required']
+        
+            json['required']
     ;
     list =
-        json['list']
+        
+            json['list']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     domain =
-        json['domain']
+        
+            json['domain']
     ;
   }
 
@@ -63,5 +68,6 @@ class OWLClassPropertyRestrictionDTO {
     }
     return map;
   }
+
 }
 

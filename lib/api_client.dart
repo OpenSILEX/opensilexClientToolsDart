@@ -23,6 +23,13 @@ class ApiClient {
     // Setup authentications (key: authentication name, value: authentication).
   }
 
+  //added by max :--------------------
+  AuthenticationApi api_instance_auth;
+  void logOutOfOpenSILEX() async {
+    if (api_instance_auth != null) {
+      api_instance_auth.logout();
+    }
+  }
    
   connectToOpenSILEX({
     String identifier: "",
@@ -32,17 +39,9 @@ class ApiClient {
     // Setup authentications (key: authentication name, value: authentication).
   }
 
-  //added by max :--------------------
-  AuthenticationApi api_instance_auth;
-  void logOutOfOpenSILEX() async {
-    if (api_instance_auth != null && this.token!=null) {
-      api_instance_auth.logout();
-    }
-  }
-
   _connect(String host, String identifier, String password) async {
     this.basePath = host;
-    api_instance_auth = new AuthenticationApi(this);
+    var api_instance_auth = new AuthenticationApi(this);
     var authenticate = new AuthenticationDTO(); 
 
     authenticate.identifier = identifier;
@@ -554,15 +553,15 @@ class ApiClient {
       var msgBody = contentType == "application/x-www-form-urlencoded" ? formParams : serialize(body);
       switch(method) {
         case "POST":
-          return client.post(url, headers: headerParams, body: msgBody);
+          return client.post(Uri.parse(url), headers: headerParams, body: msgBody);
         case "PUT":
-          return client.put(url, headers: headerParams, body: msgBody);
+          return client.put(Uri.parse(url), headers: headerParams, body: msgBody);
         case "DELETE":
-          return client.delete(url, headers: headerParams);
+          return client.delete(Uri.parse(url), headers: headerParams);
         case "PATCH":
-          return client.patch(url, headers: headerParams, body: msgBody);
+          return client.patch(Uri.parse(url), headers: headerParams, body: msgBody);
         default:
-          return client.get(url, headers: headerParams);
+          return client.get(Uri.parse(url), headers: headerParams);
       }
     }
   }

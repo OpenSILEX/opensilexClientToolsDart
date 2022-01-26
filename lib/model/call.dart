@@ -23,7 +23,8 @@ class Call {
   Call.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     call =
-        json['call']
+        
+            json['call']
     ;
     dataTypes =
         (json['dataTypes'] as List).map((item) => item as String).toList()
@@ -56,5 +57,6 @@ class Call {
     }
     return map;
   }
+
 }
 

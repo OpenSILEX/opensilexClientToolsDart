@@ -62,55 +62,70 @@ class GermplasmGetSingleDTO {
   GermplasmGetSingleDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     synonyms =
         (json['synonyms'] as List).map((item) => item as String).toList()
     ;
     code =
-        json['code']
+        
+            json['code']
     ;
     productionYear =
-        json['production_year']
+        
+            json['production_year']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     species =
-        json['species']
+        
+            json['species']
     ;
     speciesName =
-        json['species_name']
+        
+            json['species_name']
     ;
     variety =
-        json['variety']
+        
+            json['variety']
     ;
     varietyName =
-        json['variety_name']
+        
+            json['variety_name']
     ;
     accession =
-        json['accession']
+        
+            json['accession']
     ;
     accessionName =
-        json['accession_name']
+        
+            json['accession_name']
     ;
     institute =
-        json['institute']
+        
+            json['institute']
     ;
     website =
-        json['website']
+        
+            json['website']
     ;
     metadata =
-        json['metadata']
+        (json['metadata'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
   }
 
@@ -147,5 +162,6 @@ class GermplasmGetSingleDTO {
     }
     return map;
   }
+
 }
 

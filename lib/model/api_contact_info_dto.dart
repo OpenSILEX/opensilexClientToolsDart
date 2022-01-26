@@ -20,13 +20,16 @@ class ApiContactInfoDTO {
   ApiContactInfoDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     name =
-        json['name']
+        
+            json['name']
     ;
     email =
-        json['email']
+        
+            json['email']
     ;
     homepage =
-        json['homepage']
+        
+            json['homepage']
     ;
   }
 
@@ -49,5 +52,6 @@ class ApiContactInfoDTO {
     }
     return map;
   }
+
 }
 

@@ -53,19 +53,24 @@ class Trait {
         (json['alternativeAbbreviations'] as List).map((item) => item as String).toList()
     ;
     attribute =
-        json['attribute']
+        
+            json['attribute']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     entity =
-        json['entity']
+        
+            json['entity']
     ;
     mainAbbreviation =
-        json['mainAbbreviation']
+        
+            json['mainAbbreviation']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     ontologyReference =
       
@@ -75,22 +80,27 @@ class Trait {
       new OntologyReference.fromJson(json['ontologyReference'])
 ;
     status =
-        json['status']
+        
+            json['status']
     ;
     synonyms =
         (json['synonyms'] as List).map((item) => item as String).toList()
     ;
     traitDbId =
-        json['traitDbId']
+        
+            json['traitDbId']
     ;
     traitName =
-        json['traitName']
+        
+            json['traitName']
     ;
     xref =
-        json['xref']
+        
+            json['xref']
     ;
     class_ =
-        json['class']
+        
+            json['class']
     ;
   }
 
@@ -123,5 +133,6 @@ class Trait {
     }
     return map;
   }
+
 }
 

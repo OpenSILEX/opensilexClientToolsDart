@@ -14,7 +14,8 @@ class DataConfidenceDTO {
   DataConfidenceDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     confidence =
-        json['confidence']
+        
+            json['confidence']
     ;
   }
 
@@ -35,5 +36,6 @@ class DataConfidenceDTO {
     }
     return map;
   }
+
 }
 

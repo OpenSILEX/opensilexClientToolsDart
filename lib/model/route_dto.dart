@@ -20,10 +20,12 @@ class RouteDTO {
   RouteDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     path =
-        json['path']
+        
+            json['path']
     ;
     component =
-        json['component']
+        
+            json['component']
     ;
     credentials =
         (json['credentials'] as List).map((item) => item as String).toList()
@@ -49,5 +51,6 @@ class RouteDTO {
     }
     return map;
   }
+
 }
 

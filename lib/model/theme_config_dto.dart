@@ -23,16 +23,17 @@ class ThemeConfigDTO {
   ThemeConfigDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     hasStyle =
-        json['hasStyle']
+        
+            json['hasStyle']
     ;
     fonts =
-      FontConfigDTO.listFromJson(json['fonts'])
+      FontConfigDTO.listFromJson((json['fonts'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     iconClassesRDF =
-        json['iconClassesRDF']
+        (json['iconClassesRDF'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
     componentOverrides =
-        json['componentOverrides']
+        (json['componentOverrides'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
   }
 
@@ -56,5 +57,6 @@ class ThemeConfigDTO {
     }
     return map;
   }
+
 }
 

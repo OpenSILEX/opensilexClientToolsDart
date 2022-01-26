@@ -41,19 +41,23 @@ class FactorDetailsGetDTO {
   FactorDetailsGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     category =
-        json['category']
+        
+            json['category']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     levels =
-      FactorLevelGetDTO.listFromJson(json['levels'])
+      FactorLevelGetDTO.listFromJson((json['levels'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     exactMatch =
         (json['exact_match'] as List).map((item) => item as String).toList()
@@ -68,7 +72,8 @@ class FactorDetailsGetDTO {
         (json['narrow_match'] as List).map((item) => item as String).toList()
     ;
     experiment =
-        json['experiment']
+        
+            json['experiment']
     ;
   }
 
@@ -98,5 +103,6 @@ class FactorDetailsGetDTO {
     }
     return map;
   }
+
 }
 

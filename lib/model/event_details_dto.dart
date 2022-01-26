@@ -41,34 +41,42 @@ class EventDetailsDTO {
   EventDetailsDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
     start =
-        json['start']
+        
+            json['start']
     ;
     end =
-        json['end']
+        
+            json['end']
     ;
     isInstant =
-        json['is_instant']
+        
+            json['is_instant']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     targets =
         (json['targets'] as List).map((item) => item as String).toList()
     ;
     author =
-        json['author']
+        
+            json['author']
     ;
     relations =
-      RDFObjectRelationDTO.listFromJson(json['relations'])
+      RDFObjectRelationDTO.listFromJson((json['relations'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
   }
 
@@ -98,5 +106,6 @@ class EventDetailsDTO {
     }
     return map;
   }
+
 }
 

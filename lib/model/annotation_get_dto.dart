@@ -29,10 +29,12 @@ class AnnotationGetDTO {
   AnnotationGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     targets =
         (json['targets'] as List).map((item) => item as String).toList()
@@ -45,10 +47,12 @@ class AnnotationGetDTO {
       new MotivationGetDTO.fromJson(json['motivation'])
 ;
     created =
-        json['created']
+        
+            json['created']
     ;
     author =
-        json['author']
+        
+            json['author']
     ;
   }
 
@@ -74,5 +78,6 @@ class AnnotationGetDTO {
     }
     return map;
   }
+
 }
 

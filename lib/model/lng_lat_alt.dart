@@ -23,13 +23,16 @@ class LngLatAlt {
   LngLatAlt.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     longitude =
-        json['longitude'] == null ? null : json['longitude'].toDouble()
+        
+            json['longitude'] == null ? null : json['longitude'].toDouble()
     ;
     latitude =
-        json['latitude'] == null ? null : json['latitude'].toDouble()
+        
+            json['latitude'] == null ? null : json['latitude'].toDouble()
     ;
     altitude =
-        json['altitude'] == null ? null : json['altitude'].toDouble()
+        
+            json['altitude'] == null ? null : json['altitude'].toDouble()
     ;
     additionalElements =
         (json['additionalElements'] as List).map((item) => item as double).toList()
@@ -56,5 +59,6 @@ class LngLatAlt {
     }
     return map;
   }
+
 }
 

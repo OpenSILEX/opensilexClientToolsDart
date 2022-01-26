@@ -26,19 +26,22 @@ class ProvenanceGetDTO {
   ProvenanceGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     provActivity =
-      ActivityGetDTO.listFromJson(json['prov_activity'])
+      ActivityGetDTO.listFromJson((json['prov_activity'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     provAgent =
-      AgentModel.listFromJson(json['prov_agent'])
+      AgentModel.listFromJson((json['prov_agent'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
   }
 
@@ -63,5 +66,6 @@ class ProvenanceGetDTO {
     }
     return map;
   }
+
 }
 

@@ -38,31 +38,35 @@ class InfrastructureGetDTO {
   InfrastructureGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     parents =
-      NamedResourceDTOInfrastructureModel.listFromJson(json['parents'])
+      NamedResourceDTOInfrastructureModel.listFromJson((json['parents'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     children =
-      NamedResourceDTOInfrastructureModel.listFromJson(json['children'])
+      NamedResourceDTOInfrastructureModel.listFromJson((json['children'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     groups =
-      NamedResourceDTOGroupModel.listFromJson(json['groups'])
+      NamedResourceDTOGroupModel.listFromJson((json['groups'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     facilities =
-      NamedResourceDTOInfrastructureFacilityModel.listFromJson(json['facilities'])
+      NamedResourceDTOInfrastructureFacilityModel.listFromJson((json['facilities'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     experiments =
-      NamedResourceDTOExperimentModel.listFromJson(json['experiments'])
+      NamedResourceDTOExperimentModel.listFromJson((json['experiments'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
   }
 
@@ -91,5 +95,6 @@ class InfrastructureGetDTO {
     }
     return map;
   }
+
 }
 

@@ -26,10 +26,12 @@ class PositionGetDTO {
   PositionGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     event =
-        json['event']
+        
+            json['event']
     ;
     moveTime =
-        json['move_time']
+        
+            json['move_time']
     ;
     from =
       
@@ -75,5 +77,6 @@ class PositionGetDTO {
     }
     return map;
   }
+
 }
 

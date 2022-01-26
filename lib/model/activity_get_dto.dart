@@ -26,21 +26,25 @@ class ActivityGetDTO {
   ActivityGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     startDate =
-        json['start_date']
+        
+            json['start_date']
     ;
     endDate =
-        json['end_date']
+        
+            json['end_date']
     ;
     settings =
       
  
-      jsonDecode(json['settings'].toString())
+       ((json['settings'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
@@ -67,5 +71,6 @@ class ActivityGetDTO {
     }
     return map;
   }
+
 }
 

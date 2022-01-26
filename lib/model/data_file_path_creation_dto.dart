@@ -35,19 +35,24 @@ class DataFilePathCreationDTO {
   DataFilePathCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     date =
-        json['date']
+        
+            json['date']
     ;
     timezone =
-        json['timezone']
+        
+            json['timezone']
     ;
     target =
-        json['target']
+        
+            json['target']
     ;
     provenance =
       
@@ -59,12 +64,13 @@ class DataFilePathCreationDTO {
     metadata =
       
  
-      jsonDecode(json['metadata'].toString())
+       ((json['metadata'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
     relativePath =
-        json['relative_path']
+        
+            json['relative_path']
     ;
   }
 
@@ -92,5 +98,6 @@ class DataFilePathCreationDTO {
     }
     return map;
   }
+
 }
 

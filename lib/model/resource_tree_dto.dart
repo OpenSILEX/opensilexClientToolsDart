@@ -35,28 +35,35 @@ class ResourceTreeDTO {
   ResourceTreeDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     parent =
-        json['parent']
+        
+            json['parent']
     ;
     selected =
-        json['selected']
+        
+            json['selected']
     ;
     disabled =
-        json['disabled']
+        
+            json['disabled']
     ;
     children =
-      ResourceTreeDTO.listFromJson(json['children'])
+      ResourceTreeDTO.listFromJson((json['children'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
   }
 
@@ -84,5 +91,6 @@ class ResourceTreeDTO {
     }
     return map;
   }
+
 }
 

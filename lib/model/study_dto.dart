@@ -68,65 +68,82 @@ class StudyDTO {
   StudyDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     active =
-        json['active']
+        
+            json['active']
     ;
     additionalInfo =
       
  
-      jsonDecode(json['additionalInfo'].toString())
+       ((json['additionalInfo'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
     commonCropName =
-        json['commonCropName']
+        
+            json['commonCropName']
     ;
     documentationURL =
-        json['documentationURL']
+        
+            json['documentationURL']
     ;
     endDate =
-        json['endDate']
+        
+            json['endDate']
     ;
     locationDbId =
-        json['locationDbId']
+        
+            json['locationDbId']
     ;
     locationName =
-        json['locationName']
+        
+            json['locationName']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     programDbId =
-        json['programDbId']
+        
+            json['programDbId']
     ;
     programName =
-        json['programName']
+        
+            json['programName']
     ;
     seasons =
-      Season.listFromJson(json['seasons'])
+      Season.listFromJson((json['seasons'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     startDate =
-        json['startDate']
+        
+            json['startDate']
     ;
     studyDbId =
-        json['studyDbId']
+        
+            json['studyDbId']
     ;
     studyName =
-        json['studyName']
+        
+            json['studyName']
     ;
     studyType =
-        json['studyType']
+        
+            json['studyType']
     ;
     studyTypeDbId =
-        json['studyTypeDbId']
+        
+            json['studyTypeDbId']
     ;
     studyTypeName =
-        json['studyTypeName']
+        
+            json['studyTypeName']
     ;
     trialDbId =
-        json['trialDbId']
+        
+            json['trialDbId']
     ;
     trialName =
-        json['trialName']
+        
+            json['trialName']
     ;
   }
 
@@ -165,5 +182,6 @@ class StudyDTO {
     }
     return map;
   }
+
 }
 

@@ -17,12 +17,13 @@ class Crs {
   Crs.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     type =
-        json['type']
+        
+            json['type']
     ;
     properties =
       
  
-      jsonDecode(json['properties'].toString())
+       ((json['properties'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
@@ -46,5 +47,6 @@ class Crs {
     }
     return map;
   }
+
 }
 

@@ -47,54 +47,54 @@ class CSVValidationModel {
         (json['emptyHeaders'] as List).map((item) => item as int).toList()
     ;
     invalidHeaderURIs =
-        json['invalidHeaderURIs']
+        (json['invalidHeaderURIs'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
     datatypeErrors =
       
- 
-      jsonDecode(json['datatypeErrors'].toString())
+
+        (json['datatypeErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVDatatypeError.listFromJson(value as List<dynamic>)))
  
       
 ;
     uriNotFoundErrors =
       
- 
-      jsonDecode(json['uriNotFoundErrors'].toString())
+
+        (json['uriNotFoundErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVURINotFoundError.listFromJson(value as List<dynamic>)))
  
       
 ;
     invalidURIErrors =
       
- 
-      jsonDecode(json['invalidURIErrors'].toString())
+
+        (json['invalidURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
  
       
 ;
     missingRequiredValueErrors =
       
- 
-      jsonDecode(json['missingRequiredValueErrors'].toString())
+
+        (json['missingRequiredValueErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
  
       
 ;
     invalidValueErrors =
       
- 
-      jsonDecode(json['invalidValueErrors'].toString())
+
+        (json['invalidValueErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
  
       
 ;
     alreadyExistingURIErrors =
       
  
-      jsonDecode(json['alreadyExistingURIErrors'].toString())
+      CSVCell.mapFromJson((json['alreadyExistingURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
     duplicateURIErrors =
       
  
-      jsonDecode(json['duplicateURIErrors'].toString())
+      CSVDuplicateURIError.mapFromJson((json['duplicateURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
@@ -126,5 +126,6 @@ class CSVValidationModel {
     }
     return map;
   }
+
 }
 

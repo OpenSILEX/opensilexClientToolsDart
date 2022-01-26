@@ -17,10 +17,12 @@ class Level {
   Level.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     levelInt =
-        json['levelInt']
+        
+            json['levelInt']
     ;
     levelStr =
-        json['levelStr']
+        
+            json['levelStr']
     ;
   }
 
@@ -42,5 +44,6 @@ class Level {
     }
     return map;
   }
+
 }
 

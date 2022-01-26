@@ -17,10 +17,12 @@ class RDFObjectRelationDTO {
   RDFObjectRelationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     property =
-        json['property']
+        
+            json['property']
     ;
     value =
-        json['value']
+        
+            json['value']
     ;
   }
 
@@ -42,5 +44,6 @@ class RDFObjectRelationDTO {
     }
     return map;
   }
+
 }
 

@@ -37,10 +37,12 @@ class CodeLotCSVValidationDTO {
       new CodeLotCSVValidationModel.fromJson(json['codelotErrors'])
 ;
     validationToken =
-        json['validation_token']
+        
+            json['validation_token']
     ;
     nbLinesImported =
-        json['nb_lines_imported']
+        
+            json['nb_lines_imported']
     ;
   }
 
@@ -64,5 +66,6 @@ class CodeLotCSVValidationDTO {
     }
     return map;
   }
+
 }
 

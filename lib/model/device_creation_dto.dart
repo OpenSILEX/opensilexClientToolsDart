@@ -47,25 +47,32 @@ class DeviceCreationDTO {
   DeviceCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     brand =
-        json['brand']
+        
+            json['brand']
     ;
     constructorModel =
-        json['constructor_model']
+        
+            json['constructor_model']
     ;
     serialNumber =
-        json['serial_number']
+        
+            json['serial_number']
     ;
     personInCharge =
-        json['person_in_charge']
+        
+            json['person_in_charge']
     ;
     startUp =
       
@@ -82,13 +89,14 @@ class DeviceCreationDTO {
        json['removal'] == null ? null : DateTime.parse(json['removal'])
 ;
     relations =
-      RDFObjectRelationDTO.listFromJson(json['relations'])
+      RDFObjectRelationDTO.listFromJson((json['relations'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     description =
-        json['description']
+        
+            json['description']
     ;
     metadata =
-        json['metadata']
+        (json['metadata'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
   }
 
@@ -120,5 +128,6 @@ class DeviceCreationDTO {
     }
     return map;
   }
+
 }
 

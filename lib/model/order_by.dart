@@ -17,10 +17,12 @@ class OrderBy {
   OrderBy.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     fieldName =
-        json['fieldName']
+        
+            json['fieldName']
     ;
     order =
-        json['order']
+        
+            json['order']
     ;
   }
 
@@ -42,5 +44,6 @@ class OrderBy {
     }
     return map;
   }
+
 }
 

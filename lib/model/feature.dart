@@ -29,7 +29,8 @@ class Feature {
   Feature.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     type =
-        json['type']
+        
+            json['type']
     ;
     bbox =
         (json['bbox'] as List).map((item) => item as double).toList()
@@ -40,7 +41,7 @@ class Feature {
     properties =
       
  
-      jsonDecode(json['properties'].toString())
+       ((json['properties'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
@@ -52,7 +53,8 @@ class Feature {
       new GeoJsonObject.fromJson(json['geometry'])
 ;
     id =
-        json['id']
+        
+            json['id']
     ;
   }
 
@@ -78,5 +80,6 @@ class Feature {
     }
     return map;
   }
+
 }
 

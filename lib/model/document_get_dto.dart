@@ -50,25 +50,32 @@ class DocumentGetDTO {
   DocumentGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     identifier =
-        json['identifier']
+        
+            json['identifier']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
     title =
-        json['title']
+        
+            json['title']
     ;
     date =
-        json['date']
+        
+            json['date']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     targets =
         (json['targets'] as List).map((item) => item as String).toList()
@@ -77,16 +84,19 @@ class DocumentGetDTO {
         (json['authors'] as List).map((item) => item as String).toList()
     ;
     language =
-        json['language']
+        
+            json['language']
     ;
     format =
-        json['format']
+        
+            json['format']
     ;
     keywords =
         (json['keywords'] as List).map((item) => item as String).toList()
     ;
     deprecated =
-        json['deprecated']
+        
+            json['deprecated']
     ;
   }
 
@@ -119,5 +129,6 @@ class DocumentGetDTO {
     }
     return map;
   }
+
 }
 

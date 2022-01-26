@@ -28,5 +28,6 @@ class Location {
     }
     return map;
   }
+
 }
 

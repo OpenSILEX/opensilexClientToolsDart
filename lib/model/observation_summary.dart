@@ -29,19 +29,24 @@ class ObservationSummary {
   ObservationSummary.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     collector =
-        json['collector']
+        
+            json['collector']
     ;
     observationDbId =
-        json['observationDbId']
+        
+            json['observationDbId']
     ;
     observationTimeStamp =
-        json['observationTimeStamp']
+        
+            json['observationTimeStamp']
     ;
     observationVariableDbId =
-        json['observationVariableDbId']
+        
+            json['observationVariableDbId']
     ;
     observationVariableName =
-        json['observationVariableName']
+        
+            json['observationVariableName']
     ;
     season =
       
@@ -74,5 +79,6 @@ class ObservationSummary {
     }
     return map;
   }
+
 }
 

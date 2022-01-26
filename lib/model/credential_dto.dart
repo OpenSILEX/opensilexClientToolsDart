@@ -17,10 +17,12 @@ class CredentialDTO {
   CredentialDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     id =
-        json['id']
+        
+            json['id']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
   }
 
@@ -42,5 +44,6 @@ class CredentialDTO {
     }
     return map;
   }
+
 }
 

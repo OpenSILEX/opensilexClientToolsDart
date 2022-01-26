@@ -26,19 +26,24 @@ class VueDataTypeDTO {
   VueDataTypeDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     shortUri =
-        json['short_uri']
+        
+            json['short_uri']
     ;
     inputComponent =
-        json['input_component']
+        
+            json['input_component']
     ;
     viewComponent =
-        json['view_component']
+        
+            json['view_component']
     ;
     labelKey =
-        json['label_key']
+        
+            json['label_key']
     ;
   }
 
@@ -63,5 +68,6 @@ class VueDataTypeDTO {
     }
     return map;
   }
+
 }
 

@@ -50,43 +50,54 @@ class GermplasmUpdateDTO {
   GermplasmUpdateDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     synonyms =
         (json['synonyms'] as List).map((item) => item as String).toList()
     ;
     code =
-        json['code']
+        
+            json['code']
     ;
     productionYear =
-        json['production_year']
+        
+            json['production_year']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     species =
-        json['species']
+        
+            json['species']
     ;
     variety =
-        json['variety']
+        
+            json['variety']
     ;
     accession =
-        json['accession']
+        
+            json['accession']
     ;
     institute =
-        json['institute']
+        
+            json['institute']
     ;
     website =
-        json['website']
+        
+            json['website']
     ;
     metadata =
-        json['metadata']
+        (json['metadata'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
   }
 
@@ -119,5 +130,6 @@ class GermplasmUpdateDTO {
     }
     return map;
   }
+
 }
 

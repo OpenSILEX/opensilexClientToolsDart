@@ -65,13 +65,16 @@ class ObservationVariableDTO {
   ObservationVariableDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     observationVariableDbId =
-        json['observationVariableDbId']
+        
+            json['observationVariableDbId']
     ;
     observationVariableName =
-        json['observationVariableName']
+        
+            json['observationVariableName']
     ;
     ontologyReference =
-        json['ontologyReference']
+        
+            json['ontologyReference']
     ;
     synonyms =
         (json['synonyms'] as List).map((item) => item as String).toList()
@@ -80,28 +83,36 @@ class ObservationVariableDTO {
         (json['contextOfUse'] as List).map((item) => item as String).toList()
     ;
     growthStage =
-        json['growthStage']
+        
+            json['growthStage']
     ;
     status =
-        json['status']
+        
+            json['status']
     ;
     xref =
-        json['xref']
+        
+            json['xref']
     ;
     institution =
-        json['institution']
+        
+            json['institution']
     ;
     scientist =
-        json['scientist']
+        
+            json['scientist']
     ;
     submissionTimesTamp =
-        json['submissionTimesTamp']
+        
+            json['submissionTimesTamp']
     ;
     language =
-        json['language']
+        
+            json['language']
     ;
     crop =
-        json['crop']
+        
+            json['crop']
     ;
     trait =
       
@@ -125,10 +136,12 @@ class ObservationVariableDTO {
       new Scale.fromJson(json['scale'])
 ;
     defaultValue =
-        json['defaultValue']
+        
+            json['defaultValue']
     ;
     documentationURL =
-        json['documentationURL']
+        
+            json['documentationURL']
     ;
   }
 
@@ -166,5 +179,6 @@ class ObservationVariableDTO {
     }
     return map;
   }
+
 }
 

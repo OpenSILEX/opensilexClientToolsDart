@@ -20,10 +20,12 @@ class ProfileUpdateDTO {
   ProfileUpdateDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     credentials =
         (json['credentials'] as List).map((item) => item as String).toList()
@@ -49,5 +51,6 @@ class ProfileUpdateDTO {
     }
     return map;
   }
+
 }
 

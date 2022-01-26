@@ -29,22 +29,28 @@ class UserGetDTO {
   UserGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     firstName =
-        json['first_name']
+        
+            json['first_name']
     ;
     lastName =
-        json['last_name']
+        
+            json['last_name']
     ;
     email =
-        json['email']
+        
+            json['email']
     ;
     language =
-        json['language']
+        
+            json['language']
     ;
     admin =
-        json['admin']
+        
+            json['admin']
     ;
   }
 
@@ -70,5 +76,6 @@ class UserGetDTO {
     }
     return map;
   }
+
 }
 

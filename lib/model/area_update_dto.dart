@@ -26,16 +26,20 @@ class AreaUpdateDTO {
   AreaUpdateDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     geometry =
       
@@ -67,5 +71,6 @@ class AreaUpdateDTO {
     }
     return map;
   }
+
 }
 

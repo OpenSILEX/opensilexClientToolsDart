@@ -17,7 +17,8 @@ class TargetPositionGetDTO {
   TargetPositionGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     target =
-        json['target']
+        
+            json['target']
     ;
     position =
       
@@ -46,5 +47,6 @@ class TargetPositionGetDTO {
     }
     return map;
   }
+
 }
 

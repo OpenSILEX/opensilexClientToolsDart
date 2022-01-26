@@ -59,25 +59,30 @@ class ScientificObjectSearchDTO {
         (json['excluded_uris'] as List).map((item) => item as String).toList()
     ;
     experiment =
-        json['experiment']
+        
+            json['experiment']
     ;
     rdfTypes =
         (json['rdf_types'] as List).map((item) => item as String).toList()
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     parent =
-        json['parent']
+        
+            json['parent']
     ;
     germplasm =
-        json['germplasm']
+        
+            json['germplasm']
     ;
     factorLevels =
         (json['factor_levels'] as List).map((item) => item as String).toList()
     ;
     facility =
-        json['facility']
+        
+            json['facility']
     ;
     existenceDate =
       
@@ -94,13 +99,15 @@ class ScientificObjectSearchDTO {
        json['creation_date'] == null ? null : DateTime.parse(json['creation_date'])
 ;
     orderBy =
-      OrderBy.listFromJson(json['order_by'])
+      OrderBy.listFromJson((json['order_by'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     page =
-        json['page']
+        
+            json['page']
     ;
     pageSze =
-        json['page_sze']
+        
+            json['page_sze']
     ;
   }
 
@@ -134,5 +141,6 @@ class ScientificObjectSearchDTO {
     }
     return map;
   }
+
 }
 

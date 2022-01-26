@@ -17,10 +17,12 @@ class AuthenticationDTO {
   AuthenticationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     identifier =
-        json['identifier']
+        
+            json['identifier']
     ;
     password =
-        json['password']
+        
+            json['password']
     ;
   }
 
@@ -42,5 +44,6 @@ class AuthenticationDTO {
     }
     return map;
   }
+
 }
 

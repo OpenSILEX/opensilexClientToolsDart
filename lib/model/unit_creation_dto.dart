@@ -38,19 +38,24 @@ class UnitCreationDTO {
   UnitCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     symbol =
-        json['symbol']
+        
+            json['symbol']
     ;
     alternativeSymbol =
-        json['alternative_symbol']
+        
+            json['alternative_symbol']
     ;
     exactMatch =
         (json['exact_match'] as List).map((item) => item as String).toList()
@@ -91,5 +96,6 @@ class UnitCreationDTO {
     }
     return map;
   }
+
 }
 

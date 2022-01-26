@@ -44,34 +44,40 @@ class VueRDFTypeDTO {
   VueRDFTypeDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     comment =
-        json['comment']
+        
+            json['comment']
     ;
     parent =
-        json['parent']
+        
+            json['parent']
     ;
     icon =
-        json['icon']
+        
+            json['icon']
     ;
     nameTranslations =
-        json['name_translations']
+        (json['name_translations'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
     commentTranslations =
-        json['comment_translations']
+        (json['comment_translations'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
     isAbstract =
-        json['is_abstract']
+        
+            json['is_abstract']
     ;
     dataProperties =
-      VueRDFTypePropertyDTO.listFromJson(json['data_properties'])
+      VueRDFTypePropertyDTO.listFromJson((json['data_properties'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     objectProperties =
-      VueRDFTypePropertyDTO.listFromJson(json['object_properties'])
+      VueRDFTypePropertyDTO.listFromJson((json['object_properties'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     propertiesOrder =
         (json['properties_order'] as List).map((item) => item as String).toList()
@@ -105,5 +111,6 @@ class VueRDFTypeDTO {
     }
     return map;
   }
+
 }
 

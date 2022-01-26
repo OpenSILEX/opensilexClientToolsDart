@@ -17,10 +17,12 @@ class ApiModulesInfo {
   ApiModulesInfo.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     name =
-        json['name']
+        
+            json['name']
     ;
     version =
-        json['version']
+        
+            json['version']
     ;
   }
 
@@ -42,5 +44,6 @@ class ApiModulesInfo {
     }
     return map;
   }
+
 }
 

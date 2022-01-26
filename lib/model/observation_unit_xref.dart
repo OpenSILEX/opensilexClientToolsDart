@@ -17,10 +17,12 @@ class ObservationUnitXref {
   ObservationUnitXref.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     id =
-        json['id']
+        
+            json['id']
     ;
     source =
-        json['source']
+        
+            json['source']
     ;
   }
 
@@ -42,5 +44,6 @@ class ObservationUnitXref {
     }
     return map;
   }
+
 }
 

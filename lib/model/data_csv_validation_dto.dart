@@ -40,13 +40,16 @@ class DataCSVValidationDTO {
       new DataCSVValidationModel.fromJson(json['dataErrors'])
 ;
     sizeMax =
-        json['sizeMax']
+        
+            json['sizeMax']
     ;
     validationToken =
-        json['validation_token']
+        
+            json['validation_token']
     ;
     nbLinesImported =
-        json['nb_lines_imported']
+        
+            json['nb_lines_imported']
     ;
   }
 
@@ -71,5 +74,6 @@ class DataCSVValidationDTO {
     }
     return map;
   }
+
 }
 

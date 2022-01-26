@@ -101,117 +101,117 @@ class DataCSVValidationModel {
         (json['emptyHeaders'] as List).map((item) => item as int).toList()
     ;
     invalidHeaderURIs =
-        json['invalidHeaderURIs']
+        (json['invalidHeaderURIs'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
     datatypeErrors =
       
  
-      jsonDecode(json['datatypeErrors'].toString())
+       ((json['datatypeErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     uriNotFoundErrors =
       
  
-      jsonDecode(json['uriNotFoundErrors'].toString())
+       ((json['uriNotFoundErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     invalidURIErrors =
       
  
-      jsonDecode(json['invalidURIErrors'].toString())
+       ((json['invalidURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     missingRequiredValueErrors =
       
  
-      jsonDecode(json['missingRequiredValueErrors'].toString())
+       ((json['missingRequiredValueErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     invalidValueErrors =
       
  
-      jsonDecode(json['invalidValueErrors'].toString())
+       ((json['invalidValueErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     alreadyExistingURIErrors =
       
  
-      jsonDecode(json['alreadyExistingURIErrors'].toString())
+      CSVCell.mapFromJson((json['alreadyExistingURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     duplicateURIErrors =
       
  
-      jsonDecode(json['duplicateURIErrors'].toString())
+      CSVDuplicateURIError.mapFromJson((json['duplicateURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     invalidObjectErrors =
       
  
-      jsonDecode(json['invalidObjectErrors'].toString())
+       ((json['invalidObjectErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     invalidDateErrors =
       
  
-      jsonDecode(json['invalidDateErrors'].toString())
+       ((json['invalidDateErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     invalidDataTypeErrors =
       
  
-      jsonDecode(json['invalidDataTypeErrors'].toString())
+       ((json['invalidDataTypeErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     invalidExperimentErrors =
       
  
-      jsonDecode(json['invalidExperimentErrors'].toString())
+       ((json['invalidExperimentErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     invalidDeviceErrors =
       
  
-      jsonDecode(json['invalidDeviceErrors'].toString())
+       ((json['invalidDeviceErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     duplicatedDataErrors =
       
  
-      jsonDecode(json['duplicatedDataErrors'].toString())
+       ((json['duplicatedDataErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     duplicatedObjectErrors =
       
  
-      jsonDecode(json['duplicatedObjectErrors'].toString())
+       ((json['duplicatedObjectErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     duplicatedExperimentErrors =
       
  
-      jsonDecode(json['duplicatedExperimentErrors'].toString())
+       ((json['duplicatedExperimentErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
     duplicatedDeviceErrors =
       
  
-      jsonDecode(json['duplicatedDeviceErrors'].toString())
+       ((json['duplicatedDeviceErrors'] as Map).map((key, value) => MapEntry(key as dynamic, value)))
  
       
 ;
@@ -222,25 +222,32 @@ class DataCSVValidationModel {
         (json['headersLabels'] as List).map((item) => item as String).toList()
     ;
     nbLinesImported =
-        json['nbLinesImported']
+        
+            json['nbLinesImported']
     ;
     nbLinesToImport =
-        json['nbLinesToImport']
+        
+            json['nbLinesToImport']
     ;
     validationStep =
-        json['validationStep']
+        
+            json['validationStep']
     ;
     insertionStep =
-        json['insertionStep']
+        
+            json['insertionStep']
     ;
     validCSV =
-        json['validCSV']
+        
+            json['validCSV']
     ;
     tooLargeDataset =
-        json['tooLargeDataset']
+        
+            json['tooLargeDataset']
     ;
     errorMessage =
-        json['errorMessage']
+        
+            json['errorMessage']
     ;
   }
 
@@ -288,5 +295,6 @@ class DataCSVValidationModel {
     }
     return map;
   }
+
 }
 

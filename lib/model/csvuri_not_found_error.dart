@@ -29,22 +29,28 @@ class CSVURINotFoundError {
   CSVURINotFoundError.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     rowIndex =
-        json['rowIndex']
+        
+            json['rowIndex']
     ;
     colIndex =
-        json['colIndex']
+        
+            json['colIndex']
     ;
     header =
-        json['header']
+        
+            json['header']
     ;
     value =
-        json['value']
+        
+            json['value']
     ;
     rdfType =
-        json['rdfType']
+        
+            json['rdfType']
     ;
     objectURI =
-        json['objectURI']
+        
+            json['objectURI']
     ;
   }
 
@@ -70,5 +76,6 @@ class CSVURINotFoundError {
     }
     return map;
   }
+
 }
 

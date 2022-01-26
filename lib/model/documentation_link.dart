@@ -17,10 +17,12 @@ class DocumentationLink {
   DocumentationLink.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     type =
-        json['type']
+        
+            json['type']
     ;
     url =
-        json['url']
+        
+            json['url']
     ;
   }
 
@@ -42,5 +44,6 @@ class DocumentationLink {
     }
     return map;
   }
+
 }
 

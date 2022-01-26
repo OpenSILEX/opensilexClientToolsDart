@@ -17,10 +17,12 @@ class ApiExternalDocsDTO {
   ApiExternalDocsDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     description =
-        json['description']
+        
+            json['description']
     ;
     url =
-        json['url']
+        
+            json['url']
     ;
   }
 
@@ -42,5 +44,6 @@ class ApiExternalDocsDTO {
     }
     return map;
   }
+
 }
 

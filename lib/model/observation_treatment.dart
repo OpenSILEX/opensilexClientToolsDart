@@ -17,10 +17,12 @@ class ObservationTreatment {
   ObservationTreatment.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     factor =
-        json['factor']
+        
+            json['factor']
     ;
     modality =
-        json['modality']
+        
+            json['modality']
     ;
   }
 
@@ -42,5 +44,6 @@ class ObservationTreatment {
     }
     return map;
   }
+
 }
 

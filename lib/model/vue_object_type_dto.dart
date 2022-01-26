@@ -32,22 +32,27 @@ class VueObjectTypeDTO {
   VueObjectTypeDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     shortUri =
-        json['short_uri']
+        
+            json['short_uri']
     ;
     inputComponent =
-        json['input_component']
+        
+            json['input_component']
     ;
     inputComponentsByProperty =
-        json['input_components_by_property']
+        (json['input_components_by_property'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
     viewComponent =
-        json['view_component']
+        
+            json['view_component']
     ;
     rdfType =
       
@@ -81,5 +86,6 @@ class VueObjectTypeDTO {
     }
     return map;
   }
+
 }
 

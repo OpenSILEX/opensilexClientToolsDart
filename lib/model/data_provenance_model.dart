@@ -26,18 +26,19 @@ class DataProvenanceModel {
   DataProvenanceModel.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     provUsed =
-      ProvEntityModel.listFromJson(json['prov_used'])
+      ProvEntityModel.listFromJson((json['prov_used'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     provWasAssociatedWith =
-      ProvEntityModel.listFromJson(json['prov_was_associated_with'])
+      ProvEntityModel.listFromJson((json['prov_was_associated_with'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
     settings =
       
  
-      jsonDecode(json['settings'].toString())
+       ((json['settings'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
@@ -67,5 +68,6 @@ class DataProvenanceModel {
     }
     return map;
   }
+
 }
 

@@ -32,16 +32,20 @@ class Method {
   Method.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     description =
-        json['description']
+        
+            json['description']
     ;
     formula =
-        json['formula']
+        
+            json['formula']
     ;
     methodDbId =
-        json['methodDbId']
+        
+            json['methodDbId']
     ;
     methodName =
-        json['methodName']
+        
+            json['methodName']
     ;
     ontologyReference =
       
@@ -51,10 +55,12 @@ class Method {
       new OntologyReference.fromJson(json['ontologyReference'])
 ;
     reference =
-        json['reference']
+        
+            json['reference']
     ;
     class_ =
-        json['class']
+        
+            json['class']
     ;
   }
 
@@ -81,5 +87,6 @@ class Method {
     }
     return map;
   }
+
 }
 

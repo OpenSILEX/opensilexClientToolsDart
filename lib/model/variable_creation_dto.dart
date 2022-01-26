@@ -68,49 +68,64 @@ class VariableCreationDTO {
   VariableCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     alternativeName =
-        json['alternative_name']
+        
+            json['alternative_name']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     entity =
-        json['entity']
+        
+            json['entity']
     ;
     entityOfInterest =
-        json['entity_of_interest']
+        
+            json['entity_of_interest']
     ;
     characteristic =
-        json['characteristic']
+        
+            json['characteristic']
     ;
     trait =
-        json['trait']
+        
+            json['trait']
     ;
     traitName =
-        json['trait_name']
+        
+            json['trait_name']
     ;
     method =
-        json['method']
+        
+            json['method']
     ;
     unit =
-        json['unit']
+        
+            json['unit']
     ;
     species =
-        json['species']
+        
+            json['species']
     ;
     datatype =
-        json['datatype']
+        
+            json['datatype']
     ;
     timeInterval =
-        json['time_interval']
+        
+            json['time_interval']
     ;
     samplingInterval =
-        json['sampling_interval']
+        
+            json['sampling_interval']
     ;
     exactMatch =
         (json['exact_match'] as List).map((item) => item as String).toList()
@@ -161,5 +176,6 @@ class VariableCreationDTO {
     }
     return map;
   }
+
 }
 

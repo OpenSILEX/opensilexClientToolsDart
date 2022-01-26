@@ -47,10 +47,12 @@ class FormGetDTO {
   FormGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     offset =
-        json['offset']
+        
+            json['offset']
     ;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     sectionUris =
         (json['section_uris'] as List).map((item) => item as String).toList()
@@ -65,22 +67,28 @@ class FormGetDTO {
         (json['empty_children_uris'] as List).map((item) => item as String).toList()
     ;
     type =
-        json['type']
+        
+            json['type']
     ;
     codeLot =
-        json['code_lot']
+        
+            json['code_lot']
     ;
     createdDate =
-        json['created_date']
+        
+            json['created_date']
     ;
     commitAddress =
-        json['commit_address']
+        
+            json['commit_address']
     ;
     updatedDate =
-        json['updated_date']
+        
+            json['updated_date']
     ;
     isRoot =
-        json['is_root']
+        
+            json['is_root']
     ;
   }
 
@@ -112,5 +120,6 @@ class FormGetDTO {
     }
     return map;
   }
+
 }
 

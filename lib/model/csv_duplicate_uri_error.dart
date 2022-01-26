@@ -26,19 +26,24 @@ class CSVDuplicateURIError {
   CSVDuplicateURIError.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     rowIndex =
-        json['rowIndex']
+        
+            json['rowIndex']
     ;
     colIndex =
-        json['colIndex']
+        
+            json['colIndex']
     ;
     header =
-        json['header']
+        
+            json['header']
     ;
     value =
-        json['value']
+        
+            json['value']
     ;
     previousRow =
-        json['previousRow']
+        
+            json['previousRow']
     ;
   }
 
@@ -63,5 +68,6 @@ class CSVDuplicateURIError {
     }
     return map;
   }
+
 }
 

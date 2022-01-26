@@ -17,7 +17,8 @@ class StatusDTO {
   StatusDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     message =
-        json['message']
+        
+            json['message']
     ;
     messageType =
       
@@ -46,5 +47,6 @@ class StatusDTO {
     }
     return map;
   }
+
 }
 

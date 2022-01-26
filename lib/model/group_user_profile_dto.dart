@@ -32,25 +32,32 @@ class GroupUserProfileDTO {
   GroupUserProfileDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
     profileUri =
-        json['profile_uri']
+        
+            json['profile_uri']
     ;
     profileName =
-        json['profile_name']
+        
+            json['profile_name']
     ;
     userUri =
-        json['user_uri']
+        
+            json['user_uri']
     ;
     userName =
-        json['user_name']
+        
+            json['user_name']
     ;
   }
 
@@ -77,5 +84,6 @@ class GroupUserProfileDTO {
     }
     return map;
   }
+
 }
 

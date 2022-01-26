@@ -23,16 +23,20 @@ class NamedResourceDTOFactorLevelModel {
   NamedResourceDTOFactorLevelModel.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     rdfType =
-        json['rdf_type']
+        
+            json['rdf_type']
     ;
     rdfTypeName =
-        json['rdf_type_name']
+        
+            json['rdf_type_name']
     ;
   }
 
@@ -56,5 +60,6 @@ class NamedResourceDTOFactorLevelModel {
     }
     return map;
   }
+
 }
 

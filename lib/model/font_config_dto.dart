@@ -26,19 +26,23 @@ class FontConfigDTO {
   FontConfigDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     family =
-        json['family']
+        
+            json['family']
     ;
     style =
-        json['style']
+        
+            json['style']
     ;
     weight =
-        json['weight']
+        
+            json['weight']
     ;
     url =
-        json['url']
+        
+            json['url']
     ;
     src =
-        json['src']
+        (json['src'] as Map).map((key, value) => MapEntry(key as dynamic, value as dynamic))
     ;
   }
 
@@ -63,5 +67,6 @@ class FontConfigDTO {
     }
     return map;
   }
+
 }
 

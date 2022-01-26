@@ -27,10 +27,12 @@ class CSVValidationDTO {
       new CSVValidationModel.fromJson(json['errors'])
 ;
     validationToken =
-        json['validation_token']
+        
+            json['validation_token']
     ;
     nbLinesImported =
-        json['nb_lines_imported']
+        
+            json['nb_lines_imported']
     ;
   }
 
@@ -53,5 +55,6 @@ class CSVValidationDTO {
     }
     return map;
   }
+
 }
 

@@ -33,16 +33,20 @@ class PositionGetDetailDTO {
       new Point.fromJson(json['point'])
 ;
     x =
-        json['x']
+        
+            json['x']
     ;
     y =
-        json['y']
+        
+            json['y']
     ;
     z =
-        json['z']
+        
+            json['z']
     ;
     text =
-        json['text']
+        
+            json['text']
     ;
   }
 
@@ -67,5 +71,6 @@ class PositionGetDetailDTO {
     }
     return map;
   }
+
 }
 

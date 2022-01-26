@@ -23,16 +23,19 @@ class VariablesGroupGetDTO {
   VariablesGroupGetDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     uri =
-        json['uri']
+        
+            json['uri']
     ;
     name =
-        json['name']
+        
+            json['name']
     ;
     description =
-        json['description']
+        
+            json['description']
     ;
     variables =
-      VariableGetDTO.listFromJson(json['variables'])
+      VariableGetDTO.listFromJson((json['variables'] as List).map((e) => e as Map<String, dynamic>).toList())
 ;
   }
 
@@ -56,5 +59,6 @@ class VariablesGroupGetDTO {
     }
     return map;
   }
+
 }
 
