@@ -8,13 +8,10 @@ class FormCreationDTO {
   List<String> sectionUris = [];
   
 
-  List<String> formChildrenUris = [];
+  List<String> formChildrenCodes = [];
   
 
-  List<String> formParentsUris = [];
-  
-
-  List<String> emptyChildrenUris = [];
+  List<String> formParentsCodes = [];
   
 
   String type = null;
@@ -35,7 +32,7 @@ class FormCreationDTO {
 
   @override
   String toString() {
-    return 'FormCreationDTO[offset=$offset, sectionUris=$sectionUris, formChildrenUris=$formChildrenUris, formParentsUris=$formParentsUris, emptyChildrenUris=$emptyChildrenUris, type=$type, codeLot=$codeLot, createdDate=$createdDate, commitAddress=$commitAddress, isRoot=$isRoot, ]';
+    return 'FormCreationDTO[offset=$offset, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, type=$type, codeLot=$codeLot, createdDate=$createdDate, commitAddress=$commitAddress, isRoot=$isRoot, ]';
   }
 
   FormCreationDTO.fromJson(Map<String, dynamic> json) {
@@ -47,14 +44,11 @@ class FormCreationDTO {
     sectionUris =
         (json['section_uris'] as List).map((item) => item as String).toList()
     ;
-    formChildrenUris =
-        (json['form_children_uris'] as List).map((item) => item as String).toList()
+    formChildrenCodes =
+        (json['form_children_codes'] as List).map((item) => item as String).toList()
     ;
-    formParentsUris =
-        (json['form_parents_uris'] as List).map((item) => item as String).toList()
-    ;
-    emptyChildrenUris =
-        (json['empty_children_uris'] as List).map((item) => item as String).toList()
+    formParentsCodes =
+        (json['form_parents_codes'] as List).map((item) => item as String).toList()
     ;
     type =
         
@@ -82,9 +76,8 @@ class FormCreationDTO {
     return {
       'offset': offset,
       'section_uris': sectionUris,
-      'form_children_uris': formChildrenUris,
-      'form_parents_uris': formParentsUris,
-      'empty_children_uris': emptyChildrenUris,
+      'form_children_codes': formChildrenCodes,
+      'form_parents_codes': formParentsCodes,
       'type': type,
       'code_lot': codeLot,
       'created_date': createdDate,

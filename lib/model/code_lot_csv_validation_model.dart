@@ -73,11 +73,14 @@ class CodeLotCSVValidationModel {
 
   String errorMessage = null;
   
+
+  Map<String, List<CSVCell>> typeErrors = {};
+  
   CodeLotCSVValidationModel();
 
   @override
   String toString() {
-    return 'CodeLotCSVValidationModel[missingHeaders=$missingHeaders, emptyHeaders=$emptyHeaders, invalidHeaderURIs=$invalidHeaderURIs, datatypeErrors=$datatypeErrors, uriNotFoundErrors=$uriNotFoundErrors, invalidURIErrors=$invalidURIErrors, missingRequiredValueErrors=$missingRequiredValueErrors, invalidValueErrors=$invalidValueErrors, alreadyExistingURIErrors=$alreadyExistingURIErrors, duplicateURIErrors=$duplicateURIErrors, noParentErrors=$noParentErrors, boucleErrors=$boucleErrors, linkedSibblingErrors=$linkedSibblingErrors, shortCircuitErrors=$shortCircuitErrors, duplicatedDataErrors=$duplicatedDataErrors, headers=$headers, headersLabels=$headersLabels, nbLinesImported=$nbLinesImported, nbLinesToImport=$nbLinesToImport, validationStep=$validationStep, tooLargeDataset=$tooLargeDataset, insertionStep=$insertionStep, validCSV=$validCSV, errorMessage=$errorMessage, ]';
+    return 'CodeLotCSVValidationModel[missingHeaders=$missingHeaders, emptyHeaders=$emptyHeaders, invalidHeaderURIs=$invalidHeaderURIs, datatypeErrors=$datatypeErrors, uriNotFoundErrors=$uriNotFoundErrors, invalidURIErrors=$invalidURIErrors, missingRequiredValueErrors=$missingRequiredValueErrors, invalidValueErrors=$invalidValueErrors, alreadyExistingURIErrors=$alreadyExistingURIErrors, duplicateURIErrors=$duplicateURIErrors, noParentErrors=$noParentErrors, boucleErrors=$boucleErrors, linkedSibblingErrors=$linkedSibblingErrors, shortCircuitErrors=$shortCircuitErrors, duplicatedDataErrors=$duplicatedDataErrors, headers=$headers, headersLabels=$headersLabels, nbLinesImported=$nbLinesImported, nbLinesToImport=$nbLinesToImport, validationStep=$validationStep, tooLargeDataset=$tooLargeDataset, insertionStep=$insertionStep, validCSV=$validCSV, errorMessage=$errorMessage, typeErrors=$typeErrors, ]';
   }
 
   CodeLotCSVValidationModel.fromJson(Map<String, dynamic> json) {
@@ -94,87 +97,96 @@ class CodeLotCSVValidationModel {
     datatypeErrors =
       
  
-
-        (json['datatypeErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVDatatypeError.listFromJson(value as List<dynamic>)))
+          (json['datatypeErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVDatatypeError.listFromJson(value as List<dynamic>)))
+          
  
       
 ;
     uriNotFoundErrors =
       
  
-
-        (json['uriNotFoundErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVURINotFoundError.listFromJson(value as List<dynamic>)))
+          (json['uriNotFoundErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVURINotFoundError.listFromJson(value as List<dynamic>)))
+          
  
       
 ;
     invalidURIErrors =
       
-
-        (json['invalidURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
-
+ 
+          (json['invalidURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+          
  
       
 ;
     missingRequiredValueErrors =
       
-
-        (json['missingRequiredValueErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+ 
+          (json['missingRequiredValueErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+          
  
       
 ;
     invalidValueErrors =
       
-
-        (json['invalidValueErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+ 
+          (json['invalidValueErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+          
  
       
 ;
     alreadyExistingURIErrors =
       
  
-      CSVCell.mapFromJson((json['alreadyExistingURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
+          
+          CSVCell.mapFromJson((json['alreadyExistingURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
     duplicateURIErrors =
       
  
-      CSVDuplicateURIError.mapFromJson((json['duplicateURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
+          
+          CSVDuplicateURIError.mapFromJson((json['duplicateURIErrors'] as Map).map((key, value) => MapEntry(key as dynamic, (value as Map<String, dynamic>))))
  
       
 ;
     noParentErrors =
       
-
-        (json['noParentErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+ 
+          (json['noParentErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+          
  
       
 ;
     boucleErrors =
       
-
-        (json['boucleErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+ 
+          (json['boucleErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+          
  
       
 ;
     linkedSibblingErrors =
       
-
-        (json['linkedSibblingErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+ 
+          (json['linkedSibblingErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+          
  
       
 ;
     shortCircuitErrors =
       
-
-        (json['shortCircuitErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+ 
+          (json['shortCircuitErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+          
  
       
 ;
     duplicatedDataErrors =
       
-
-        (json['duplicatedDataErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+ 
+          (json['duplicatedDataErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+          
  
       
 ;
@@ -212,6 +224,14 @@ class CodeLotCSVValidationModel {
         
             json['errorMessage']
     ;
+    typeErrors =
+      
+ 
+          (json['typeErrors'] as Map).map((key, value) => MapEntry(key as dynamic, CSVCell.listFromJson(value as List<dynamic>)))
+          
+ 
+      
+;
   }
 
   Map<String, dynamic> toJson() {
@@ -239,7 +259,8 @@ class CodeLotCSVValidationModel {
       'tooLargeDataset': tooLargeDataset,
       'insertionStep': insertionStep,
       'validCSV': validCSV,
-      'errorMessage': errorMessage
+      'errorMessage': errorMessage,
+      'typeErrors': typeErrors
      };
   }
 

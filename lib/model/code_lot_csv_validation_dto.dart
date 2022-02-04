@@ -25,14 +25,12 @@ class CodeLotCSVValidationDTO {
     errors =
       
  
-      
  
       new CSVValidationModel.fromJson(json['errors'])
 ;
     codelotErrors =
       
  
-      
  
       new CodeLotCSVValidationModel.fromJson(json['codelotErrors'])
 ;

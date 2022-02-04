@@ -30,17 +30,15 @@ void main() async {
   try {
     var filePath =
         "/home/hart/Documents/formAppDocs/csvTests/noErrorCsvexample.csv";
-    var file = await http.MultipartFile.fromPath('file', filePath);
-    // var uri = Uri.parse("http://localhost:8666/rest/mobile/import");
-    // var request = new http.MultipartRequest("POST", uri);
-    // request.files.add(file);
-    // request.headers.addAll({'Authorization': 'Bearer ' + client.token});
-    // var response = await request.send();
+    //var file = await http.MultipartFile.fromPath('file', filePath);
+
 
     // if (response.statusCode == 200) print('Uploaded!');
-    var response = await mobile_instance.importCSVCodes(file);
+    //var response = await mobile_instance.importCSVCodes(file);
 
-    print(response);
+    List<FormGetDTO> forms = await mobile_instance.searchForms(page:0, acceptLanguage: 'en');
+
+    print(forms.length);
   } catch (e) {
     print(e.stackTrace);
     print("$e\n");

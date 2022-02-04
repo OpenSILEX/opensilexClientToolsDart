@@ -207,8 +207,8 @@ Class | Method | HTTP request | Description
 *MobileApi* | [**deleteForm**](docs//MobileApi.md#deleteform) | **DELETE** /mobile/form/{uri} | Delete form
 *MobileApi* | [**deleteSection**](docs//MobileApi.md#deletesection) | **DELETE** /mobile/delete_section/{uri} | Delete section
 *MobileApi* | [**importCSVCodes**](docs//MobileApi.md#importcsvcodes) | **POST** /mobile/import | Import a CSV file containing parent and child code-lots
-*MobileApi* | [**searchFormList**](docs//MobileApi.md#searchformlist) | **GET** /mobile/section_get | Search sections
 *MobileApi* | [**searchForms**](docs//MobileApi.md#searchforms) | **GET** /mobile/form_get | Search forms
+*MobileApi* | [**searchSections**](docs//MobileApi.md#searchsections) | **GET** /mobile/section_get | Search sections
 *MobileApi* | [**updateForm**](docs//MobileApi.md#updateform) | **PUT** /mobile/form_put | Update form
 *MobileApi* | [**updateSection**](docs//MobileApi.md#updatesection) | **PUT** /mobile/section_put | Update section
 *OntologyApi* | [**addClassPropertyRestriction**](docs//OntologyApi.md#addclasspropertyrestriction) | **POST** /ontology/rdf_type_property_restriction | Add a rdf type property restriction
