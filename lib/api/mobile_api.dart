@@ -56,9 +56,7 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      dynamic pleaseWork = response.body as dynamic;
-      Map<String, dynamic> noChance = pleaseWork as Map<String, dynamic>;
-      return apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+      return response.body;
     } else {
       return null;
     }
