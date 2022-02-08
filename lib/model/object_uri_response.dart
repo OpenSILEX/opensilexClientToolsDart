@@ -15,18 +15,10 @@ class ObjectUriResponse {
   }
 
   ObjectUriResponse.fromJson(Map<String, dynamic> json) {
+    print('what');
     if (json == null) return;
-    metadata =
-      
- 
-      
- 
-      new MetadataDTO.fromJson(json['metadata'])
-;
-    result =
-        
-            json['result']
-    ;
+    metadata = new MetadataDTO.fromJson(json['metadata']);
+    result = json['result'];
   }
 
   Map<String, dynamic> toJson() {

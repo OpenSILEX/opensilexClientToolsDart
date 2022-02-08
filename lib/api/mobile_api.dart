@@ -10,7 +10,7 @@ class MobileApi {
   /// Add a form
   ///
   /// 
-  Future<ObjectUriResponse> createForm( { FormCreationDTO body, String acceptLanguage }) async {
+  Future<dynamic> createForm( { FormCreationDTO body, String acceptLanguage }) async {
     Object postBody = body;
 
     // verify required params are set
@@ -56,8 +56,9 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+      dynamic pleaseWork = response.body as dynamic;
+      Map<String, dynamic> noChance = pleaseWork as Map<String, dynamic>;
+      return apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
     } else {
       return null;
     }
@@ -65,7 +66,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Add a form
   ///
   /// 
-  Future<ObjectUriResponse> createSection( { SectionCreationDTO body, String acceptLanguage }) async {
+  Future<dynamic> createSection( { SectionCreationDTO body, String acceptLanguage }) async {
     Object postBody = body;
 
     // verify required params are set
@@ -111,8 +112,7 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+      return response.body ;
     } else {
       return null;
     }
@@ -120,7 +120,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Delete form
   ///
   /// 
-  Future<ObjectUriResponse> deleteForm(String uri,  { String acceptLanguage }) async {
+  Future<dynamic> deleteForm(String uri,  { String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -169,8 +169,7 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+      return response.body ;
     } else {
       return null;
     }
@@ -178,7 +177,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Delete section
   ///
   /// 
-  Future<ObjectUriResponse> deleteSection(String uri,  { String acceptLanguage }) async {
+  Future<dynamic> deleteSection(String uri,  { String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -227,8 +226,7 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+      return response.body ;
     } else {
       return null;
     }
@@ -291,8 +289,9 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'CodeLotCSVValidationDTO') as CodeLotCSVValidationDTO ;
+      dynamic pleaseWork = response.body as dynamic;
+      //Map<String, dynamic> noChance = pleaseWork as Map<String, dynamic>;
+      return apiClient.deserialize(response.body, 'CodeLotCSVValidationDTO') as CodeLotCSVValidationDTO ;
     } else {
       return null;
     }
@@ -361,8 +360,7 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
-        (apiClient.deserialize(response.body, 'List<FormGetDTO>') as List).map((item) => item as FormGetDTO).toList();
+      return (apiClient.deserialize(response.body, 'List<FormGetDTO>') as List).map((item) => item as FormGetDTO).toList();
     } else {
       return null;
     }
@@ -437,7 +435,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Update form
   ///
   /// 
-  Future<ObjectUriResponse> updateForm( { FormUpdateDTO body, String acceptLanguage }) async {
+  Future<dynamic> updateForm( { FormUpdateDTO body, String acceptLanguage }) async {
     Object postBody = body;
 
     // verify required params are set
@@ -483,8 +481,7 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+      return response.body ;
     } else {
       return null;
     }
@@ -492,7 +489,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Update section
   ///
   /// 
-  Future<ObjectUriResponse> updateSection( { SectionUpdateDTO body, String acceptLanguage }) async {
+  Future<dynamic> updateSection( { SectionUpdateDTO body, String acceptLanguage }) async {
     Object postBody = body;
 
     // verify required params are set
@@ -538,8 +535,7 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+      return response.body ;
     } else {
       return null;
     }

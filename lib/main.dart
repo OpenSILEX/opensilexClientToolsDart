@@ -8,7 +8,7 @@ void main() async {
     await client.connectToOpenSILEX(
         identifier: "admin@opensilex.org",
         password: "admin",
-        host: "http://localhost:8666/rest");
+        /*host: "http://localhost:8666/rest"*/host: 'http://138.102.159.37:8084/rest');
   } catch (e) {
     print(e);
   }
@@ -30,15 +30,16 @@ void main() async {
   try {
     var filePath =
         "/home/hart/Documents/formAppDocs/csvTests/noErrorCsvexample.csv";
-    //var file = await http.MultipartFile.fromPath('file', filePath);
+    var file = await http.MultipartFile.fromPath('file', filePath);
 
 
     // if (response.statusCode == 200) print('Uploaded!');
-    //var response = await mobile_instance.importCSVCodes(file);
+    var response = await mobile_instance.importCSVCodes(file);
 
-    List<FormGetDTO> forms = await mobile_instance.searchForms(page:0, acceptLanguage: 'en');
+    //List<FormGetDTO> forms = await mobile_instance.searchForms(page:0, acceptLanguage: 'en');
+    await mobile_instance.createForm(body: FormCreationDTO.fromJson({'is_root':true, 'section_uris': [],'form_children_codes': [],'form_parents_codes': [], 'type':'http://www.opensilex.org/vocabulary/iado#RedSolidWinemaking', 'code_lot':'fuck', 'commit_address':'ahhhhh','created_date':'2012-02-07T13:15:16Z'}));
 
-    print(forms.length);
+    print('ddddd');
   } catch (e) {
     print(e.stackTrace);
     print("$e\n");

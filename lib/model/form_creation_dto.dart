@@ -37,19 +37,10 @@ class FormCreationDTO {
 
   FormCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    offset =
-        
-            json['offset']
-    ;
-    sectionUris =
-        (json['section_uris'] as List).map((item) => item as String).toList()
-    ;
-    formChildrenCodes =
-        (json['form_children_codes'] as List).map((item) => item as String).toList()
-    ;
-    formParentsCodes =
-        (json['form_parents_codes'] as List).map((item) => item as String).toList()
-    ;
+    offset = json['offset'];
+    sectionUris = (json['section_uris'] as List).map((item) => item as String).toList();
+    formChildrenCodes = (json['form_children_codes'] as List).map((item) => item as String).toList();
+    formParentsCodes = (json['form_parents_codes'] as List).map((item) => item as String).toList();
     type =
         
             json['type']
@@ -66,10 +57,8 @@ class FormCreationDTO {
         
             json['commit_address']
     ;
-    isRoot =
-        
-            json['is_root']
-    ;
+    isRoot = json['is_root'];
+    print('kazar');
   }
 
   Map<String, dynamic> toJson() {
