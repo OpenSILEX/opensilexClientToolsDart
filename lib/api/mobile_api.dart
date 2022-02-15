@@ -297,7 +297,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Search forms
   ///
   /// 
-  Future<List<FormGetDTO>> searchForms( { List<String> uris, String rdfType, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
+  Future<List<FormGetDTO>> searchForms( { List<String> uris, List<String> rdfTypes, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -316,8 +316,8 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(uris != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("multi", "uris", uris));
     }
-    if(rdfType != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "rdf_type", rdfType));
+    if(rdfTypes != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "rdf_types", rdfTypes));
     }
     if(orderBy != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("multi", "order_by", orderBy));
