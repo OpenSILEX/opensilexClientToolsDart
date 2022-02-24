@@ -16,18 +16,18 @@ class MobileApi {
     // verify required params are set
     String authorization = apiClient.token;
     if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+      throw new ApiException(400, "First connect with connectToOpenSILEX function");
     }
 
     // create path and map variables
-    String path = "/mobile/forms_post".replaceAll("{format}","json");
+    String path = "/mobile/forms".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
+    headerParams["Accept-Language"] = acceptLanguage;
 
     List<String> contentTypes = ["application/json"];
 
@@ -37,31 +37,32 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
-      
+
       if(hasFields)
         postBody = mp;
     }
     else {
-          }
+    }
 
     var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+        'POST',
+        queryParams,
+        postBody,
+        headerParams,
+        formParams,
+        contentType,
+        authNames);
 
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return response.body;
+      return
+        response.body ;
     } else {
       return null;
     }
   }
-  /// Add a form
+  /// Add a section
   ///
   /// 
   Future<dynamic> createSection( { SectionCreationDTO body, String acceptLanguage }) async {
@@ -70,18 +71,18 @@ headerParams["Accept-Language"] = acceptLanguage;
     // verify required params are set
     String authorization = apiClient.token;
     if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+      throw new ApiException(400, "First connect with connectToOpenSILEX function");
     }
 
     // create path and map variables
-    String path = "/mobile/sections_post".replaceAll("{format}","json");
+    String path = "/mobile/sections".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
+    headerParams["Accept-Language"] = acceptLanguage;
 
     List<String> contentTypes = ["application/json"];
 
@@ -91,26 +92,27 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
-      
+
       if(hasFields)
         postBody = mp;
     }
     else {
-          }
+    }
 
     var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+        'POST',
+        queryParams,
+        postBody,
+        headerParams,
+        formParams,
+        contentType,
+        authNames);
 
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return response.body ;
+      return
+        response.body ;
     } else {
       return null;
     }
@@ -124,21 +126,21 @@ headerParams["Accept-Language"] = acceptLanguage;
     // verify required params are set
     String authorization = apiClient.token;
     if(uri == null) {
-     throw new ApiException(400, "Missing required param: uri");
+      throw new ApiException(400, "Missing required param: uri");
     }
     if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+      throw new ApiException(400, "First connect with connectToOpenSILEX function");
     }
 
     // create path and map variables
-    String path = "/mobile/form/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
+    String path = "/mobile/forms/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
+    headerParams["Accept-Language"] = acceptLanguage;
 
     List<String> contentTypes = ["application/json"];
 
@@ -148,26 +150,27 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
-      
+
       if(hasFields)
         postBody = mp;
     }
     else {
-          }
+    }
 
     var response = await apiClient.invokeAPI(path,
-                                             'DELETE',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+        'DELETE',
+        queryParams,
+        postBody,
+        headerParams,
+        formParams,
+        contentType,
+        authNames);
 
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return response.body ;
+      return
+        response.body ;
     } else {
       return null;
     }
@@ -181,21 +184,21 @@ headerParams["Accept-Language"] = acceptLanguage;
     // verify required params are set
     String authorization = apiClient.token;
     if(uri == null) {
-     throw new ApiException(400, "Missing required param: uri");
+      throw new ApiException(400, "Missing required param: uri");
     }
     if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+      throw new ApiException(400, "First connect with connectToOpenSILEX function");
     }
 
     // create path and map variables
-    String path = "/mobile/delete_section/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
+    String path = "/mobile/sections/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
+    headerParams["Accept-Language"] = acceptLanguage;
 
     List<String> contentTypes = ["application/json"];
 
@@ -205,26 +208,27 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
-      
+
       if(hasFields)
         postBody = mp;
     }
     else {
-          }
+    }
 
     var response = await apiClient.invokeAPI(path,
-                                             'DELETE',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+        'DELETE',
+        queryParams,
+        postBody,
+        headerParams,
+        formParams,
+        contentType,
+        authNames);
 
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return response.body ;
+      return
+        response.body ;
     } else {
       return null;
     }
@@ -238,21 +242,21 @@ headerParams["Accept-Language"] = acceptLanguage;
     // verify required params are set
     String authorization = apiClient.token;
     if(file == null) {
-     throw new ApiException(400, "Missing required param: file");
+      throw new ApiException(400, "Missing required param: file");
     }
     if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+      throw new ApiException(400, "First connect with connectToOpenSILEX function");
     }
 
     // create path and map variables
-    String path = "/mobile/import".replaceAll("{format}","json");
+    String path = "/mobile/forms/import".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
+    headerParams["Accept-Language"] = acceptLanguage;
 
     List<String> contentTypes = ["multipart/form-data"];
 
@@ -262,34 +266,33 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
-      
+
       if (file != null) {
         hasFields = true;
         mp.files.add(file);
       }
-      
+
       if(hasFields)
         postBody = mp;
     }
     else {
-      
+
     }
 
     var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+        'POST',
+        queryParams,
+        postBody,
+        headerParams,
+        formParams,
+        contentType,
+        authNames);
 
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      dynamic pleaseWork = response.body as dynamic;
-      //Map<String, dynamic> noChance = pleaseWork as Map<String, dynamic>;
-      return apiClient.deserialize(response.body, 'CodeLotCSVValidationDTO') as CodeLotCSVValidationDTO ;
+      return
+        apiClient.deserialize(response.body, 'CodeLotCSVValidationDTO') as CodeLotCSVValidationDTO ;
     } else {
       return null;
     }
@@ -297,17 +300,17 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Search forms
   ///
   /// 
-  Future<List<FormGetDTO>> searchForms( { List<String> uris, List<String> rdfTypes, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
+  Future<List<FormGetDTO>> searchForms( { List<String> uris, List<String> rdfTypes, bool byRoot, List<String> codes, List<String> orderBy, int page, int pageSize, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
     String authorization = apiClient.token;
     if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+      throw new ApiException(400, "First connect with connectToOpenSILEX function");
     }
 
     // create path and map variables
-    String path = "/mobile/form_get".replaceAll("{format}","json");
+    String path = "/mobile/forms".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -319,6 +322,12 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(rdfTypes != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("multi", "rdf_types", rdfTypes));
     }
+    if(byRoot != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "byRoot", byRoot));
+    }
+    if(codes != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "codes", codes));
+    }
     if(orderBy != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("multi", "order_by", orderBy));
     }
@@ -329,7 +338,7 @@ headerParams["Accept-Language"] = acceptLanguage;
       queryParams.addAll(_convertParametersForCollectionFormat("", "page_size", pageSize));
     }
     headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
+    headerParams["Accept-Language"] = acceptLanguage;
 
     List<String> contentTypes = ["application/json"];
 
@@ -339,26 +348,27 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
-      
+
       if(hasFields)
         postBody = mp;
     }
     else {
-          }
+    }
 
     var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+        'GET',
+        queryParams,
+        postBody,
+        headerParams,
+        formParams,
+        contentType,
+        authNames);
 
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return (apiClient.deserialize(response.body, 'List<FormGetDTO>') as List).map((item) => item as FormGetDTO).toList();
+      return
+        (apiClient.deserialize(response.body, 'List<FormGetDTO>') as List).map((item) => item as FormGetDTO).toList();
     } else {
       return null;
     }
@@ -372,11 +382,11 @@ headerParams["Accept-Language"] = acceptLanguage;
     // verify required params are set
     String authorization = apiClient.token;
     if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+      throw new ApiException(400, "First connect with connectToOpenSILEX function");
     }
 
     // create path and map variables
-    String path = "/mobile/section_get".replaceAll("{format}","json");
+    String path = "/mobile/sections".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -395,7 +405,7 @@ headerParams["Accept-Language"] = acceptLanguage;
       queryParams.addAll(_convertParametersForCollectionFormat("", "page_size", pageSize));
     }
     headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
+    headerParams["Accept-Language"] = acceptLanguage;
 
     List<String> contentTypes = ["application/json"];
 
@@ -405,26 +415,26 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
-      
+
       if(hasFields)
         postBody = mp;
     }
     else {
-          }
+    }
 
     var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+        'GET',
+        queryParams,
+        postBody,
+        headerParams,
+        formParams,
+        contentType,
+        authNames);
 
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
+      return
         (apiClient.deserialize(response.body, 'List<SectionGetDTO>') as List).map((item) => item as SectionGetDTO).toList();
     } else {
       return null;
@@ -439,18 +449,18 @@ headerParams["Accept-Language"] = acceptLanguage;
     // verify required params are set
     String authorization = apiClient.token;
     if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+      throw new ApiException(400, "First connect with connectToOpenSILEX function");
     }
 
     // create path and map variables
-    String path = "/mobile/form_put".replaceAll("{format}","json");
+    String path = "/mobile/forms".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
+    headerParams["Accept-Language"] = acceptLanguage;
 
     List<String> contentTypes = ["application/json"];
 
@@ -460,26 +470,27 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
-      
+
       if(hasFields)
         postBody = mp;
     }
     else {
-          }
+    }
 
     var response = await apiClient.invokeAPI(path,
-                                             'PUT',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+        'PUT',
+        queryParams,
+        postBody,
+        headerParams,
+        formParams,
+        contentType,
+        authNames);
 
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return response.body ;
+      return
+        response.body ;
     } else {
       return null;
     }
@@ -493,18 +504,18 @@ headerParams["Accept-Language"] = acceptLanguage;
     // verify required params are set
     String authorization = apiClient.token;
     if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+      throw new ApiException(400, "First connect with connectToOpenSILEX function");
     }
 
     // create path and map variables
-    String path = "/mobile/section_put".replaceAll("{format}","json");
+    String path = "/mobile/sections".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
+    headerParams["Accept-Language"] = acceptLanguage;
 
     List<String> contentTypes = ["application/json"];
 
@@ -514,26 +525,27 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
-      
+
       if(hasFields)
         postBody = mp;
     }
     else {
-          }
+    }
 
     var response = await apiClient.invokeAPI(path,
-                                             'PUT',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+        'PUT',
+        queryParams,
+        postBody,
+        headerParams,
+        formParams,
+        contentType,
+        authNames);
 
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return response.body ;
+      return
+        response.body ;
     } else {
       return null;
     }
