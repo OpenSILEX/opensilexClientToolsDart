@@ -58,7 +58,6 @@ class FormCreationDTO {
             json['commit_address']
     ;
     isRoot = json['is_root'];
-    print('kazar');
   }
 
   Map<String, dynamic> toJson() {
