@@ -6,7 +6,8 @@ class SectionCreationDTO {
   
 /* timestamp */
   String createdDate = null;
-  
+
+  String type = null;
 
   List<Map<String, Object>> sectionData = [];
   
@@ -20,7 +21,7 @@ class SectionCreationDTO {
 
   @override
   String toString() {
-    return 'SectionCreationDTO[timezone=$timezone, createdDate=$createdDate, sectionData=$sectionData, commitAddress=$commitAddress, name=$name, ]';
+    return 'SectionCreationDTO[timezone=$timezone, createdDate=$createdDate, type=$type, sectionData=$sectionData, commitAddress=$commitAddress, name=$name, ]';
   }
 
   SectionCreationDTO.fromJson(Map<String, dynamic> json) {
@@ -28,6 +29,10 @@ class SectionCreationDTO {
     timezone =
         
             json['timezone']
+    ;
+    type =
+
+    json['type']
     ;
     createdDate =
         
@@ -51,6 +56,7 @@ class SectionCreationDTO {
       'timezone': timezone,
       'created_date': createdDate,
       'section_data': sectionData,
+      'type': type,
       'commit_address': commitAddress,
       'name': name
      };

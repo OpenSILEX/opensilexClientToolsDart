@@ -18,6 +18,8 @@ class SectionGetDTO {
   
 /* name of the section */
   String name = null;
+
+  String type = null;
   
 /* timestamp */
   String updatedDate = null;
@@ -26,7 +28,7 @@ class SectionGetDTO {
 
   @override
   String toString() {
-    return 'SectionGetDTO[timezone=$timezone, uri=$uri, createdDate=$createdDate, sectionData=$sectionData, commitAddress=$commitAddress, name=$name, updatedDate=$updatedDate, ]';
+    return 'SectionGetDTO[timezone=$timezone, uri=$uri, createdDate=$createdDate, type=$type, sectionData=$sectionData, commitAddress=$commitAddress, name=$name, updatedDate=$updatedDate, ]';
   }
 
   SectionGetDTO.fromJson(Map<String, dynamic> json) {
@@ -38,6 +40,10 @@ class SectionGetDTO {
     uri =
         
             json['uri']
+    ;
+    type =
+
+    json['type']
     ;
     createdDate =
         
@@ -68,6 +74,7 @@ class SectionGetDTO {
       'section_data': sectionData,
       'commit_address': commitAddress,
       'name': name,
+      'type': type,
       'updated_date': updatedDate
      };
   }
