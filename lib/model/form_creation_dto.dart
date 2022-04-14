@@ -14,6 +14,12 @@ class FormCreationDTO {
   List<String> formParentsCodes = [];
   
 
+  String startingSectionUri = null;
+  
+
+  String endingSectionUri = null;
+  
+
   String type = null;
   
 /* code lot of the form */
@@ -32,15 +38,32 @@ class FormCreationDTO {
 
   @override
   String toString() {
-    return 'FormCreationDTO[offset=$offset, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, type=$type, codeLot=$codeLot, createdDate=$createdDate, commitAddress=$commitAddress, isRoot=$isRoot, ]';
+    return 'FormCreationDTO[offset=$offset, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, startingSectionUri=$startingSectionUri, endingSectionUri=$endingSectionUri, type=$type, codeLot=$codeLot, createdDate=$createdDate, commitAddress=$commitAddress, isRoot=$isRoot, ]';
   }
 
   FormCreationDTO.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    offset = json['offset'];
-    sectionUris = (json['section_uris'] as List).map((item) => item as String).toList();
-    formChildrenCodes = (json['form_children_codes'] as List).map((item) => item as String).toList();
-    formParentsCodes = (json['form_parents_codes'] as List).map((item) => item as String).toList();
+    offset =
+        
+            json['offset']
+    ;
+    sectionUris =
+        (json['section_uris'] as List).map((item) => item as String).toList()
+    ;
+    formChildrenCodes =
+        (json['form_children_codes'] as List).map((item) => item as String).toList()
+    ;
+    formParentsCodes =
+        (json['form_parents_codes'] as List).map((item) => item as String).toList()
+    ;
+    startingSectionUri =
+        
+            json['starting_section_uri']
+    ;
+    endingSectionUri =
+        
+            json['ending_section_uri']
+    ;
     type =
         
             json['type']
@@ -57,7 +80,10 @@ class FormCreationDTO {
         
             json['commit_address']
     ;
-    isRoot = json['is_root'];
+    isRoot =
+        
+            json['is_root']
+    ;
   }
 
   Map<String, dynamic> toJson() {
@@ -66,6 +92,8 @@ class FormCreationDTO {
       'section_uris': sectionUris,
       'form_children_codes': formChildrenCodes,
       'form_parents_codes': formParentsCodes,
+      'starting_section_uri': startingSectionUri,
+      'ending_section_uri': endingSectionUri,
       'type': type,
       'code_lot': codeLot,
       'created_date': createdDate,

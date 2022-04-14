@@ -17,6 +17,12 @@ class FormUpdateDTO {
   List<String> formParentsCodes = [];
   
 
+  String startingSectionUri = null;
+  
+
+  String endingSectionUri = null;
+  
+
   String type = null;
   
 /* code lot of the form */
@@ -38,7 +44,7 @@ class FormUpdateDTO {
 
   @override
   String toString() {
-    return 'FormUpdateDTO[offset=$offset, uri=$uri, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, type=$type, codeLot=$codeLot, createdDate=$createdDate, commitAddress=$commitAddress, updatedDate=$updatedDate, isRoot=$isRoot, ]';
+    return 'FormUpdateDTO[offset=$offset, uri=$uri, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, startingSectionUri=$startingSectionUri, endingSectionUri=$endingSectionUri, type=$type, codeLot=$codeLot, createdDate=$createdDate, commitAddress=$commitAddress, updatedDate=$updatedDate, isRoot=$isRoot, ]';
   }
 
   FormUpdateDTO.fromJson(Map<String, dynamic> json) {
@@ -59,6 +65,14 @@ class FormUpdateDTO {
     ;
     formParentsCodes =
         (json['form_parents_codes'] as List).map((item) => item as String).toList()
+    ;
+    startingSectionUri =
+        
+            json['starting_section_uri']
+    ;
+    endingSectionUri =
+        
+            json['ending_section_uri']
     ;
     type =
         
@@ -93,6 +107,8 @@ class FormUpdateDTO {
       'section_uris': sectionUris,
       'form_children_codes': formChildrenCodes,
       'form_parents_codes': formParentsCodes,
+      'starting_section_uri': startingSectionUri,
+      'ending_section_uri': endingSectionUri,
       'type': type,
       'code_lot': codeLot,
       'created_date': createdDate,

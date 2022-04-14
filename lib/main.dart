@@ -28,7 +28,7 @@ void main() async {
   // }
   var mobile_instance = new MobileApi(client);
   try {
-    var filePath =
+    /*var filePath =
         "/home/hart/Documents/formAppDocs/csvTests/noErrorCsvexample.csv";
     var file = await http.MultipartFile.fromPath('file', filePath);
 
@@ -37,7 +37,10 @@ void main() async {
     var response = await mobile_instance.importCSVCodes(file);
 
     //List<FormGetDTO> forms = await mobile_instance.searchForms(page:0, acceptLanguage: 'en');
-    await mobile_instance.createForm(body: FormCreationDTO.fromJson({'is_root':true, 'section_uris': [],'form_children_codes': [],'form_parents_codes': [], 'type':'http://www.opensilex.org/vocabulary/iado#RedSolidWinemaking', 'code_lot':'fuck', 'commit_address':'ahhhhh','created_date':'2012-02-07T13:15:16Z'}));
+    await mobile_instance.createForm(body: FormCreationDTO.fromJson({'is_root':true, 'section_uris': [],'form_children_codes': [],'form_parents_codes': [], 'type':'http://www.opensilex.org/vocabulary/iado#RedSolidWinemaking', 'code_lot':'fuck', 'commit_address':'ahhhhh','created_date':'2012-02-07T13:15:16Z'}));*/
+
+    //OntologyApi _ontologyApi = OntologyApi(client);
+    //String typeName = _ontologyApi.getRDFType('iado:WineDescription');
 
     print('ddddd');
   } catch (e) {
