@@ -15,9 +15,6 @@ class SectionUpdateDTO {
   
 /* address of the commit */
   String commitAddress = null;
-  
-/* name of the section */
-  String name = null;
 
   String type = null;
   
@@ -28,7 +25,7 @@ class SectionUpdateDTO {
 
   @override
   String toString() {
-    return 'SectionUpdateDTO[timezone=$timezone, uri=$uri, createdDate=$createdDate, type=$type, sectionData=$sectionData, commitAddress=$commitAddress, name=$name, updatedDate=$updatedDate, ]';
+    return 'SectionUpdateDTO[timezone=$timezone, uri=$uri, createdDate=$createdDate, type=$type, sectionData=$sectionData, commitAddress=$commitAddress, updatedDate=$updatedDate, ]';
   }
 
   SectionUpdateDTO.fromJson(Map<String, dynamic> json) {
@@ -56,10 +53,6 @@ class SectionUpdateDTO {
         
             json['commit_address']
     ;
-    name =
-        
-            json['name']
-    ;
     updatedDate =
         
             json['updated_date']
@@ -73,7 +66,6 @@ class SectionUpdateDTO {
       'created_date': createdDate,
       'section_data': sectionData,
       'commit_address': commitAddress,
-      'name': name,
       'type': type,
       'updated_date': updatedDate
      };
