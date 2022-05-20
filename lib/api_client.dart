@@ -11,6 +11,7 @@ class ApiClient {
 
   String basePath;
   String token;
+  DateTime lastTokenSetTime;
   var client = new Client();
 
   Map<String, String> _defaultHeaderMap = {};
@@ -39,6 +40,16 @@ class ApiClient {
     // Setup authentications (key: authentication name, value: authentication).
   }
 
+  Future<void> resetAuthToken() async{
+    DateTime now = DateTime.now();
+    if(now.difference(this.lastTokenSetTime).inMinutes>15){
+      AuthenticationApi authApi = AuthenticationApi(this);
+      TokenGetDTO tokenDto = await authApi.renewToken(acceptLanguage: 'en');
+      this.token = tokenDto.token;
+    }
+
+  }
+
   _connect(String host, String identifier, String password) async {
     this.basePath = host;
     var api_instance_auth = new AuthenticationApi(this);
@@ -49,7 +60,8 @@ class ApiClient {
 
     try {
       var result = await api_instance_auth.authenticate(body: authenticate);
-      this.token = result.token; 
+      this.token = result.token;
+      this.lastTokenSetTime = DateTime.now();
       if (this.token == null) {
         throw new Exception("Error on connection" );
       }
