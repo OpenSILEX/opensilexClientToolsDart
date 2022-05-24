@@ -46,6 +46,7 @@ class ApiClient {
       AuthenticationApi authApi = AuthenticationApi(this);
       TokenGetDTO tokenDto = await authApi.renewToken(acceptLanguage: 'en');
       this.token = tokenDto.token;
+      lastTokenSetTime = now;
     }
 
   }
