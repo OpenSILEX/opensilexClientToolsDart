@@ -6,19 +6,36 @@ class SectionCreationDTO {
   
 /* timestamp */
   String createdDate = null;
-
-  String type = null;
+  
 
   List<Map<String, Object>> sectionData = [];
   
 /* address of the commit */
   String commitAddress = null;
   
+
+  List<String> obligatoireFields = [];
+  
+
+  List<String> inputsUris = [];
+  
+
+  List<String> outputsUris = [];
+  
+/* boolean */
+  bool hasEnded = null;
+  
+/* boolean */
+  bool hasBegun = null;
+  
+
+  String type = null;
+  
   SectionCreationDTO();
 
   @override
   String toString() {
-    return 'SectionCreationDTO[timezone=$timezone, createdDate=$createdDate, type=$type, sectionData=$sectionData, commitAddress=$commitAddress, ]';
+    return 'SectionCreationDTO[timezone=$timezone, createdDate=$createdDate, sectionData=$sectionData, commitAddress=$commitAddress, obligatoireFields=$obligatoireFields, inputsUris=$inputsUris, outputsUris=$outputsUris, hasEnded=$hasEnded, hasBegun=$hasBegun, type=$type, ]';
   }
 
   SectionCreationDTO.fromJson(Map<String, dynamic> json) {
@@ -26,10 +43,6 @@ class SectionCreationDTO {
     timezone =
         
             json['timezone']
-    ;
-    type =
-
-    json['type']
     ;
     createdDate =
         
@@ -42,6 +55,27 @@ class SectionCreationDTO {
         
             json['commit_address']
     ;
+    obligatoireFields =
+        (json['obligatoire_fields'] as List).map((item) => item as String).toList()
+    ;
+    inputsUris =
+        (json['inputs_uris'] as List).map((item) => item as String).toList()
+    ;
+    outputsUris =
+        (json['outputs_uris'] as List).map((item) => item as String).toList()
+    ;
+    hasEnded =
+        
+            json['has_ended']
+    ;
+    hasBegun =
+        
+            json['has_begun']
+    ;
+    type =
+        
+            json['type']
+    ;
   }
 
   Map<String, dynamic> toJson() {
@@ -49,8 +83,13 @@ class SectionCreationDTO {
       'timezone': timezone,
       'created_date': createdDate,
       'section_data': sectionData,
-      'type': type,
       'commit_address': commitAddress,
+      'obligatoire_fields': obligatoireFields,
+      'inputs_uris': inputsUris,
+      'outputs_uris': outputsUris,
+      'has_ended': hasEnded,
+      'has_begun': hasBegun,
+      'type': type
      };
   }
 
