@@ -300,8 +300,11 @@ class MobileApi {
   /// Search forms
   ///
   /// 
-  Future<List<FormGetDTO>> searchForms( { List<String> uris, List<String> rdfTypes, bool byRoot, List<String> codes, List<String> orderBy, int page, int pageSize, bool ignoreEmptyFilters, List<String> sectionUris, List<String> notstartedSectionUris, List<String> startedSectionUris, List<String> finishedSectionUris, String acceptLanguage }) async {
-    Object postBody = null;
+  /// Search forms
+  ///
+  ///
+  Future<List<FormGetDTO>> searchForms( { List<String> uris, bool byRoot, List<String> codes, List<String> orderBy, int page, int pageSize, bool codesOnly, bool urisOnly, Object body, String acceptLanguage }) async {
+    Object postBody = body;
 
     // verify required params are set
     String authorization = apiClient.token;
@@ -310,7 +313,7 @@ class MobileApi {
     }
 
     // create path and map variables
-    String path = "/mobile/forms".replaceAll("{format}","json");
+    String path = "/mobile/forms/search".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -318,9 +321,6 @@ class MobileApi {
     Map<String, String> formParams = {};
     if(uris != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("multi", "uris", uris));
-    }
-    if(rdfTypes != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("multi", "rdf_types", rdfTypes));
     }
     if(byRoot != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "byRoot", byRoot));
@@ -337,20 +337,11 @@ class MobileApi {
     if(pageSize != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "page_size", pageSize));
     }
-    if(ignoreEmptyFilters != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "ignoreEmptyFilters", ignoreEmptyFilters));
+    if(codesOnly != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "codesOnly", codesOnly));
     }
-    if(sectionUris != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("multi", "section_uris", sectionUris));
-    }
-    if(notstartedSectionUris != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("multi", "notstarted_section_uris", notstartedSectionUris));
-    }
-    if(startedSectionUris != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("multi", "started_section_uris", startedSectionUris));
-    }
-    if(finishedSectionUris != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("multi", "finished_section_uris", finishedSectionUris));
+    if(urisOnly != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "urisOnly", urisOnly));
     }
     headerParams["Authorization"] = authorization;
     headerParams["Accept-Language"] = acceptLanguage;
@@ -371,7 +362,7 @@ class MobileApi {
     }
 
     var response = await apiClient.invokeAPI(path,
-        'GET',
+        'POST',
         queryParams,
         postBody,
         headerParams,
