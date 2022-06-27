@@ -31,6 +31,12 @@ class FormCreationDTO {
 /* address of the commit */
   String commitAddress = null;
   
+/* address of parents commit */
+  String parentsCommitAddress = null;
+  
+/* address of children commit */
+  String childrenCommitAddress = null;
+  
 /* boolean */
   bool isRoot = null;
   
@@ -38,7 +44,7 @@ class FormCreationDTO {
 
   @override
   String toString() {
-    return 'FormCreationDTO[offset=$offset, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, startingSectionUri=$startingSectionUri, endingSectionUri=$endingSectionUri, type=$type, codeLot=$codeLot, createdDate=$createdDate, commitAddress=$commitAddress, isRoot=$isRoot, ]';
+    return 'FormCreationDTO[offset=$offset, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, startingSectionUri=$startingSectionUri, endingSectionUri=$endingSectionUri, type=$type, codeLot=$codeLot, createdDate=$createdDate, commitAddress=$commitAddress, parentsCommitAddress=$parentsCommitAddress, childrenCommitAddress=$childrenCommitAddress, isRoot=$isRoot, ]';
   }
 
   FormCreationDTO.fromJson(Map<String, dynamic> json) {
@@ -80,6 +86,14 @@ class FormCreationDTO {
         
             json['commit_address']
     ;
+    parentsCommitAddress =
+        
+            json['parents_commit_address']
+    ;
+    childrenCommitAddress =
+        
+            json['children_commit_address']
+    ;
     isRoot =
         
             json['is_root']
@@ -98,6 +112,8 @@ class FormCreationDTO {
       'code_lot': codeLot,
       'created_date': createdDate,
       'commit_address': commitAddress,
+      'parents_commit_address': parentsCommitAddress,
+      'children_commit_address': childrenCommitAddress,
       'is_root': isRoot
      };
   }
