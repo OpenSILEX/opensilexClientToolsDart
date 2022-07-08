@@ -64,8 +64,8 @@ class MobileApi {
   }
   /// Add a section
   ///
-  /// 
-  Future<dynamic> createSection( { SectionCreationDTO body, String acceptLanguage }) async {
+  ///
+  Future<dynamic> createSection( { SectionCreationDTO body, String formCode, String acceptLanguage }) async {
     Object postBody = body;
 
     // verify required params are set
@@ -81,6 +81,9 @@ class MobileApi {
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
+    if(formCode != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "form_code", formCode));
+    }
     headerParams["Authorization"] = authorization;
     headerParams["Accept-Language"] = acceptLanguage;
 
