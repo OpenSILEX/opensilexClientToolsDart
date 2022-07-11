@@ -10,7 +10,7 @@ class DataApi {
   /// Add data
   ///
   /// 
-  Future<ObjectUriResponse> addListData( { List<DataCreationDTO> body, String acceptLanguage }) async {
+  Future<dynamic> addListData( { List<DataCreationDTO> body, String acceptLanguage }) async {
     Object postBody = body;
 
     // verify required params are set
@@ -56,8 +56,7 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+      return response.body;
     } else {
       return null;
     }
