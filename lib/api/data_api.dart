@@ -1513,7 +1513,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Update data
   ///
   /// 
-  Future<ObjectUriResponse> update( { DataUpdateDTO body, String acceptLanguage }) async {
+  Future<dynamic> update( { DataUpdateDTO body, String acceptLanguage }) async {
     Object postBody = body;
 
     // verify required params are set
@@ -1559,8 +1559,7 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+      return response.body;
     } else {
       return null;
     }
