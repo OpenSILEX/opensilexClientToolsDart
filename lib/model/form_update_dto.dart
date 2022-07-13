@@ -34,6 +34,9 @@ class FormUpdateDTO {
 /* boolean */
   bool suivieDensityOngoing = null;
   
+/* boolean */
+  bool suivieDensityFinished = null;
+  
 /* address of the commit */
   String commitAddress = null;
   
@@ -53,7 +56,7 @@ class FormUpdateDTO {
 
   @override
   String toString() {
-    return 'FormUpdateDTO[offset=$offset, uri=$uri, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, startingSectionUri=$startingSectionUri, endingSectionUri=$endingSectionUri, type=$type, codeLot=$codeLot, createdDate=$createdDate, suivieDensityOngoing=$suivieDensityOngoing, commitAddress=$commitAddress, parentsCommitAddress=$parentsCommitAddress, childrenCommitAddress=$childrenCommitAddress, updatedDate=$updatedDate, isRoot=$isRoot, ]';
+    return 'FormUpdateDTO[offset=$offset, uri=$uri, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, startingSectionUri=$startingSectionUri, endingSectionUri=$endingSectionUri, type=$type, codeLot=$codeLot, createdDate=$createdDate, suivieDensityOngoing=$suivieDensityOngoing, suivieDensityFinished=$suivieDensityFinished, commitAddress=$commitAddress, parentsCommitAddress=$parentsCommitAddress, childrenCommitAddress=$childrenCommitAddress, updatedDate=$updatedDate, isRoot=$isRoot, ]';
   }
 
   FormUpdateDTO.fromJson(Map<String, dynamic> json) {
@@ -99,6 +102,10 @@ class FormUpdateDTO {
         
             json['suivie_density_ongoing']
     ;
+    suivieDensityFinished =
+        
+            json['suivie_density_finished']
+    ;
     commitAddress =
         
             json['commit_address']
@@ -134,6 +141,7 @@ class FormUpdateDTO {
       'code_lot': codeLot,
       'created_date': createdDate,
       'suivie_density_ongoing': suivieDensityOngoing,
+      'suivie_density_finished': suivieDensityFinished,
       'commit_address': commitAddress,
       'parents_commit_address': parentsCommitAddress,
       'children_commit_address': childrenCommitAddress,

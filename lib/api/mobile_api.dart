@@ -65,13 +65,16 @@ class MobileApi {
   /// Search forms by density
   ///
   ///
-  Future<List<FormGetDTO>> searchFormsByDensityData(bool isCurrentWeek,  { List<String> orderBy, int page, int pageSize, List<DataGetDTO> body, String acceptLanguage }) async {
+  Future<List<FormGetDTO>> searchFormsByDensityData(bool isCurrentWeek, bool showFinishedSuivies,  { List<String> orderBy, int page, int pageSize, List<DataGetDTO> body, String acceptLanguage }) async {
     Object postBody = body;
 
     // verify required params are set
     String authorization = apiClient.token;
     if(isCurrentWeek == null) {
       throw new ApiException(400, "Missing required param: isCurrentWeek");
+    }
+    if(showFinishedSuivies == null) {
+      throw new ApiException(400, "Missing required param: showFinishedSuivies");
     }
     if(authorization == null) {
       throw new ApiException(400, "First connect with connectToOpenSILEX function");
@@ -85,6 +88,7 @@ class MobileApi {
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     queryParams.addAll(_convertParametersForCollectionFormat("", "isCurrentWeek", isCurrentWeek));
+    queryParams.addAll(_convertParametersForCollectionFormat("", "showFinishedSuivies", showFinishedSuivies));
     if(orderBy != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("multi", "order_by", orderBy));
     }

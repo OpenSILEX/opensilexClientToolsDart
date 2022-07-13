@@ -34,6 +34,9 @@ class FormGetDTO {
 /* boolean */
   bool suivieDensityOngoing = null;
   
+/* boolean */
+  bool suivieDensityFinished = null;
+  
 /* address of the commit */
   String commitAddress = null;
   
@@ -59,7 +62,7 @@ class FormGetDTO {
 
   @override
   String toString() {
-    return 'FormGetDTO[offset=$offset, uri=$uri, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, startingSectionUri=$startingSectionUri, endingSectionUri=$endingSectionUri, type=$type, codeLot=$codeLot, createdDate=$createdDate, suivieDensityOngoing=$suivieDensityOngoing, commitAddress=$commitAddress, parentsCommitAddress=$parentsCommitAddress, childrenCommitAddress=$childrenCommitAddress, updatedDate=$updatedDate, cuveName=$cuveName, mustUri=$mustUri, isRoot=$isRoot, ]';
+    return 'FormGetDTO[offset=$offset, uri=$uri, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, startingSectionUri=$startingSectionUri, endingSectionUri=$endingSectionUri, type=$type, codeLot=$codeLot, createdDate=$createdDate, suivieDensityOngoing=$suivieDensityOngoing, suivieDensityFinished=$suivieDensityFinished, commitAddress=$commitAddress, parentsCommitAddress=$parentsCommitAddress, childrenCommitAddress=$childrenCommitAddress, updatedDate=$updatedDate, cuveName=$cuveName, mustUri=$mustUri, isRoot=$isRoot, ]';
   }
 
   FormGetDTO.fromJson(Map<String, dynamic> json) {
@@ -105,6 +108,10 @@ class FormGetDTO {
         
             json['suivie_density_ongoing']
     ;
+    suivieDensityFinished =
+        
+            json['suivie_density_finished']
+    ;
     commitAddress =
         
             json['commit_address']
@@ -148,6 +155,7 @@ class FormGetDTO {
       'code_lot': codeLot,
       'created_date': createdDate,
       'suivie_density_ongoing': suivieDensityOngoing,
+      'suivie_density_finished': suivieDensityFinished,
       'commit_address': commitAddress,
       'parents_commit_address': parentsCommitAddress,
       'children_commit_address': childrenCommitAddress,
