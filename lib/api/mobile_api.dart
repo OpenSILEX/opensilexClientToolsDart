@@ -65,8 +65,8 @@ class MobileApi {
   /// Search forms by density
   ///
   ///
-  Future<List<FormGetDTO>> searchFormsByDensityData(bool isCurrentWeek, bool showFinishedSuivies,  { List<String> orderBy, int page, int pageSize, List<DataGetDTO> body, String acceptLanguage }) async {
-    Object postBody = body;
+  Future<List<FormGetDTO>> searchFormsByDensityData(bool isCurrentWeek, bool showFinishedSuivies, String startDate, String endDate,  { List<String> variableUris, List<String> orderBy, String timezone, int page, int pageSize, String acceptLanguage }) async {
+    Object postBody = null;
 
     // verify required params are set
     String authorization = apiClient.token;
@@ -75,6 +75,12 @@ class MobileApi {
     }
     if(showFinishedSuivies == null) {
       throw new ApiException(400, "Missing required param: showFinishedSuivies");
+    }
+    if(startDate == null) {
+      throw new ApiException(400, "Missing required param: startDate");
+    }
+    if(endDate == null) {
+      throw new ApiException(400, "Missing required param: endDate");
     }
     if(authorization == null) {
       throw new ApiException(400, "First connect with connectToOpenSILEX function");
@@ -87,10 +93,18 @@ class MobileApi {
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
+    if(variableUris != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "variableUris", variableUris));
+    }
     queryParams.addAll(_convertParametersForCollectionFormat("", "isCurrentWeek", isCurrentWeek));
     queryParams.addAll(_convertParametersForCollectionFormat("", "showFinishedSuivies", showFinishedSuivies));
+    queryParams.addAll(_convertParametersForCollectionFormat("", "start_date", startDate));
+    queryParams.addAll(_convertParametersForCollectionFormat("", "end_date", endDate));
     if(orderBy != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("multi", "order_by", orderBy));
+    }
+    if(timezone != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "timezone", timezone));
     }
     if(page != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "page", page));
