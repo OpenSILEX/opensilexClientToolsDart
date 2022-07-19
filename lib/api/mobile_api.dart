@@ -388,11 +388,8 @@ class MobileApi {
   }
   /// Search forms
   ///
-  /// 
-  /// Search forms
   ///
-  ///
-  Future<List<FormGetDTO>> searchForms( { List<String> uris, bool byRoot, List<String> codes, List<String> orderBy, int page, int pageSize, bool codesOnly, bool urisOnly, Object body, String acceptLanguage }) async {
+  Future<List<FormGetDTO>> searchForms( { String name, List<String> uris, bool byRoot, List<String> codes, List<String> orderBy, int page, int pageSize, bool codesOnly, bool urisOnly, Object body, String timezone, String acceptLanguage }) async {
     Object postBody = body;
 
     // verify required params are set
@@ -408,6 +405,9 @@ class MobileApi {
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
+    if(name != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "name", name));
+    }
     if(uris != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("multi", "uris", uris));
     }
@@ -431,6 +431,9 @@ class MobileApi {
     }
     if(urisOnly != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "urisOnly", urisOnly));
+    }
+    if(timezone != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "timezone", timezone));
     }
     headerParams["Authorization"] = authorization;
     headerParams["Accept-Language"] = acceptLanguage;
