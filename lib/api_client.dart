@@ -42,7 +42,7 @@ class ApiClient {
 
   Future<void> resetAuthToken() async{
     DateTime now = DateTime.now();
-    if(now.difference(this.lastTokenSetTime).inMinutes>15){
+    if(now.difference(this.lastTokenSetTime).inMinutes>=15){
       AuthenticationApi authApi = AuthenticationApi(this);
       TokenGetDTO tokenDto = await authApi.renewToken(acceptLanguage: 'en');
       this.token = tokenDto.token;
