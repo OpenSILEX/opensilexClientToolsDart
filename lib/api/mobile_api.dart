@@ -225,7 +225,7 @@ class MobileApi {
     }
 
     // create path and map variables
-    String path = "/mobile/forms/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
+    String path = "/mobile/forms/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", Uri.encodeComponent(uri.toString()));
 
     // query params
     List<QueryParam> queryParams = [];

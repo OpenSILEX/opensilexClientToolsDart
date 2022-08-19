@@ -541,7 +541,6 @@ class ApiClient {
                              Map<String, String> formParams,
                              String contentType,
                              List<String> authNames) async {
-
     _updateParamsForAuth(authNames, queryParams, headerParams);
 
     var ps = queryParams.where((p) => p.value != null).map((p) => '${p.name}=${p.value}');
