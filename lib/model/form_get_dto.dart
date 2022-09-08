@@ -8,6 +8,9 @@ class FormGetDTO {
   String uri = null;
   
 
+  String creator = null;
+  
+
   List<String> sectionUris = [];
   
 
@@ -65,7 +68,7 @@ class FormGetDTO {
 
   @override
   String toString() {
-    return 'FormGetDTO[offset=$offset, uri=$uri, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, startingSectionUri=$startingSectionUri, endingSectionUri=$endingSectionUri, type=$type, codeLot=$codeLot, createdDate=$createdDate, suivieDensityOngoing=$suivieDensityOngoing, suivieDensityFinished=$suivieDensityFinished, commitAddress=$commitAddress, parentsCommitAddress=$parentsCommitAddress, childrenCommitAddress=$childrenCommitAddress, updatedDate=$updatedDate, cuveName=$cuveName, suivieData=$suivieData, mustUri=$mustUri, isRoot=$isRoot, ]';
+    return 'FormGetDTO[offset=$offset, uri=$uri, creator=$creator, sectionUris=$sectionUris, formChildrenCodes=$formChildrenCodes, formParentsCodes=$formParentsCodes, startingSectionUri=$startingSectionUri, endingSectionUri=$endingSectionUri, type=$type, codeLot=$codeLot, createdDate=$createdDate, suivieDensityOngoing=$suivieDensityOngoing, suivieDensityFinished=$suivieDensityFinished, commitAddress=$commitAddress, parentsCommitAddress=$parentsCommitAddress, childrenCommitAddress=$childrenCommitAddress, updatedDate=$updatedDate, cuveName=$cuveName, suivieData=$suivieData, mustUri=$mustUri, isRoot=$isRoot, ]';
   }
 
   FormGetDTO.fromJson(Map<String, dynamic> json) {
@@ -77,6 +80,10 @@ class FormGetDTO {
     uri =
         
             json['uri']
+    ;
+    creator =
+        
+            json['creator']
     ;
     sectionUris =
         (json['section_uris'] as List).map((item) => item as String).toList()
@@ -152,6 +159,7 @@ class FormGetDTO {
     return {
       'offset': offset,
       'uri': uri,
+      'creator': creator,
       'section_uris': sectionUris,
       'form_children_codes': formChildrenCodes,
       'form_parents_codes': formParentsCodes,
