@@ -1,5 +1,6 @@
 library swagger.api;
 
+import '../api.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart';
@@ -35,6 +36,7 @@ part 'api/system_api.dart';
 part 'api/variables_api.dart';
 part 'api/vue_js_api.dart';
 part 'api/vue_js_ontology_extension_api.dart';
+
 
 part 'model/activity_creation_dto.dart';
 part 'model/activity_get_dto.dart';
@@ -95,6 +97,7 @@ part 'model/event_get_dto.dart';
 part 'model/event_update_dto.dart';
 part 'model/experiment_creation_dto.dart';
 part 'model/experiment_get_dto.dart';
+part 'model/instance_dto.dart';
 part 'model/experiment_get_list_dto.dart';
 part 'model/factor_category_get_dto.dart';
 part 'model/factor_creation_dto.dart';
@@ -106,6 +109,8 @@ part 'model/factor_level_get_detail_dto.dart';
 part 'model/factor_update_dto.dart';
 part 'model/font_config_dto.dart';
 part 'model/form_creation_dto.dart';
+part 'model/form_with_sections_creation_dto.dart';
+part 'model/form_with_sections_update_dto.dart';
 part 'model/form_get_dto.dart';
 part 'model/form_update_dto.dart';
 part 'model/front_config_dto.dart';
