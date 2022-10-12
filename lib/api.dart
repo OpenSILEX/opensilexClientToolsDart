@@ -51,6 +51,7 @@ part 'model/api_license_info_dto.dart';
 part 'model/api_modules_info.dart';
 part 'model/area_creation_dto.dart';
 part 'model/area_get_dto.dart';
+part 'model/instance_get_dto.dart';
 part 'model/area_update_dto.dart';
 part 'model/authentication_dto.dart';
 part 'model/csv_cell.dart';
