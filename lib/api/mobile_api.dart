@@ -262,6 +262,65 @@ class MobileApi {
     }
   }
 
+  /// Export a given list of vendage uris to csv data file describing each objet viticole
+  ///
+  ///
+  Future<void> exportVendangeObjetCSVByYear( { String year, String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(authorization == null) {
+      throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/mobile/export/objetviticoles/by_year".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    if(year != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "year", year));
+    }
+    headerParams["Authorization"] = authorization;
+    headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+        'POST',
+        queryParams,
+        postBody,
+        headerParams,
+        formParams,
+        contentType,
+        authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return
+        ;
+    } else {
+      return ;
+    }
+  }
+
 
   /// Export a given list of vendage uris to csv data file describing each objet viticole
   ///
