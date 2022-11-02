@@ -265,7 +265,7 @@ class MobileApi {
   /// Export a given list of vendage uris to csv data file describing each objet viticole
   ///
   ///
-  Future<void> exportVendangeObjetCSVByYear( { String year, String acceptLanguage }) async {
+  Future<dynamic> exportVendangeObjetCSVByYear( { String year, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -314,10 +314,9 @@ class MobileApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
-        ;
+      return response.body;
     } else {
-      return ;
+      return null;
     }
   }
 
@@ -325,7 +324,7 @@ class MobileApi {
   /// Export a given list of vendage uris to csv data file describing each objet viticole
   ///
   ///
-  Future<void> exportVendangeObjetCSV( { List<String> vendangeUris, String acceptLanguage }) async {
+  Future<dynamic> exportVendangeObjetCSV( { List<String> vendangeUris, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -374,17 +373,16 @@ class MobileApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
-        ;
+      return response.body;
     } else {
-      return ;
+      return null;
     }
   }
 
   /// Export a given list of forms uris to csv data file
   ///
   ///
-  Future exportCSV1( { List<String> formUris, String acceptLanguage }) async {
+  Future<dynamic> exportCSV1( { List<String> formUris, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -433,10 +431,9 @@ class MobileApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
-        ;
+      return response.body;
     } else {
-      return ;
+      return null;
     }
   }
   /// Add an instance
