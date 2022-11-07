@@ -1394,7 +1394,7 @@ class MobileApi {
     }
 
     // create path and map variables
-    String path = "/mobile/update_section_asterix/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
+    String path = "/mobile/update_section_asterix/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", Uri.encodeComponent(uri.toString()));
 
     // query params
     List<QueryParam> queryParams = [];
