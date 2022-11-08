@@ -464,6 +464,8 @@ class ApiClient {
           return new VariablesGroupGetDTO.fromJson(value);
         case 'VariablesGroupUpdateDTO':
           return new VariablesGroupUpdateDTO.fromJson(value);
+        case 'VendangeYearsDTO':
+          return new VendangeYearsDTO.fromJson(value);
         case 'VersionInfoDTO':
           return new VersionInfoDTO.fromJson(value);
         case 'VueDataTypeDTO':

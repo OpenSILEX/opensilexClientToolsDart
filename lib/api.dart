@@ -50,6 +50,7 @@ part 'model/api_git_commit_dto.dart';
 part 'model/api_license_info_dto.dart';
 part 'model/api_modules_info.dart';
 part 'model/area_creation_dto.dart';
+part 'model/vendange_years_dto.dart';
 part 'model/area_get_dto.dart';
 part 'model/instance_get_dto.dart';
 part 'model/area_update_dto.dart';
