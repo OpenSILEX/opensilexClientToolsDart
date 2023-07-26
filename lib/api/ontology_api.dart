@@ -785,16 +785,16 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Return associated rdfs:label of uris if they exist
   ///
   /// 
-  Future<String> getURILabelsList(List<String> uri,  { String context, String acceptLanguage }) async {
+  Future<List<NamedResourceDTO>> getURILabelsList(List<String> uri,  { String context, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
     String authorization = apiClient.token;
     if(uri == null) {
-     throw new ApiException(400, "Missing required param: uri");
+      throw new ApiException(400, "Missing required param: uri");
     }
     if(authorization == null) {
-     throw new ApiException(400, "First connect with connectToOpenSILEX function");
+      throw new ApiException(400, "First connect with connectToOpenSILEX function");
     }
 
     // create path and map variables
@@ -804,12 +804,12 @@ headerParams["Accept-Language"] = acceptLanguage;
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
-      queryParams.addAll(_convertParametersForCollectionFormat("multi", "uri", uri));
+    queryParams.addAll(_convertParametersForCollectionFormat("multi", "uri", uri));
     if(context != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "context", context));
     }
     headerParams["Authorization"] = authorization;
-headerParams["Accept-Language"] = acceptLanguage;
+    headerParams["Accept-Language"] = acceptLanguage;
 
     List<String> contentTypes = ["application/json"];
 
@@ -819,27 +819,27 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
-      
+
       if(hasFields)
         postBody = mp;
     }
     else {
-          }
+    }
 
     var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+        'GET',
+        queryParams,
+        postBody,
+        headerParams,
+        formParams,
+        contentType,
+        authNames);
 
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'String') as String ;
+      return
+        (apiClient.deserialize(response.body, 'List<NamedResourceDTO>') as List).map((item) => item as NamedResourceDTO).toList();
     } else {
       return null;
     }
