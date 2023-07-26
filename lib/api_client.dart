@@ -14,7 +14,7 @@ class ApiClient {
   DateTime lastTokenSetTime;
   var client = new Client();
 
-  Map<String, String> _defaultHeaderMap = {};
+  Map<String, String> _defaultHeaderMap = {'Accept-Language':'fr'};
   Map<String, Authentication> _authentications = {};
 
   final _RegList = new RegExp(r'^List<(.*)>$');
