@@ -1009,7 +1009,7 @@ class MobileApi {
   /// Search forms, all of their co
   ///
   ///
-  Future<List<FormGetDTO>> searchFormsList( { String name, bool byRoot, List<String> orderBy, bool dateVendange, bool creator, int page, int pageSize, Object body, String timezone, String acceptLanguage }) async {
+  Future<List<FormGetDTO>> searchFormsList( { String name, bool byRoot, List<String> orderBy, bool dateVendange, bool creator, int page, int pageSize, Object body, String timezone, List<int> byYears, String acceptLanguage }) async {
     Object postBody = body;
 
     // verify required params are set
@@ -1048,6 +1048,9 @@ class MobileApi {
     }
     if(timezone != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "timezone", timezone));
+    }
+    if(byYears != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("multi", "by_years", byYears));
     }
     headerParams["Authorization"] = authorization;
     headerParams["Accept-Language"] = acceptLanguage;
@@ -1089,7 +1092,7 @@ class MobileApi {
   /// Get max and min vendange years
   ///
   ///
-  Future<VendangeYearsDTO> getVendangeYears( { String acceptLanguage }) async {
+  Future<YearsDTO> getVendangeYears( { String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -1136,7 +1139,62 @@ class MobileApi {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
       return
-        apiClient.deserialize(response.body, 'VendangeYearsDTO') as VendangeYearsDTO ;
+        apiClient.deserialize(response.body, 'YearsDTO') as YearsDTO ;
+    } else {
+      return null;
+    }
+  }
+  /// Get max and min years for all forms
+  ///
+  ///
+  Future<YearsDTO> getAllFormsYears( { String acceptLanguage }) async {
+    Object postBody = null;
+
+    // verify required params are set
+    String authorization = apiClient.token;
+    if(authorization == null) {
+      throw new ApiException(400, "First connect with connectToOpenSILEX function");
+    }
+
+    // create path and map variables
+    String path = "/mobile/forms_years".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["Authorization"] = authorization;
+    headerParams["Accept-Language"] = acceptLanguage;
+
+    List<String> contentTypes = ["application/json"];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+        'GET',
+        queryParams,
+        postBody,
+        headerParams,
+        formParams,
+        contentType,
+        authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return
+        apiClient.deserialize(response.body, 'YearsDTO') as YearsDTO ;
     } else {
       return null;
     }
