@@ -37,7 +37,14 @@ part 'api/variables_api.dart';
 part 'api/vue_js_api.dart';
 part 'api/vue_js_ontology_extension_api.dart';
 
-
+part 'model/person_dto.dart';
+part 'model/orcid_record_dto.dart';
+part 'model/account_creation_dto.dart';
+part 'model/account_update_dto.dart';
+part 'model/account_get_dto.dart';
+part 'model/favorite_creation_dto.dart';
+part 'model/favorite_get_graph_name_dto.dart';
+part 'model/favorite_get_dto.dart';
 part 'model/activity_creation_dto.dart';
 part 'model/activity_get_dto.dart';
 part 'model/agent_model.dart';

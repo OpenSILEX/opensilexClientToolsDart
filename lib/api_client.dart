@@ -90,6 +90,12 @@ class ApiClient {
           return value is bool ? value : '$value'.toLowerCase() == 'true';
         case 'double':
           return value is double ? value : double.parse('$value');
+        case 'AccountCreationDTO':
+          return new AccountCreationDTO.fromJson(value);
+        case 'AccountUpdateDTO':
+          return new AccountUpdateDTO.fromJson(value);
+        case 'AccountGetDTO':
+          return new AccountGetDTO.fromJson(value);
         case 'ActivityCreationDTO':
           return new ActivityCreationDTO.fromJson(value);
         case 'ActivityGetDTO':
@@ -226,6 +232,12 @@ class ApiClient {
           return new FactorLevelGetDetailDTO.fromJson(value);
         case 'FactorUpdateDTO':
           return new FactorUpdateDTO.fromJson(value);
+        case 'FavoriteCreationDTO':
+          return new FavoriteCreationDTO.fromJson(value);
+        case 'FavoriteGetDTO':
+          return new FavoriteGetDTO.fromJson(value);
+        case 'FavoriteGetGraphNameDTO':
+          return new FavoriteGetGraphNameDTO.fromJson(value);
         case 'FontConfigDTO':
           return new FontConfigDTO.fromJson(value);
         case 'FormCreationDTO':
@@ -346,10 +358,14 @@ class ApiClient {
           return new ObservationVariableDTO.fromJson(value);
         case 'OntologyReference':
           return new OntologyReference.fromJson(value);
+        case 'OrcidRecordDTO':
+          return new OrcidRecordDTO.fromJson(value);
         case 'OrderBy':
           return new OrderBy.fromJson(value);
         case 'PaginationDTO':
           return new PaginationDTO.fromJson(value);
+        case 'PersonDTO':
+          return new PersonDTO.fromJson(value);
         case 'PositionCreationDTO':
           return new PositionCreationDTO.fromJson(value);
         case 'PositionGetDTO':
