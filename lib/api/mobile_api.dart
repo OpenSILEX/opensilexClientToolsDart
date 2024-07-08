@@ -546,10 +546,10 @@ class MobileApi {
       return null;
     }
   }
-  /// Search all intsances
+  /// Search all intsances , if current year then only ones that are active
   ///
   ///
-  Future<List<InstanceGetDTO>> getAllIntsances( { String rdfClass, List<String> orderBy, String acceptLanguage }) async {
+  Future<List<InstanceGetDTO>> getAllIntsances( { String rdfClass, int year, List<String> orderBy, String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -567,6 +567,9 @@ class MobileApi {
     Map<String, String> formParams = {};
     if(rdfClass != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "rdfClass", rdfClass));
+    }
+    if(year != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "year", year));
     }
     if(orderBy != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("multi", "order_by", orderBy));

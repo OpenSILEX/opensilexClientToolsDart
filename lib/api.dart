@@ -60,6 +60,7 @@ part 'model/area_creation_dto.dart';
 part 'model/years_dto.dart';
 part 'model/area_get_dto.dart';
 part 'model/instance_get_dto.dart';
+part 'model/instance_update_dto.dart';
 part 'model/area_update_dto.dart';
 part 'model/authentication_dto.dart';
 part 'model/csv_cell.dart';

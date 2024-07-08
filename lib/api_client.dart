@@ -282,7 +282,9 @@ class ApiClient {
           return new InstanceDTO.fromJson(value);
         case 'InstanceGetDTO':
           return new InstanceGetDTO.fromJson(value);
-          case 'InfrastructureGetDTO':
+        case 'InstanceUpdateDTO':
+          return new InstanceUpdateDTO.fromJson(value);
+        case 'InfrastructureGetDTO':
           return new InfrastructureGetDTO.fromJson(value);
         case 'InfrastructureUpdateDTO':
           return new InfrastructureUpdateDTO.fromJson(value);
