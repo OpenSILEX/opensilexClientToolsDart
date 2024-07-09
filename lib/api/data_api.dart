@@ -207,7 +207,7 @@ headerParams["Accept-Language"] = acceptLanguage;
   /// Delete data
   ///
   /// 
-  Future<ObjectUriResponse> deleteData(String uri,  { String acceptLanguage }) async {
+  Future<dynamic> deleteData(String uri,  { String acceptLanguage }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -220,7 +220,7 @@ headerParams["Accept-Language"] = acceptLanguage;
     }
 
     // create path and map variables
-    String path = "/core/data/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", uri.toString());
+    String path = "/core/data/{uri}".replaceAll("{format}","json").replaceAll("{" + "uri" + "}", Uri.encodeComponent(uri.toString()));
 
     // query params
     List<QueryParam> queryParams = [];
@@ -256,8 +256,7 @@ headerParams["Accept-Language"] = acceptLanguage;
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return 
-          apiClient.deserialize(response.body, 'ObjectUriResponse') as ObjectUriResponse ;
+      return response.body;
     } else {
       return null;
     }
